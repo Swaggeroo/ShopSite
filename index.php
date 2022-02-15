@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/start.css">
 </head>
 <body>
-    <h1>Shop</h1>
+    <?php require "./php/#navBar.php" ?>
     <div align="center">
         <div class="flex-container row wrap">
             <?php
