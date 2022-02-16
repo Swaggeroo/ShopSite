@@ -9,10 +9,9 @@
     </a>
     <div class="navbar-links">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="/ShopSite/">Home</a></li>
             <li><a href="#">Shop</a></li>
-            <li><a href="#">Account</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="/ShopSite/sites/login.php">Login</a></li>
         </ul>
     </div>
 </nav>

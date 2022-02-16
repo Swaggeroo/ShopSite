@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php require "./php/#navBar.php" ?>
-    <div align="center">
+    <div align="center" class="content">
         <div class="flex-container row wrap">
             <?php
                 require "php/htmlMaker.php";
