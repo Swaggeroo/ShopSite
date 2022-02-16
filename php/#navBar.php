@@ -11,7 +11,7 @@
         <ul>
             <li><a href="/ShopSite/">Home</a></li>
             <li><a href="#">Shop</a></li>
-            <li><a href="/ShopSite/sites/login.php">Login</a></li>
+            <li><a href="/ShopSite/sites/registration.php">Registration</a></li>
         </ul>
     </div>
 </nav>

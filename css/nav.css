@@ -70,7 +70,7 @@
     padding-top: 60px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 800px) {
     .toggle-button{
         display: flex;
     }
