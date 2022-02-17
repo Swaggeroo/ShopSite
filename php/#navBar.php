@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/ShopSite/css/nav.css">
 <script src="/ShopSite/scripts/navBar.js" defer></script>
 <nav class="navbar">
-    <div class="navTitle">Shop</div>
+    <a href="/ShopSite/" id="navTitleLink"><div class="navTitle">Shop</div></a>
     <a href="#" class="toggle-button">
         <span class="bar"></span>
         <span class="bar"></span>

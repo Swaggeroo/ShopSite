@@ -70,6 +70,10 @@
     padding-top: 60px;
 }
 
+#navTitleLink{
+    color: white;
+}
+
 @media (max-width: 800px) {
     .toggle-button{
         display: flex;
