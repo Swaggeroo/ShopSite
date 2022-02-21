@@ -49,6 +49,10 @@
     height: 21px;
 }
 
+.noScroll{
+    top: 12.75em !important;
+}
+
 .toggle-button .bar{
     height: 3px;
     width: 100%;

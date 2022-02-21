@@ -2,7 +2,7 @@
 <script src="/ShopSite/scripts/navBar.js" defer></script>
 <nav class="navbar">
     <a href="/ShopSite/" id="navTitleLink"><div class="navTitle">Shop</div></a>
-    <a href="#" class="toggle-button">
+    <a href="#" class="toggle-button noScroll">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -10,7 +10,7 @@
     <div class="navbar-links">
         <ul>
             <li><a href="/ShopSite/">Home</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="/ShopSite/sites/shop.php">Shop</a></li>
             <li><a href="/ShopSite/sites/registration.php">Registrieren</a></li>
         </ul>
     </div>

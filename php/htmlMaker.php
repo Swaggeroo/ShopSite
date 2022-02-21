@@ -8,4 +8,12 @@ class htmlMaker {
             </div>
         </a>";
     }
+
+    public function getHeader($pictureLink, $title):string{
+        return "
+        <link rel='stylesheet' href='/ShopSite/css/head.css'>
+        <div class=\"header\" style=\"background-image: url('".$pictureLink."')\">
+            <h1>".$title."</h1>
+        </div>";
+    }
 }
