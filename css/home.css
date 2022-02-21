@@ -1,0 +1,27 @@
+.banner{
+    background-image: url("../media/pictures/test.jpg");
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.banner h1,h2{
+    margin: 0 auto;
+    text-align: center;
+    font-size: xxx-large;
+    color: white;
+}
+
+h2{
+    font-size: x-large;
+}
+
+#textbox{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}
