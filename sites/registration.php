@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Registrierung</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/registration.css">
     <script src="../scripts/form.js" defer></script>
 </head>
 <body>
+    <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Registrierung"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <form action="../php/processRegistration.php" method="post" id="regForm">
-            <h1>Registrierung</h1>
             <h3>Persönliche Daten</h3>
             <input class="input" type="text" placeholder="Vorname" name="vorname" id="vorname" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{3,}" title="Nur Buchstaben" required>
             <input class="input" type="text" placeholder="Nachname" name="nachname" id="nachname" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{3,}" title="Nur Buchstaben" required>
