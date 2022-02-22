@@ -6,6 +6,8 @@
     <title>Shop</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/shop.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <script src="../scripts/shop.js" defer></script>
 </head>
 <body>
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Shop"); ?>

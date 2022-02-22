@@ -3,6 +3,8 @@
     height: 200px;
     margin: 20px;
     position: relative;
+    transition: box-shadow 0.1s, transform 0.1s;
+    display: block;
 }
 
 .shopElement span {
@@ -24,4 +26,40 @@ h1{
     overflow: hidden;
     background-size: cover;
     background-position: center;
+}
+
+.interactionElements{
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-between;
+    padding-bottom: 4rem;
+    padding-top: 2rem;
+    height: 100%;
+    width: 100%;
+}
+
+.interactionElements button{
+    text-decoration: none;
+    color: white;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    background-color:  #3498db;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    display: inline-block;
+    border: none;
+
+    padding: 12px 20px;
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.interactionElements button::before{
+    content: url("../media/icons/error.svg");
 }
