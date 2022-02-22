@@ -1,10 +1,30 @@
-.shopElement{
+.shopContainer{
     width: 200px;
     height: 200px;
     margin: 20px;
-    position: relative;
     transition: box-shadow 0.1s, transform 0.1s;
     display: block;
+    position: relative;
+}
+
+.shopElement{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.shopPicture{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.shopContainer:hover .shopPicture{
+    filter: blur(5px);
 }
 
 .shopElement span {
@@ -27,33 +47,46 @@ h1{
     background-size: cover;
     background-position: center;
 }
+.shopContainer:hover .interactionElements{
+    visibility: visible;
+    opacity: 1;
+}
 
 .interactionElements{
     display: flex;
+    visibility: hidden;
+    opacity: 0;
     flex-direction: column;
     justify-content:  space-between;
     padding-bottom: 4rem;
     padding-top: 2rem;
     height: 100%;
     width: 100%;
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .interactionElements button{
     text-decoration: none;
-    color: white;
+    color: black;
     margin-right: 1rem;
     margin-left: 1rem;
-    background-color:  #3498db;
+    background-color: #adb4b7;
     cursor: pointer;
     font-family: 'Lato', sans-serif;
     font-size: inherit;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 700;
+    font-weight: 600;
     display: inline-block;
     border: none;
+    position: relative;
+    height: 2.75em;
+    padding: 0.25em .5em 0.25em 3.25em;
 
-    padding: 12px 20px;
+    /*padding: 12px 20px;*/
 
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -61,5 +94,41 @@ h1{
 }
 
 .interactionElements button::before{
-    content: url("../media/icons/error.svg");
+    width: 2.75em;
+    height: 100%;
+    background-color: #808c91;
+    background-image: url("../media/icons/error.svg");
+    background-size: 1.4em;
+    background-position: .625em, .625em;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.interactionElements button:hover::before{
+    background-color: #2d3436;
+}
+
+.interactionElements button:hover{
+    background-color: #636e72;
+}
+
+.interactionElements button:active::before{
+    background-color: black;
+}
+
+.interactionElements button:active{
+    background-color: #363a38;
+    color: white;
+}
+
+.infoBTN::before{
+    background-image: url("../media/icons/info.SVG") !important;
+}
+
+.warenkorbBTN::before{
+    background-image: url("../media/icons/cart.SVG") !important;
 }

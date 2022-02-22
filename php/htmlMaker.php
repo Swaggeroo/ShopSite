@@ -2,13 +2,15 @@
 class htmlMaker {
     public function getProduct($pictureLink,$refLink,$text):string{
         return "
-        
-            <div class=\"card shopElement fill\" style=\"background-image: url('".$pictureLink."')\">
-                <div class='interactionElements'>
-                    <button class='infoBTN'><i></i>Info</button>
-                    <button class='warenkorbBTN'><i></i>Warenkorb</button>
+            <div class='shopContainer'>
+                <div class='shopPicture fill' style=\"background-image: url('".$pictureLink."')\"></div>
+                <div class=\"card shopElement\">
+                    <div class='interactionElements'>
+                        <div><button class='infoBTN'><i></i>Info</button></div>
+                        <div><button class='warenkorbBTN'><i></i>Warenkorb</button></div>
+                    </div>
+                    <span>".$text."</span>
                 </div>
-                <span>".$text."</span>
             </div>
         ";
     }
