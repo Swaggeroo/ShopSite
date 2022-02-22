@@ -1,6 +1,6 @@
 .shopContainer{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     margin: 20px;
     transition: box-shadow 0.1s, transform 0.1s;
     display: block;
@@ -58,8 +58,8 @@ h1{
     opacity: 0;
     flex-direction: column;
     justify-content:  space-between;
-    padding-bottom: 4rem;
-    padding-top: 2rem;
+    padding-bottom: 5rem;
+    padding-top: 3rem;
     height: 100%;
     width: 100%;
 

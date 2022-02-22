@@ -35,6 +35,12 @@ function handleMove(e,element) {
     const xRotation = -20 * ((yVal - height / 2) / height)
 
     /* CSS  property*/
-    element.style.transform = 'perspective(500px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)'
+    let prop;
+    if (window.innerWidth < 800){
+        prop = 'perspective(500px) scale(1.1)'
+    }else{
+        prop = 'perspective(500px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)'
+    }
+    element.style.transform = prop
 
 }
