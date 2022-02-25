@@ -4,12 +4,16 @@ let stickyCheck = checkout.offsetTop;
 
 window.addEventListener("scroll", scrollfunk);
 
+window.addEventListener('resize', scrollfunk);
+
 function scrollfunk() {
-    console.log("ran")
-    console.log(stickyCheck + " - " + window.pageYOffset)
-    if (window.pageYOffset >= stickyCheck-80) {
-        checkout.classList.add("stickyCheck");
-    } else {
+    if (!(window.innerWidth < 800)){
+        if (window.pageYOffset >= stickyCheck-80) {
+            checkout.classList.add("stickyCheck");
+        } else {
+            checkout.classList.remove("stickyCheck");
+        }
+    }else {
         checkout.classList.remove("stickyCheck");
     }
 }

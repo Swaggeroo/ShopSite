@@ -75,7 +75,7 @@
 .stickyCheck {
     position: fixed;
     top: 0;
-    right: 4em;
+    right: 5.95em;
 }
 
 #cartCheckout{
@@ -85,6 +85,9 @@
     background-color: #eeeeee;
     float: right;
     margin-top: 4.5em;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 #cartCheckout table{
@@ -119,6 +122,12 @@
     .content{
         margin: 0;
         width: 95%;
+    }
+
+    .stickyCheck {
+        position: fixed;
+        top: 0;
+        right: 3em;
     }
 }
 
