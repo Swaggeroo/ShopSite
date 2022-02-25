@@ -22,4 +22,19 @@ class htmlMaker {
             <h1>".$title."</h1>
         </div>";
     }
+
+    public function getCartItem():string{
+        return "
+            <div class='item'>
+                <div class='itemIMG'></div>
+                <div class='itemContent'>
+                    <h2>Item</h2>
+                    <a href='#' class='itemCountBTN'>-</a><input class='itemCountInput'><a href='#' class='itemCountBTN'>+</a>
+                </div>
+                <div class='itemPreis'>
+                    <h2>000.00€</h2>
+                </div>
+            </div>
+        ";
+    }
 }

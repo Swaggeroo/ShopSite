@@ -11,7 +11,7 @@
 <body>
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Item"); ?>
     <?php require "../php/#navBar.php" ?>
-    <div style="width: 100%; min-height: 100%; height: auto">
+    <div style="width: 100%; min-height: 100%; height: auto" class="content">
         <div class="flex-container wrap itemContent">
             <div class="itemPicture">
                 <img src="../media/pictures/test.jpg" class="card" id="itemPictureIMG" alt="Item-Picture">

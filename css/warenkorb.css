@@ -1,0 +1,176 @@
+.content{
+    min-height: 100%;
+    width: 90%;
+    margin: auto;
+}
+
+.item{
+    height: 7.5em;
+    width: 95%;
+    background-color: #eeeeee;
+    position: relative;
+    border-radius: .5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 1.5em;
+}
+
+.itemIMG{
+    background-image: url("../media/pictures/test.jpg");
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    height: 6.5em;
+    width: 6.5em;
+    top: .5em;
+    left: .5em;
+    position: absolute;
+    border-radius: .3em;
+    float: left;
+}
+
+.itemCountInput{
+    width: 2.5em;
+    margin: 0 1em 0 1em;
+    -moz-appearance: textfield;
+    box-sizing: border-box;
+    border: 1.5px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    background-color: white;
+}
+
+.itemCountInput::-webkit-outer-spin-button,
+.itemCountInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.itemCountBTN{
+    padding: .2rem;
+}
+
+.itemContent{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+    width: 40%;
+    float: left;
+    margin-left: 7.5em;
+}
+
+.itemPreis{
+    width: auto;
+    height: 100%;
+    float: right;
+    margin-top: auto;
+    margin-right: 1.5em;
+}
+
+.itemPreis h2{
+    margin-top: 1.9em;
+}
+
+.stickyCheck {
+    position: fixed;
+    top: 0;
+    right: 4em;
+}
+
+#cartCheckout{
+    width: 25em;
+    padding: 2em 0 2em 0;
+    border-radius: .5rem;
+    background-color: #eeeeee;
+    float: right;
+    margin-top: 4.5em;
+}
+
+#cartCheckout table{
+    width: 80%;
+    margin: auto;
+}
+
+#cartCheckout table td{
+    padding-bottom: .5em;
+}
+
+#cartCheckout table td:nth-child(2){
+    text-align: right;
+}
+
+#cartItems{
+    width: 60%;
+    height: auto;
+    float: left;
+    padding-top: .25em;
+}
+
+#checkoutBTN{
+    margin: 2em 0 2em 0;
+}
+
+@media (max-width: 1200px) {
+    #cartCheckout{
+        width: 18em;
+    }
+
+    .content{
+        margin: 0;
+        width: 95%;
+    }
+}
+
+@media (max-width: 800px) {
+    #cartCheckout{
+        margin-top: 2em;
+        width: 95%;
+    }
+
+
+    #cartItems{
+        width: 95%;
+        float: right;
+    }
+
+    .itemContent{
+        float: none;
+        height: 7.5em;
+    }
+
+    .itemContent h2{
+        padding-top: 1em;
+    }
+
+    .itemPreis{
+        float: none;
+        height: auto;
+        margin-top: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .itemPreis h2{
+        margin-top: .5em;
+        margin-left: 5em;
+        padding-bottom: 1em;
+    }
+
+    .item{
+        height: 11em;
+        position: relative;
+        border-radius: .5em;
+        width: 100%;
+    }
+
+    .itemIMG{
+        height: 8em;
+        width: 8em;
+        top: 1.5em;
+        left: 1em;
+        position: absolute;
+        border-radius: .3em;
+        float: left;
+    }
+}
