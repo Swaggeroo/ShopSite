@@ -9,9 +9,18 @@
     </a>
     <div class="navbar-links">
         <ul>
-            <li><a href="/ShopSite/">Home</a></li>
             <li><a href="/ShopSite/sites/shop.php">Shop</a></li>
-            <li><a href="/ShopSite/sites/registration.php">Registrieren</a></li>
+            <li><a href="/ShopSite/sites/warenkorb.php">Warenkorb</a></li>
+            <?php
+                $isLogin = true;
+                if ($isLogin){
+                    echo "<li><a href=\"/ShopSite/sites/registration.php\">Registrieren</a></li>
+                        <li><a href=\"/ShopSite/sites/login.php\">Login</a></li>";
+                }else{
+                    echo "<li><a href=\"/ShopSite/sites/profile.php\">Profil</a></li>";
+                }
+            ?>
+
         </ul>
     </div>
 </nav>
