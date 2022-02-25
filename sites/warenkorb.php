@@ -16,7 +16,7 @@
             <h2>Dein Warenkorb</h2>
             <?php
             for ($i=0;$i<100;$i++){
-                echo $htmlMaker->getCartItem();
+                echo $htmlMaker->getCartItem("Test",3000,3.5);
             }
             ?>
         </div>
