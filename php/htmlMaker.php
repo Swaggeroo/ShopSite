@@ -6,7 +6,7 @@ class htmlMaker {
                 <div class='shopPicture fill' style=\"background-image: url('".$pictureLink."')\"></div>
                 <div class=\"card shopElement\">
                     <div class='interactionElements'>
-                        <div><button class='infoBTN'><i></i>Info</button></div>
+                        <div><button class='infoBTN' onclick=\"window.location.href='".$refLink."'\"><i></i>Info</button></div>
                         <div><button class='warenkorbBTN'><i></i>Warenkorb</button></div>
                     </div>
                     <span>".$text."</span>

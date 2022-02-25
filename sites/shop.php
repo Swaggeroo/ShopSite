@@ -16,15 +16,15 @@
         <div class="flex-container row wrap">
             <?php
                 $htmlMaker = new htmlMaker();
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Hallo");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Test");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Maik");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Hallo");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Test");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Maik");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Hallo");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Test");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","test","Maik");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Hallo");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Test");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Maik");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Hallo");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Test");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Maik");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Hallo");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Test");
+                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Maik");
             ?>
         </div>
     </div>
