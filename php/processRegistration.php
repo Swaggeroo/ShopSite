@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nachname = stripslashes(htmlspecialchars(trim($_POST["nachname"])));
     $strasse = stripslashes(htmlspecialchars(trim($_POST["strasse"])));
     $stadt = stripslashes(htmlspecialchars(trim($_POST["stadt"])));
-    $plz = stripslashes(htmlspecialchars(trim($_POST["plz"])));
+    $plz = intval(stripslashes(htmlspecialchars(trim($_POST["plz"]))));
     $iban = stripslashes(htmlspecialchars(trim($_POST["iban"])));
     $bic = stripslashes(htmlspecialchars(trim($_POST["bic"])));
     $benutzername = stripslashes(htmlspecialchars(trim($_POST["benutzername"])));

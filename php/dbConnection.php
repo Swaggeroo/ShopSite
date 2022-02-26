@@ -91,8 +91,10 @@ class db{
             )"
         );
 
+        echo "<p>Creating Tables</p>";
         for($i = 0; $i < count($sqlStatements); $i++){
             $this->dbKeyObject->query($sqlStatements[$i]);
+            echo "<p>(".($i+1)."/".count($sqlStatements).")</p>";
         }
     }
 
@@ -108,12 +110,40 @@ class db{
             "DROP TABLE IF EXISTS Manufacturers"
         );
 
+        echo "<p>Deleting existing Tables</p>";
         for($i = 0; $i < count($sqlStatements); $i++){
             $this->dbKeyObject->query($sqlStatements[$i]);
+            echo "<p>(".($i+1)."/".count($sqlStatements).")</p>";
         }
     }
 
     public function exampleData(){
+        echo "<p>Filling Tables with Data</p>";
+        echo "<p>Creating Users</p>";
+        $this->addUser("TestTest",
+            password_hash("Test1234", PASSWORD_DEFAULT),
+            "test@test.com",
+            "Jürgen",
+            "Peter",
+            "Frankfurterstraße 659",
+            "Traumhausen",
+            55789,
+            "DE12345678900000000000",
+            "GEOOOOOOOOO"
+        );
+        echo "<p>User (1/2)</p>";
+        $this->addUser("SuperDude",
+            password_hash("Cool1234", PASSWORD_DEFAULT),
+            "test@test.com",
+            "Jürgen",
+            "Peter",
+            "Frankfurterstraße 659",
+            "Traumhausen",
+            55789,
+            "DE12345678900000000000",
+            "GEOOOOOOOOO"
+        );
+        echo "<p>User (2/2)</p>";
         $sqlStatements = array(
 
         );
