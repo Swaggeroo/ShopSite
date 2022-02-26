@@ -6,7 +6,9 @@
     <title>Registrierung</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/registration.css">
+    <link rel="stylesheet" href="../css/form.css">
     <script src="../scripts/form.js" defer></script>
+    <script src="../scripts/registration.js" defer></script>
 </head>
 <body>
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Registrierung"); ?>
