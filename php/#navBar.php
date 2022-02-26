@@ -12,12 +12,17 @@
             <li><a href="/ShopSite/sites/shop.php">Shop</a></li>
             <li><a href="/ShopSite/sites/warenkorb.php">Warenkorb</a></li>
             <?php
-                $isLogin = true;
-                if ($isLogin){
+                if(!isset($_SESSION)){
+                    session_start();
+                }
+                if (isset($_SESSION["userLoggedIn"]) && $_SESSION["userLoggedIn"]) {
+                    echo "<li><a href=\"/ShopSite/sites/profile.php\">Profil</a></li>";
+                } else {
+                    if (session_status() === PHP_SESSION_ACTIVE){
+                        session_destroy();
+                    }
                     echo "<li><a href=\"/ShopSite/sites/registration.php\">Registrieren</a></li>
                         <li><a href=\"/ShopSite/sites/login.php\">Login</a></li>";
-                }else{
-                    echo "<li><a href=\"/ShopSite/sites/profile.php\">Profil</a></li>";
                 }
             ?>
 

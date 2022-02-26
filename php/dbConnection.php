@@ -123,6 +123,92 @@ class db{
         }
     }
 
+    public function getUserNameCount($userName):int{
+        $sqlQuery = "SELECT COUNT(UserName) AS userNameCount FROM users WHERE LOWER(userName) = LOWER(?)";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("s", $userName);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $userNameCount = $result->fetch_assoc()["userNameCount"];
+
+        $statement->close();
+
+        return $userNameCount;
+    }
+
+    public function userNameExists($userName):bool{
+        $userNameCount = $this->getUserNameCount($userName);
+
+        if($userNameCount >= 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function getUserIdForUsername($username):int{
+        $sqlQuery = "SELECT userID FROM users WHERE LOWER(userName) = LOWER(?)";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("s", $username);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
+
+        $userID = $result->fetch_assoc()["userID"];
+
+        $sqlStatement->close();
+
+        return $userID;
+    }
+
+    public function getUserName($userID) {
+        $sqlQuery = "SELECT userName AS userName FROM users WHERE userID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i", $userID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $userName = $result->fetch_assoc()["userName"];
+
+        $statement->close();
+
+        return $userName;
+    }
+
+    public function getPasswordForUserID($userID):String{
+        $sqlQuery = "SELECT Passwort FROM users WHERE userID = ?";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("i", $userID);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
+
+        $password = $result->fetch_assoc()["Passwort"];
+
+        $sqlStatement->close();
+
+        return $password;
+    }
+
+    public function addUser($username, $password, $email, $vorname, $nachname, $strasse, $stadt, $plz, $iban, $bic){
+        $sqlQuery = "INSERT INTO users(username, passwort, email, vorname, nachname, strasse, stadt, plz, iban, bic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("sssssssiss", $username, $password, $email, $vorname, $nachname, $strasse, $stadt, $plz, $iban, $bic);
+        if(!$sqlStatement->execute()){
+            die("Error: ".$sqlStatement->error);
+        }
+
+        $sqlStatement->close();
+    }
+
 }
 
 ?>

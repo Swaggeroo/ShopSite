@@ -1,3 +1,19 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    if (isset($_SESSION["userLoggedIn"]) && $_SESSION["userLoggedIn"]){
+        die("
+                <script>
+                    window.location.replace('./shop.php');
+                </script>
+            ");
+    }
+
+    if(isset($_SESSION)){
+        session_destroy();
+    }
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
