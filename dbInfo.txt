@@ -1,0 +1,5 @@
+DB-Name: shopsite
+DB-USER: ShopSite
+DB-PASS: dzOz(Q0uogT/H1zX
+
+(Rechte: localhost - global * Berechtigung)
