@@ -20,6 +20,24 @@
     border-radius: .1rem;
 }
 
+#inputMenge{
+    width: 2.5em;
+    margin: 0 .1em 0 1em;
+    -moz-appearance: textfield;
+    box-sizing: border-box;
+    border: 1.5px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    background-color: white;
+}
+
+#inputMenge::-webkit-outer-spin-button,
+#inputMenge::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .itemPicture{
     width: 50%;
     /*background-color: blue;*/
