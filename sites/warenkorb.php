@@ -6,6 +6,7 @@
     <title>Warenkorb</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/warenkorb.css">
+    <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/checkout.js" defer></script>
 </head>
 <body>

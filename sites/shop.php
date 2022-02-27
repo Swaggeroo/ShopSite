@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/shop.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/shop.js" defer></script>
 </head>
 <body>

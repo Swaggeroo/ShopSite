@@ -10,6 +10,7 @@ require "../php/#checkPermission.php"
     <title>Profil</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/profile.css">
+    <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Profil"); ?>

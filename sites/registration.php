@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/registration.css">
     <link rel="stylesheet" href="../css/form.css">
+    <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/form.js" defer></script>
     <script src="../scripts/registration.js" defer></script>
 </head>

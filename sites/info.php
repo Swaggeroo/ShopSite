@@ -6,6 +6,7 @@
     <title>Item</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/info.css">
+    <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/info.js" defer></script>
 </head>
 <body>
@@ -22,6 +23,11 @@
             <div class="itemDescriptionContainer">
                 <div class="itemDescription">
                     <h2>Item</h2>
+                    <h4>Kategorie</h4>
+                    <p>Kleintier</p>
+                    <h4>Hersteller</h4>
+                    <p>Super Hersteller</p>
+                    <h4>Beschreibung</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                         numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
@@ -45,8 +51,8 @@
                         quasi aliquam eligendi, placeat qui corporis!</p>
                 </div>
                 <div class="itemButtons">
-                    <button>Buy</button>
-                    <button>sell</button>
+                    <h4>Qnt.<input type="number" name="menge" id="inputMenge" value="1"></h4>
+                    <button>In den Warenkorb</button>
                 </div>
             </div>
         </div>
