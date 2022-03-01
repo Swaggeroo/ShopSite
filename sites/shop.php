@@ -17,15 +17,12 @@
         <div class="flex-container row wrap">
             <?php
                 $htmlMaker = new htmlMaker();
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Hallo");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Test");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Maik");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Hallo");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Test");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Maik");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Hallo");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Test");
-                echo $htmlMaker->getProduct("../media/pictures/test.jpg","info.php","Maik");
+                require "../php/dbConnection.php";
+                $db = new db();
+                $animals = $db->getAllAnimals();
+                foreach ($animals as $animal){
+                    echo $htmlMaker->getProduct("../media/pictures/animals/".$animal["Picture"],"info.php?id=".$animal["ItemID"],$animal["Title"]);
+                }
             ?>
         </div>
     </div>
