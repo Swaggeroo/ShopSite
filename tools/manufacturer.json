@@ -1,0 +1,47 @@
+[
+  {
+    "name" : "ExoticImport",
+    "beschreibung" : "Exotische Tiere von der ganzen Welt. Egal was sie wollen wir können es bestimmt importieren.",
+    "email" : "exotic@import.de",
+    "tel" : "+49122009134",
+    "strasse" : "Seestraße 13",
+    "stadt" : "Shiptown",
+    "plz" : 26540
+  },
+  {
+    "name" : "Haustiere24",
+    "beschreibung" : "Ihr neuer Lebensbegleiter jetzt bei uns kaufen.",
+    "email" : "info@haustiere24.de",
+    "tel" : "+49122009134",
+    "strasse" : "Midtown 43",
+    "stadt" : "Folwercity",
+    "plz" : 44559
+  },
+  {
+    "name" : "Der Vogelexperte",
+    "beschreibung" : "Ich weiß alles über Vögel und gerne verkaufe ich welche.",
+    "email" : "peter@noscam.de",
+    "tel" : "+49666663333",
+    "strasse" : "Freudenstraße 66",
+    "stadt" : "Godtown",
+    "plz" : 77559
+  },
+  {
+    "name" : "Unterhausen Zoo",
+    "beschreibung" : "Wir haben zu viele Tiere deshalb bieten wir sie nun hier an.",
+    "email" : "info@unterzoo.de",
+    "tel" : "+4920020089",
+    "strasse" : "Zoostraße 90",
+    "stadt" : "Unterhausen",
+    "plz" : 65429
+  },
+  {
+    "name" : "Futterhof GmbH",
+    "beschreibung" : "Wir haben alles für Tiere",
+    "email" : "kontakt@futterhof.net",
+    "tel" : "+49378189583",
+    "strasse" : "Kellerweg 4",
+    "stadt" : "Habersbach",
+    "plz" : 43282
+  }
+]
