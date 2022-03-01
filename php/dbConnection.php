@@ -144,6 +144,35 @@ class db{
             "GEOOOOOOOOO"
         );
         echo "<p>User (2/2)</p>";
+
+
+        echo "<p>Creating Verkäufer</p>";
+        $manufactures = file_get_contents("../tools/manufacturer.json", true);
+        $manufacturesJSONObj = json_decode($manufactures,true);
+
+        foreach ($manufacturesJSONObj as $element){
+            echo "<p>Added Verkäufer</p>";
+            $this->addManufacturer($element["name"],$element["tel"],$element["email"],$element["strasse"],$element["stadt"],intval($element["plz"]),$element["beschreibung"]);
+        }
+
+        echo "<p>Creating Kategorien</p>";
+        $categories = file_get_contents("../tools/categories.json", true);
+        $categoriesJSONObj = json_decode($categories,true);
+
+        foreach ($categoriesJSONObj as $element){
+            echo "<p>Added Kategorie</p>";
+            $this->addCategory($element["title"],$element["beschreibung"]);
+        }
+
+        echo "<p>Creating Animals</p>";
+        $animals = file_get_contents("../tools/animals.json", true);
+        $animalsJSONObj = json_decode($animals,true);
+
+        foreach ($animalsJSONObj as $element){
+            echo "<p>Added Animal</p>";
+            $this->addAnimal($element["name"],$element["beschreibung"],intval($element["price"]),$element["pictureLink"],intval($element["CatID"]),intval($element["ManID"]));
+        }
+
         $sqlStatements = array(
 
         );
@@ -237,6 +266,54 @@ class db{
         }
 
         $sqlStatement->close();
+    }
+
+    public function addManufacturer($name, $telnum, $email, $strasse, $stadt, $plz, $beschreibung){
+        $sqlQuery = "INSERT INTO manufacturers (FirmName, Content, Email, TelNumber, Strasse, Stadt, PLZ) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("ssssssi", $name, $beschreibung, $email, $telnum, $strasse, $stadt, $plz);
+        if(!$sqlStatement->execute()){
+            die("Error: ".$sqlStatement->error);
+        }
+
+        $sqlStatement->close();
+    }
+
+    public function addCategory($name, $beschreibung){
+        $sqlQuery = "INSERT INTO categories (Title, Content) VALUES (?, ?)";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("ss", $name, $beschreibung);
+        if(!$sqlStatement->execute()){
+            die("Error: ".$sqlStatement->error);
+        }
+
+        $sqlStatement->close();
+    }
+
+    public function addAnimal($title, $beschreibung, $price, $picture, $categoryid, $manufacturerid){
+        $sqlQuery = "INSERT INTO items (Title, Content, Price, Picture, CategoryID, ManufacturerID) VALUES (?, ?, ?, ?, ?, ?)";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("ssisii", $title, $beschreibung, $price, $picture, $categoryid, $manufacturerid);
+        if(!$sqlStatement->execute()){
+            die("Error: ".$sqlStatement->error);
+        }
+
+        $sqlStatement->close();
+    }
+
+    public function getAllAnimals():array{
+        $sqlQuery = "SELECT * FROM items";
+
+        $result = $this->dbKeyObject->query($sqlQuery);
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
     }
 
 }
