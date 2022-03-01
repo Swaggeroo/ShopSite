@@ -1,5 +1,8 @@
 <?php
-require "../php/#checkPermission.php"
+    require "../php/#checkPermission.php";
+    require "../php/dbConnection.php";
+    $db = new db();
+    $user = $db->getUserById($_SESSION["userID"]);
 ?>
 
 <!DOCTYPE html>
@@ -16,29 +19,29 @@ require "../php/#checkPermission.php"
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Profil"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content" align="center">
-        <h1>Name</h1>
+        <h1><?php echo $user["UserName"]?></h1>
         <div id="infoContext">
             <h2>Persönliche Daten</h2>
             <table>
                 <tr>
                     <td>Vorname</td>
-                    <td>Max</td>
+                    <td><?php echo $user["Vorname"]?></td>
                 </tr>
                 <tr>
                     <td>Nachname</td>
-                    <td>Mustermann</td>
+                    <td><?php echo $user["Nachname"]?></td>
                 </tr>
                 <tr>
                     <td>Straße</td>
-                    <td>Musterstraße 29</td>
+                    <td><?php echo $user["Strasse"]?></td>
                 </tr>
                 <tr>
                     <td>Ort</td>
-                    <td>54321 Musterstadt</td>
+                    <td><?php echo $user["PLZ"]; echo " "; echo $user["Stadt"];?></td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td>test@test.de</td>
+                    <td><?php echo $user["Email"]?></td>
                 </tr>
             </table>
 
@@ -46,11 +49,11 @@ require "../php/#checkPermission.php"
             <table>
                 <tr>
                     <td>IBAN</td>
-                    <td>DE12345678900000000000</td>
+                    <td><?php echo $user["IBAN"]?></td>
                 </tr>
                 <tr>
                     <td>BIC</td>
-                    <td>GEOOOOOOOOO</td>
+                    <td><?php echo $user["BIC"]?></td>
                 </tr>
             </table>
         </div>

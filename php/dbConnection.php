@@ -364,6 +364,22 @@ class db{
         return $manufacturer;
     }
 
+    public function getUserById($userID){
+        $sqlQuery = "SELECT * FROM users WHERE UserID = ?";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("i", $userID);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
+
+        $user = $result->fetch_assoc();
+
+        $sqlStatement->close();
+
+        return $user;
+    }
+
 }
 
 ?>
