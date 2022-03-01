@@ -1,9 +1,100 @@
 [
   {
-    "name" : "",
-    "pictureLink" : "",
-    "beschreibung" : "",
+    "name" : "Affe",
+    "pictureLink" : "affe.jpg",
+    "beschreibung" : "Affen gehören zu den Säugetieren und sind die nächsten tierischen Verwandten des Menschen. Sie sind sehr kluge, gesellige Tiere und verfügen über ein hoch entwickeltes Gehirn.",
+    "CatID" : 4,
+    "ManID" : 4
+  },
+  {
+    "name" : "Alpaka",
+    "pictureLink" : "alpaka.jpg",
+    "beschreibung" : "Das Alpaka hat lange, dünne Beine, die in paarigen Hufen mit weichen Sohlen enden. Sie besitzen einen langen, schlanken Hals auf dem ein dreieckiger Kopf sitzt. Im Vergleich zum Körper ist der Kopf klein. Alpakas haben große, dunkle Augen und gerade, ovale Ohren.",
+    "CatID" : 6,
+    "ManID" : 5
+  },
+  {
+    "name" : "Ameisenbär",
+    "pictureLink" : "ameisenbaer.jpg",
+    "beschreibung" : "Der Große Ameisenbär, wissenschaftlich Myrmecophaga tridactyla, kommt in weiten Teilen Mittel- und Südamerikas vor. Mit echten Bären haben Große Ameisenbären außer dem Namen nichts gemein. Biologisch gehören sie zur Familie der Myrmecophagidae und wie Faultiere sowie Gürteltiere zur Gruppe der Nebengelenktiere.",
+    "CatID" : 4,
+    "ManID" : 4
+  },
+  {
+    "name" : "Australian Shepherd",
+    "pictureLink" : "australian shepherd.jpg",
+    "beschreibung" : "Der Australian Shepherd ist ein intelligenter und ausdauernder Hund, der auch über längere Zeit konzentriert arbeiten kann. Die Rasse hat ein ausgeglichenes Wesen und ist freundlich und treu gegenüber seinem Besitzer. Bei Fremden ist der Aussie sensibel und muss erst „auftauen“.",
+    "CatID" : 2,
+    "ManID" : 2
+  },
+  {
+    "name" : "Bär",
+    "pictureLink" : "bear.jpg",
+    "beschreibung" : "Echte Bären haben einen großen Kopf, kurze Arme und Beine und einen kräftigen Körper. Die Augen sind klein, die Ohren rund, und an jeder Pfote haben Bären fünf Zehen mit Krallen. Die Fellfarbe ist meistens braun oder schwarz. Bären können ausnahmsweise bis 800 Kilogramm schwer werden.",
+    "CatID" : 7,
+    "ManID" : 4
+  },
+  {
+    "name" : "Bienen",
+    "pictureLink" : "biene.jpg",
+    "beschreibung" : "Bienen gehören zu den Insekten und haben sechs Beine, vier Flügel und einen Panzer. Der Panzer besteht aus Chitin. Er ist sozusagen das Skelett der Bienen. Weibliche Bienen haben am Hinterleib einen Stachel.",
+    "CatID" : 5,
+    "ManID" : 5
+  },
+  {
+    "name" : "Britische Kurzhaar Katze",
+    "pictureLink" : "britische kurzhaar katze.jpg",
+    "beschreibung" : "Die Britisch Kurzhaar gilt im Allgemeinen eher als bedächtig, zurückhaltend, anhänglich und liebenswert. Sie passt in Familien mit (größeren) Kindern, aber auch zu Senioren. Die Katzen haben keinen allzu großen Bewegungsdrang. Besonders ist, dass die Katzen extrem gerne spielen.",
     "CatID" : 1,
+    "ManID" : 2
+  },
+  {
+    "name" : "Chihuahua",
+    "pictureLink" : "chihuahua.jpg",
+    "beschreibung" : "Der Chihuahua ist die kleinste Hunderasse der Welt. Weil er so „mini“\" ist, sieht er unheimlich niedlich aus. Er lässt sich super in der Wohnung halten und kann sogar lernen, ein Katzenklo zu benutzen. Obwohl der Hund so klein ist, ist er überraschend mutig und macht sich sogar gut als Wachhund.",
+    "CatID" : 2,
+    "ManID" : 2
+  },
+  {
+    "name" : "Echter Diskus",
+    "pictureLink" : "echter diskus.jpg",
+    "beschreibung" : "Auffälligste Merkmale sind eine dunkle, oft bläuliche wellenartige Linienzeichnung, die beide Körperseiten bedecken sowie ein breites, dunkelbraunes Vertikalband, das am Beginn der hinteren Körperhälfte von der Rücken- bis zur Afterflosse reicht.",
+    "CatID" : 8,
+    "ManID" : 6
+  },
+  {
+    "name" : "Eichhörnchen",
+    "pictureLink" : "eichhoernchen.jpg",
+    "beschreibung" : "Das Eichhörnchen (Sciurus vulgaris) ist ein Nagetier mit einem roten oder dunkelbraunen Fell und buschigen Schwanz. Am Bauch ist sein Fell weiß. Das Winterfell ist dunkler und grauer als das Sommerfell. Die Augen sind ausdruckvoll groß.",
+    "CatID" : 5,
+    "ManID" : 4
+  },
+  {
+    "name" : "Eisvogel",
+    "pictureLink" : "eisvogel.jpg",
+    "beschreibung" : "Der bunt schillernde Eisvogel ist unverwechselbar. Er ist etwas größer als ein Sperling, wirkt gedrungen, ist auffallend kurzschwänzig und besitzt einen geraden kräftigen Schnabel. Je nach Lichteinfall wirkt sein Gefieders kobaltblau bis türkisfarben.",
+    "CatID" : 3,
+    "ManID" : 4
+  },
+  {
+    "name" : "Elefant",
+    "pictureLink" : "elefant.jpg",
+    "beschreibung" : "Elefanten haben größere Ohren, dickere Beine, einen längeren Rüssel und längere Stoßzähne als jedes andere Tier auf der Welt. Ihre Haut ist etwa so dick wie der Finger eines erwachsenen Menschen, so dass man die Elefanten auch „Dickhäuter“ nennt. Trotzdem ist die Haut sehr empfindlich.",
+    "CatID" : 4,
     "ManID" : 1
+  },
+  {
+    "name" : "Ente",
+    "pictureLink" : "ente.jpg",
+    "beschreibung" : "Enten sind Vögel. Sie sind verwandt mit den Gänsen und Schwänen. Genau wie diese leben sie normalerweise am Wasser, zum Beispiel an einem See. Auffällig an den Enten ist ihr breiter Schnabel.",
+    "CatID" : 3,
+    "ManID" : 4
+  },
+  {
+    "name" : "Erdmännchen",
+    "pictureLink" : "erdmaennchen.jpg",
+    "beschreibung" : "Erdmännchen sind nach den Zwergmangusten die kleinsten Mangusten. Sie erreichen eine Kopfrumpflänge von 24,5 bis 29 cm, der Schwanz misst 19 bis 24 cm. Sie wiegen zwischen 620 und 970 g,[1] mit durchschnittlich 731 g sind Männchen geringfügig schwerer als Weibchen, die durchschnittlich 720 g erreichen.",
+    "CatID" : 5,
+    "ManID" : 4
   }
 ]

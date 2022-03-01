@@ -43,5 +43,14 @@
     "strasse" : "Kellerweg 4",
     "stadt" : "Habersbach",
     "plz" : 43282
+  },
+  {
+    "name" : "Fischers Fischer",
+    "beschreibung" : "Wir sind geborene Fischer.",
+    "email" : "fang@fischer.net",
+    "tel" : "+4937123877",
+    "strasse" : "Fischweg 14",
+    "stadt" : "Seebach",
+    "plz" : 23282
   }
 ]

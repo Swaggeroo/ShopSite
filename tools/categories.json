@@ -1,6 +1,34 @@
 [
   {
-    "title" : "",
+    "title" : "Katzen",
+    "beschreibung" : ""
+  },
+  {
+    "title" : "Hunde",
+    "beschreibung" : ""
+  },
+  {
+    "title" : "Vögel",
+    "beschreibung" : ""
+  },
+  {
+    "title" : "Exotische Tiere",
+    "beschreibung" : ""
+  },
+  {
+    "title" : "Kleintiere",
+    "beschreibung" : ""
+  },
+  {
+    "title" : "Farmtiere",
+    "beschreibung" : ""
+  },
+  {
+    "title" : "Großtiere",
+    "beschreibung" : ""
+  },
+  {
+    "title" : "Fische",
     "beschreibung" : ""
   }
 ]
