@@ -316,6 +316,54 @@ class db{
         return $rows;
     }
 
+    public function getAnimalById($itemID){
+        $sqlQuery = "SELECT * FROM items WHERE ItemID = ?";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("i", $itemID);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
+
+        $animal = $result->fetch_assoc();
+
+        $sqlStatement->close();
+
+        return $animal;
+    }
+
+    public function getCategoryById($categoryID){
+        $sqlQuery = "SELECT * FROM categories WHERE CategoryID = ?";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("i", $categoryID);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
+
+        $category = $result->fetch_assoc();
+
+        $sqlStatement->close();
+
+        return $category;
+    }
+
+    public function getManufacturerById($manufacturerID){
+        $sqlQuery = "SELECT * FROM manufacturers WHERE ManufacturerID = ?";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("i", $manufacturerID);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
+
+        $manufacturer = $result->fetch_assoc();
+
+        $sqlStatement->close();
+
+        return $manufacturer;
+    }
+
 }
 
 ?>
