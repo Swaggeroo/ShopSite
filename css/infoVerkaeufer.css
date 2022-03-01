@@ -1,0 +1,15 @@
+table td:nth-child(2){
+    text-align: right;
+}
+
+table{
+    width: 20em;
+}
+
+#buttonsContext{
+    padding-top: 2em;
+}
+
+#productsLink{
+    color: darkgreen;
+}
