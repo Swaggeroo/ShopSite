@@ -1,3 +1,7 @@
+<?php
+    require "../php/dbConnection.php";
+    $db = new db();
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -14,14 +18,56 @@
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Shop"); ?>
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
+        <div class="Sort Container">
+            <p>Sortieren</p>
+            <select id="filterKat">
+                <option value="" <?php if (!isset($_GET["kategorie"])) echo "selected"?>>Kategorie auswählen</option>
+                <?php
+                    $cats = $db->getAllKategorien();
+                    foreach ($cats as $cat){
+                        if (!isset($_GET["kategorie"]) || ($cat["CategoryID"] != $_GET["kategorie"])) {
+                            echo "<option value=\"" . $cat["CategoryID"] . "\">" . $cat["Title"] . "</option>";
+                        }else{
+                            echo "<option value=\"" . $cat["CategoryID"] . "\" selected>" . $cat["Title"] . "</option>";
+                        }
+                    }
+                ?>
+            </select>
+            <select id="filterVerk">
+                <option value="" <?php if (!isset($_GET["verkaeufer"])) echo "selected"?>>Verkäufer auswählen</option>
+                <?php
+                $verk = $db->getAllVerkaeufer();
+                foreach ($verk as $ver){
+                    if (!isset($_GET["verkaeufer"]) || ($ver["ManufacturerID"] != $_GET["verkaeufer"])){
+                        echo "<option value=\"".$ver["ManufacturerID"]."\">".$ver["FirmName"]."</option>";
+                    }else{
+                        echo "<option value=\"".$ver["ManufacturerID"]."\" selected>".$ver["FirmName"]."</option>";
+                    }
+                }
+                ?>
+            </select>
+            <button onclick="filterShop()">SORTIEREN</button>
+            <?php
+                if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"])){
+                    echo "<button onclick=\"resetFilterShop()\">RESET</button>";
+                }
+            ?>
+        </div>
         <div class="flex-container row wrap">
             <?php
                 $htmlMaker = new htmlMaker();
-                require "../php/dbConnection.php";
-                $db = new db();
-                $animals = $db->getAllAnimals();
-                foreach ($animals as $animal){
-                    echo $htmlMaker->getProduct("../media/pictures/animals/".$animal["Picture"],"info.php?id=".$animal["ItemID"],$animal["Title"]);
+                $animals = null;
+                if (isset($_GET["kategorie"])){
+                    $animals = $db->getAnimalsSortedByKategorie(intval($_GET["kategorie"]));
+                }else if(isset($_GET["verkaeufer"])){
+                    $animals = $db->getAnimalsSortedByVerkaeufer(intval($_GET["verkaeufer"]));
+                }else{
+                    $animals = $db->getAllAnimals();
+                }
+                if ($animals!=null){
+                    foreach ($animals as $animal){
+                        echo $htmlMaker->getProduct("../media/pictures/animals/".$animal["Picture"],"info.php?id=".$animal["ItemID"],$animal["Title"]);
+                    }
                 }
             ?>
         </div>

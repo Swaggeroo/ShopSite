@@ -304,10 +304,66 @@ class db{
         $sqlStatement->close();
     }
 
+    public function getAllKategorien():array{
+        $sqlQuery = "SELECT * FROM categories";
+
+        $result = $this->dbKeyObject->query($sqlQuery);
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
+    public function getAllVerkaeufer():array{
+        $sqlQuery = "SELECT * FROM manufacturers";
+
+        $result = $this->dbKeyObject->query($sqlQuery);
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
     public function getAllAnimals():array{
         $sqlQuery = "SELECT * FROM items";
 
         $result = $this->dbKeyObject->query($sqlQuery);
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
+    public function getAnimalsSortedByKategorie($catID):array{
+        $sqlQuery = "SELECT * FROM items WHERE CategoryID = ?";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("i", $catID);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
+    public function getAnimalsSortedByVerkaeufer($verID):array{
+        $sqlQuery = "SELECT * FROM items WHERE ManufacturerID = ?";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("i", $verID);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
 
         $rows = array();
         while($row = $result->fetch_array(MYSQLI_ASSOC)){

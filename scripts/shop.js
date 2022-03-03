@@ -1,4 +1,6 @@
 /* Store the element in el */
+const filterKat = document.getElementById("filterKat")
+const filterVerk = document.getElementById("filterVerk")
 let el = document.getElementsByClassName('shopContainer')
 console.log(el);
 console.log(document.getElementsByClassName('shopContainer')[0])
@@ -43,4 +45,19 @@ function handleMove(e,element) {
     }
     element.style.transform = prop
 
+}
+
+function filterShop(){
+    let redicrect = "./shop.php?";
+    if (filterKat.value !== ""){
+        redicrect+="kategorie="+filterKat.value+"&"
+    }
+    if (filterVerk.value !== ""){
+        redicrect+="verkaeufer="+filterVerk.value
+    }
+    window.location.href = redicrect;
+}
+
+function resetFilterShop(){
+    window.location.href = "./shop.php";
 }
