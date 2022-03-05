@@ -8,36 +8,36 @@
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $verkaeufer["FirmName"]?></title>
+    <title><?php echo htmlspecialchars($verkaeufer["FirmName"])?></title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/infoVerkaeufer.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
-    <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg",$verkaeufer["FirmName"]); ?>
+    <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg",htmlspecialchars($verkaeufer["FirmName"])); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content" align="center">
-        <h1><?php echo $verkaeufer["FirmName"]?></h1>
+        <h1><?php echo htmlspecialchars($verkaeufer["FirmName"])?></h1>
         <div id="infoContext">
-            <p><?php echo $verkaeufer["Content"]?></p>
+            <p><?php echo htmlspecialchars($verkaeufer["Content"])?></p>
             <h2>Kontakt Daten</h2>
             <table>
                 <tr>
                     <td>Straße</td>
-                    <td><?php echo $verkaeufer["Strasse"]?></td>
+                    <td><?php echo htmlspecialchars($verkaeufer["Strasse"])?></td>
                 </tr>
                 <tr>
                     <td>Ort</td>
-                    <td><?php echo $verkaeufer["PLZ"]; echo " "; echo $verkaeufer["Stadt"];?></td>
+                    <td><?php echo htmlspecialchars($verkaeufer["PLZ"]); echo " "; echo htmlspecialchars($verkaeufer["Stadt"]);?></td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td><a href="mailto:<?php echo $verkaeufer["Email"]?>"><?php echo $verkaeufer["Email"]?></a></td>
+                    <td><a href="mailto:<?php echo htmlspecialchars($verkaeufer["Email"])?>"><?php echo htmlspecialchars($verkaeufer["Email"])?></a></td>
                 </tr>
             </table>
         </div>
         <div id="buttonsContext">
-            <a id="productsLink" href="./shop.php?verkaeufer=<?php echo $verkaeufer["ManufacturerID"]?>">Produkte ansehen</a>
+            <a id="productsLink" href="./shop.php?verkaeufer=<?php echo htmlspecialchars($verkaeufer["ManufacturerID"])?>">Produkte ansehen</a>
         </div>
     </div>
 </body>
