@@ -39,6 +39,8 @@
     transition: 0.5s;
     outline: none;
     background-color: white;
+    text-align: center;
+    user-select: none;
 }
 
 .itemCountInput::-webkit-outer-spin-button,
@@ -49,6 +51,8 @@
 
 .itemCountBTN{
     padding: .2rem;
+    cursor: pointer;
+    user-select: none;
 }
 
 .itemContent{

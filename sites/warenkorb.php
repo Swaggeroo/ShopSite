@@ -16,8 +16,19 @@
         <div id="cartItems">
             <h2>Dein Warenkorb</h2>
             <?php
-            for ($i=0;$i<100;$i++){
-                echo $htmlMaker->getCartItem("Test",3000,3.5);
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            require "../php/dbConnection.php";
+            $db = new db();
+            if (isset($_SESSION["userLoggedIn"])){
+                $cart = $db->getCartFromUser($_SESSION["userID"]);
+                foreach ($cart as $c){
+                    $animal = $db->getAnimalById(intval($c["ItemID"]));
+                    echo $htmlMaker->getCartItem($animal["Title"],$c["Count"],$animal["Price"],$animal["Picture"],$c["ItemID"]);
+                }
+            }else{
+                echo "<p>Not Logged in</p>";
             }
             ?>
         </div>
@@ -26,19 +37,19 @@
             <table>
                 <tr>
                     <td>Subtotal</td>
-                    <td>0.00€</td>
+                    <td id="subtotal">0.00€</td>
                 </tr>
                 <tr>
                     <td>Discount (-10%)</td>
-                    <td>0.00€</td>
+                    <td id="discount">0.00€</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
-                    <td>0.00€</td>
+                    <td id="shipping">0.00€</td>
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>0.00€</td>
+                    <td id="total">0.00€</td>
                 </tr>
             </table>
             <a href="./checkout.php" id="checkoutBTN">Checkout</a>

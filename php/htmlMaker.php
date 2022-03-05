@@ -23,16 +23,16 @@ class htmlMaker {
         </div>";
     }
 
-    public function getCartItem($itemName, $itemCount, $pricePerItem):string{
+    public function getCartItem($itemName, $itemCount, $pricePerItem, $picLink, $itemID):string{
         return "
             <div class='item'>
-                <div class='itemIMG'></div>
+                <div class='itemIMG' style=\"background-image: url('../media/pictures/animals/".$picLink."')\"></div>
                 <div class='itemContent'>
                     <h2>".$itemName."</h2>
-                    <a href='#' class='itemCountBTN'>-</a><input class='itemCountInput' value='".$itemCount."'><a href='#' class='itemCountBTN'>+</a>
+                    <a class='itemCountBTN'>-</a><input class='itemCountInput' name=\"".$itemID."\" value='".$itemCount."' disabled><a class='itemCountBTN'>+</a>
                 </div>
                 <div class='itemPreis'>
-                    <h2>".number_format(($pricePerItem*$itemCount),2,",",".")."€</h2>
+                    <h2 class='totalPrice ".$pricePerItem."'>".number_format(($pricePerItem*$itemCount)/100,2,",",".")."€</h2>
                 </div>
             </div>
         ";
