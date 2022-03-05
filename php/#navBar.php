@@ -12,7 +12,7 @@
             <?php
                 $file = explode("/",$_SERVER["PHP_SELF"]);
                 $file = $file[count($file)-1];
-                if ($file = "shop.php"){
+                if ($file == "shop.php"){
                     echo "<li><a href=\"#\" id=\"filterBTN\">Filter</a></li>";
                 }
             ?>
