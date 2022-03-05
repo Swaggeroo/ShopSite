@@ -1,13 +1,13 @@
 <?php
 class htmlMaker {
-    public function getProduct($pictureLink,$refLink,$text):string{
+    public function getProduct($pictureLink,$itemID,$text):string{
         return "
             <div class='shopContainer'>
                 <div class='shopPicture fill' style=\"background-image: url('".$pictureLink."')\"></div>
                 <div class=\"card shopElement\">
                     <div class='interactionElements'>
-                        <div><button class='infoBTN' onclick=\"window.location.href='".$refLink."'\"><i></i>Info</button></div>
-                        <div><button class='warenkorbBTN'><i></i>Warenkorb</button></div>
+                        <div><button class='infoBTN' onclick=\"window.location.href='info.php?id=".$itemID."'\"><i></i>Info</button></div>
+                        <div><button class='warenkorbBTN' onclick='addToCart(this)' value='".$itemID."'><i></i>Warenkorb</button></div>
                     </div>
                     <span>".$text."</span>
                 </div>

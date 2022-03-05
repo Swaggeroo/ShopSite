@@ -452,6 +452,80 @@ class db{
         return $user;
     }
 
+    public function existsInCart($itemID, $userID): bool{
+        $sqlQuery = "SELECT COUNT(UserID) AS count FROM carts WHERE UserID = ? AND ItemID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ii", $userID, $itemID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $cartCount = $result->fetch_assoc()["count"];
+
+        $statement->close();
+
+        return $cartCount>=1;
+    }
+
+    public function getItemCountCart($itemID, $userID): int{
+        $sqlQuery = "SELECT Count FROM carts WHERE UserID = ? AND ItemID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ii", $userID, $itemID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $count = $result->fetch_assoc()["Count"];
+
+        $statement->close();
+
+        return $count;
+    }
+
+    public function insertItemIntoCart($itemID, $userID, $count){
+        $sqlQuery = "INSERT INTO carts (ItemID, UserID, Count) VALUES (?,?,?)";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("iii", $itemID,$userID, $count);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
+
+    public function updateItemInCart($itemID, $userID, $count){
+        $sqlQuery = "UPDATE carts SET Count = ? WHERE ItemID = ? AND UserID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("iii", $count, $itemID, $userID);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
+
+    public function getCartItemCount($userID):int{
+        $sqlQuery = "SELECT SUM(Count) AS Count FROM carts WHERE UserID = ? GROUP BY UserID";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i",$userID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $count = $result->fetch_assoc()["Count"];
+
+        $statement->close();
+
+        return $count;
+    }
+
 }
 
 ?>

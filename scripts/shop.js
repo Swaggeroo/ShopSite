@@ -4,8 +4,6 @@ const filterVerk = document.getElementById("filterVerk")
 const filterBTN = document.getElementById("filterBTN")
 const filterContainer = document.getElementById("sortContainer")
 let el = document.getElementsByClassName('shopContainer')
-console.log(el);
-console.log(document.getElementsByClassName('shopContainer')[0])
 
 /* Get the height and width of the element */
 let height;
@@ -73,3 +71,12 @@ function resetFilterShop(){
 filterBTN.addEventListener("click", ()=>{
     filterContainer.classList.toggle("hide")
 })
+
+function addToCart(el){
+    const itemID = parseInt(el.value);
+    (async()=>{
+        let asyncLib = await import("./asyncExec.js");
+        let returnVal = await asyncLib.asyncPostWithParms("../php/addToCart.php","id="+itemID+"&count=1");
+        console.log(returnVal);
+    })();
+}

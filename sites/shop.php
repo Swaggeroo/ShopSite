@@ -68,7 +68,7 @@
                 }
                 if ($animals!=null){
                     foreach ($animals as $animal){
-                        echo $htmlMaker->getProduct("../media/pictures/animals/".$animal["Picture"],"info.php?id=".$animal["ItemID"],$animal["Title"]);
+                        echo $htmlMaker->getProduct("../media/pictures/animals/".$animal["Picture"],$animal["ItemID"],$animal["Title"]);
                     }
                 }else{
                     echo "
