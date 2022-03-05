@@ -8,9 +8,11 @@ console.log(el);
 console.log(document.getElementsByClassName('shopContainer')[0])
 
 /* Get the height and width of the element */
+let height;
+let width;
 if (el[0] != null){
-    const height = el[0].clientHeight
-    const width = el[0].clientWidth
+    height = el[0].clientHeight
+    width = el[0].clientWidth
 }else{
     filterContainer.classList.remove("hide")
 }
