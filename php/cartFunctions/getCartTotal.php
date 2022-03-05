@@ -11,9 +11,14 @@ if (isset($_SESSION["userLoggedIn"])){
     foreach ($cart as $c){
         $total += ($db->getAnimalById($c["ItemID"])["Price"] * $c["Count"]);
     }
-    echo $total;
 }else{
-    //TODO not logged in
+    $cart = json_decode($_COOKIE['cart'], true);
+    $total = 0;
+    $cart = json_decode($_COOKIE['cart'], true);
+    foreach (array_keys($cart) as $k){
+        $total += (intval($db->getAnimalById($k)["Price"]) * intval($cart[$k]));
+    }
 }
+echo $total;
 
 

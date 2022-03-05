@@ -9,6 +9,8 @@ if (isset($_SESSION["userLoggedIn"])) {
     $db->removeItemInCart($itemID,$_SESSION["userID"]);
     echo "success";
 }else{
-    //TODO not logged in
-    echo "Not Logged in";
+    $cart = json_decode($_COOKIE['cart'], true);
+    unset($cart[(string)$itemID]);
+    setcookie('cart', json_encode($cart), time()+60*60*24*30, "/ShopSite/");
+    $_COOKIE['cart'] = json_encode($cart);
 }

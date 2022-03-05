@@ -10,6 +10,8 @@ if (isset($_SESSION["userLoggedIn"])) {
     $db->updateItemInCart($itemID,$_SESSION["userID"],$newCount);
     echo "success";
 }else{
-    //TODO not logged in
-    echo "Not Logged in";
+    $cart = json_decode($_COOKIE['cart'], true);
+    $cart[(string)$itemID] = $newCount;
+    setcookie('cart', json_encode($cart), time()+60*60*24*30, "/ShopSite/");
+    $_COOKIE['cart'] = json_encode($cart);
 }

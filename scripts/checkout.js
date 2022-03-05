@@ -23,10 +23,6 @@ function scrollfunk() {
     }
 }
 
-for (let i = 0; i<itemCountControlls.length; i++){
-    itemCountControlls[i].addEventListener('click',()=>changeCount(itemCountControlls[i]));
-}
-
 function changeCount(el){
     console.log("clicked")
     let input = el.parentNode.getElementsByClassName("itemCountInput")[0];
@@ -59,6 +55,16 @@ function calculateTotal(){
     (async ()=>{
         let module = await import("../scripts/asyncExec.js");
         let response = await module.asyncGet("../php/cartFunctions/getCartTotal.php");
+        console.log(response);
+
+        response = 0.000;
+        let prices = document.getElementsByClassName("totalPrice");
+        for (let i = 0; i<prices.length;i++){
+            console.log(prices[i].textContent);
+            response += parseInt(prices[i].textContent.split('.').join("").split(",").join(""));
+            console.log(response);
+        }
+
         let formatter = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
         subtotal.textContent = formatter.format(response/100);
         discount.textContent = formatter.format(response/1000);
@@ -73,6 +79,7 @@ function calculateTotal(){
         shipping.textContent = formatter.format(shippingVal/100);
         total.textContent = formatter.format((response/100)+(shippingVal/100)-(response/1000));
     })();
+
 }
 
 calculateTotal();

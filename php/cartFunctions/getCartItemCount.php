@@ -8,5 +8,6 @@ if (!isset($_SESSION)) {
 if (isset($_SESSION["userLoggedIn"])) {
     echo $db->getItemCountCart($itemID,$_SESSION["userID"]);
 }else{
-    //TODO not logged in
+    $cart = json_decode($_COOKIE['cart'], true);
+    echo $cart[(string)$itemID];
 }

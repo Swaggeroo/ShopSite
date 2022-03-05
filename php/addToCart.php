@@ -15,5 +15,12 @@ if (isset($_SESSION["userLoggedIn"])){
     }
     echo "success";
 }else{
-    echo "Not Logged in";
+    if (isset($_COOKIE["cart"])){
+        $cart = json_decode($_COOKIE['cart'], true);
+        $cart[(string)$itemID] = $count + $cart[(string)$itemID];
+    }else{
+        $cart = array($itemID=>$count);
+    }
+    setcookie('cart', json_encode($cart), time()+60*60*24*30, "/ShopSite/");
+    $_COOKIE['cart'] = json_encode($cart);
 }

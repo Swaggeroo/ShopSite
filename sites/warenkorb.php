@@ -23,12 +23,24 @@
             $db = new db();
             if (isset($_SESSION["userLoggedIn"])){
                 $cart = $db->getCartFromUser($_SESSION["userID"]);
-                foreach ($cart as $c){
-                    $animal = $db->getAnimalById(intval($c["ItemID"]));
-                    echo $htmlMaker->getCartItem($animal["Title"],$c["Count"],$animal["Price"],$animal["Picture"],$c["ItemID"]);
+                if (count($cart)>0){
+                    foreach ($cart as $c){
+                        $animal = $db->getAnimalById(intval($c["ItemID"]));
+                        echo $htmlMaker->getCartItem($animal["Title"],$c["Count"],$animal["Price"],$animal["Picture"],$c["ItemID"]);
+                    }
+                }else{
+                    echo "Dein Warenkorb ist leer <a href='./shop.php'>Zum Shop</a>";
                 }
             }else{
-                echo "<p>Not Logged in</p>";
+                if (isset($_COOKIE['cart']) && count(json_decode($_COOKIE['cart'], true))>0){
+                    $cart = json_decode($_COOKIE['cart'], true);
+                    foreach (array_keys($cart) as $k){
+                        $animal = $db->getAnimalById(intval($k));
+                        echo $htmlMaker->getCartItem($animal["Title"],$cart[(string)$k],$animal["Price"],$animal["Picture"],$k);
+                    }
+                }else{
+                    echo "Dein Warenkorb ist leer <a href='./shop.php'>Zum Shop</a>";
+                }
             }
             ?>
         </div>
