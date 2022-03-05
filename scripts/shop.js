@@ -1,13 +1,19 @@
 /* Store the element in el */
 const filterKat = document.getElementById("filterKat")
 const filterVerk = document.getElementById("filterVerk")
+const filterBTN = document.getElementById("filterBTN")
+const filterContainer = document.getElementById("sortContainer")
 let el = document.getElementsByClassName('shopContainer')
 console.log(el);
 console.log(document.getElementsByClassName('shopContainer')[0])
 
 /* Get the height and width of the element */
-const height = el[0].clientHeight
-const width = el[0].clientWidth
+if (el[0] != null){
+    const height = el[0].clientHeight
+    const width = el[0].clientWidth
+}else{
+    filterContainer.classList.remove("hide")
+}
 
 /*
   * Add a listener for mousemove event
@@ -29,15 +35,15 @@ for (let i = 0; i < el.length; i++){
 /* Define function a */
 function handleMove(e,element) {
     /* Store relative position to element */
-    const xVal = e.pageX - element.offsetLeft;
-    const yVal = e.pageY - element.offsetTop;
+    const xVal = e.pageX - element.offsetLeft
+    const yVal = e.pageY - element.offsetTop
 
     /* Calculate rotation multiplikator 20*/
     const yRotation = 20 * ((xVal - width / 2) / width)
     const xRotation = -20 * ((yVal - height / 2) / height)
 
     /* CSS  property*/
-    let prop;
+    let prop
     if (window.innerWidth < 800){
         prop = 'perspective(500px) scale(1.1)'
     }else{
@@ -48,16 +54,20 @@ function handleMove(e,element) {
 }
 
 function filterShop(){
-    let redicrect = "./shop.php?";
+    let redicrect = "./shop.php?"
     if (filterKat.value !== ""){
         redicrect+="kategorie="+filterKat.value+"&"
     }
     if (filterVerk.value !== ""){
         redicrect+="verkaeufer="+filterVerk.value
     }
-    window.location.href = redicrect;
+    window.location.href = redicrect
 }
 
 function resetFilterShop(){
-    window.location.href = "./shop.php";
+    window.location.href = "./shop.php"
 }
+
+filterBTN.addEventListener("click", ()=>{
+    filterContainer.classList.toggle("hide")
+})

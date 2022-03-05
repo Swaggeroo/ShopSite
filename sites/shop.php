@@ -18,7 +18,7 @@
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Shop"); ?>
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
-        <div class="Sort Container">
+        <div id="sortContainer" class="hide">
             <p>Sortieren</p>
             <select id="filterKat">
                 <option value="" <?php if (!isset($_GET["kategorie"])) echo "selected"?>>Kategorie auswählen</option>
@@ -57,17 +57,23 @@
             <?php
                 $htmlMaker = new htmlMaker();
                 $animals = null;
-                if (isset($_GET["kategorie"])){
-                    $animals = $db->getAnimalsSortedByKategorie(intval($_GET["kategorie"]));
+                if(isset($_GET["verkaeufer"]) && isset($_GET["kategorie"])){
+                    $animals = $db->getAnimalsSortedByVerkaeuferKategorie(intval($_GET["kategorie"]),intval($_GET["verkaeufer"]));
                 }else if(isset($_GET["verkaeufer"])){
                     $animals = $db->getAnimalsSortedByVerkaeufer(intval($_GET["verkaeufer"]));
-                }else{
+                }else if (isset($_GET["kategorie"])){
+                    $animals = $db->getAnimalsSortedByKategorie(intval($_GET["kategorie"]));
+                } else{
                     $animals = $db->getAllAnimals();
                 }
                 if ($animals!=null){
                     foreach ($animals as $animal){
                         echo $htmlMaker->getProduct("../media/pictures/animals/".$animal["Picture"],"info.php?id=".$animal["ItemID"],$animal["Title"]);
                     }
+                }else{
+                    echo "
+                      <p>Keine Tiere unter diesem Filter. <a href='./shop.php' id='badFilter'>Filter zurücksetzen</a></p>
+                    ";
                 }
             ?>
         </div>

@@ -372,6 +372,22 @@ class db{
         return $rows;
     }
 
+    public function getAnimalsSortedByVerkaeuferKategorie($catID,$verID):array{
+        $sqlQuery = "SELECT * FROM items WHERE CategoryID = ? AND ManufacturerID = ?";
+
+        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
+        $sqlStatement->bind_param("ii", $catID,$verID);
+        $sqlStatement->execute();
+
+        $result = $sqlStatement->get_result();
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
     public function getAnimalById($itemID){
         $sqlQuery = "SELECT * FROM items WHERE ItemID = ?";
 

@@ -132,3 +132,11 @@ h1{
 .warenkorbBTN::before{
     background-image: url("../media/icons/cart.SVG") !important;
 }
+
+.hide{
+    display: none;
+}
+
+#badFilter{
+    color: red;
+}

@@ -9,6 +9,13 @@
     </a>
     <div class="navbar-links">
         <ul>
+            <?php
+                $file = explode("/",$_SERVER["PHP_SELF"]);
+                $file = $file[count($file)-1];
+                if ($file = "shop.php"){
+                    echo "<li><a href=\"#\" id=\"filterBTN\">Filter</a></li>";
+                }
+            ?>
             <li><a href="/ShopSite/sites/shop.php">Shop</a></li>
             <li><a href="/ShopSite/sites/warenkorb.php">Warenkorb</a></li>
             <?php
