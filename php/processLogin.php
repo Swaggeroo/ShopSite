@@ -1,5 +1,5 @@
 <?php
-
+//TODO warenkorb übertragen
 if (!isset($_SESSION)) {
     session_start();
 }
