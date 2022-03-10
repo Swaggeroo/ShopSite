@@ -1,0 +1,9 @@
+body{
+    width: 200mm;
+}
+
+img{
+    width: 40mm;
+    height: 40mm;
+    float: left;
+}
