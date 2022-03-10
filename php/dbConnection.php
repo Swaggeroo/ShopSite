@@ -591,6 +591,25 @@ class db{
         $statement->close();
     }
 
+    public function getAllOrdersFromUser($userID):array{
+        $sqlQuery = "SELECT * FROM orders WHERE UserID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i", $userID);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $result = $statement->get_result();
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
 }
 
 ?>

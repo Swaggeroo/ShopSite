@@ -38,7 +38,7 @@ class htmlMaker {
         ";
     }
 
-    public function getPayPalItem($prodName,$prodDescription,$quantity,$cost){
+    public function getPayPalItem($prodName,$prodDescription,$quantity,$cost): string{
         return " 
             {
                 name: \"".$prodName."\",
@@ -49,6 +49,23 @@ class htmlMaker {
                 },
                 quantity: \"".$quantity."\"
             },
+        ";
+    }
+
+    public function getOrderItem($date,$id,$total,$status):string{
+        if (!$status){
+            $status = "shipping.SVG";
+        }else{
+            $status = "check.SVG";
+        }
+        return "
+            <tr>
+                <td>".$date."</td>
+                <td>".$id."</td>
+                <td><img src=\"../media/icons/".$status."\" alt=\"status\"></td>
+                <td>".number_format($total, 2, ',', '.')."€</td>
+                <td><a href=\"./rechnungDrucken.php?id=".$id."\"><img src=\"../media/icons/printer.SVG\" alt=\"drucken\"></a></td>
+            </tr>
         ";
     }
 }

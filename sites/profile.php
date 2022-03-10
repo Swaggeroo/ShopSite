@@ -58,6 +58,7 @@
             </table>
         </div>
         <div id="buttonsContext">
+            <a id="bestellungenBTN" href="./bestellungen.php">Bestellungen</a><br><br>
             <a id="logoutBTN" href="../php/logout.php">Logout</a>
         </div>
     </div>

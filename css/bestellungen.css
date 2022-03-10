@@ -1,0 +1,28 @@
+table{
+    width: 80%;
+    margin: auto;
+}
+
+img{
+    width: 2em;
+    height: 2em;
+}
+
+th, td{
+    padding-bottom: .7em;
+}
+
+td{
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    table {
+        width: 100%;
+    }
+
+    img{
+        width: 1.5em;
+        height: 1.5em;
+    }
+}
