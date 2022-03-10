@@ -71,42 +71,62 @@ require "../php/#checkPermission.php";
                 color: 'gold',
                 layout: 'horizontal',
                 label: 'paypal',
-
+                tagline: false //TODO
             },
 
             // Sets up the transaction when a payment button is clicked
             createOrder: function(data, actions) {
                 return actions.order.create({
 
-                    "purchase_units": [{
-                        "amount": {
-                            "currency_code": "EUR",
-                            "value": "9999999.99",
-                            "breakdown": {
-                                "item_total": {  /* Required when including the `items` array */
-                                    "currency_code": "EUR",
-                                    "value": "9999999.99"
+                    purchase_units: [{
+                        amount: {
+                            currency_code: "EUR",
+                            value: getRealTotal()-getShippingVal(getTotal()),
+                            breakdown: {
+                                item_total: {  /* Required when including the `items` array */
+                                    currency_code: "EUR",
+                                    value: getRealTotal()+getDiscount(getTotal())-getShippingVal(getTotal())
+                                },
+                                discount:{
+                                    currency_code: "EUR",
+                                    value: getDiscount(getTotal())
                                 }
                             }
                         },
-                        "items": [
+                        shipping: {
+                            options: [
+                                {
+                                    id: "SHIP",
+                                    label: "Standard Versand",
+                                    type: "SHIPPING",
+                                    selected: true,
+                                    amount: {
+                                        value: getShippingVal(getTotal()),
+                                        currency_code: "EUR"
+                                    }
+                                }
+                            ]
+                        },
+                        items: [
                             {
-                                "name": "First Product Name", /* Shows within upper-right dropdown during payment approval */
-                                "description": "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
-                                "unit_amount": {
-                                    "currency_code": "EUR",
-                                    "value": "9999999.99"
+                                name: "First Product Name", /* Shows within upper-right dropdown during payment approval */
+                                description: "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
+                                unit_amount: {
+                                    currency_code: "EUR",
+                                    value: getRealTotal()+getDiscount(getTotal())-getShippingVal(getTotal())
                                 },
-                                "quantity": "1"
+                                quantity: "1"
                             },
                         ]
                     }]
+
                 });
             },
 
             // Finalize the transaction after payer approval
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(orderData) {
+                    //TODO sucsess
                     // Successful capture! For dev/demo purposes:
                     console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                     var transaction = orderData.purchase_units[0].payments.captures[0];
@@ -118,6 +138,10 @@ require "../php/#checkPermission.php";
                     // element.innerHTML = '<h3>Thank you for your payment!</h3>';
                     // Or go to another URL:  actions.redirect('thank_you.html');
                 });
+            },
+
+            onCancel: function (data) {
+                // TODO Cancel
             }
         }).render('#paypal-button-container');
 

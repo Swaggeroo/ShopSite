@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/warenkorb.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
-    <script src="../scripts/checkout.js" defer></script>
+    <script src="../scripts/cart.js" defer></script>
 </head>
 <body>
     <?php require "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Warenkorb"); ?>

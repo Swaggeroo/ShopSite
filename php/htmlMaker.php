@@ -37,4 +37,18 @@ class htmlMaker {
             </div>
         ";
     }
+
+    public function getPayPalItem($prodName,$prodDescription,$quantity){
+        return " 
+            {
+                name: \"".$prodName."\",
+                description: \"".$prodDescription."\",
+                unit_amount: {
+                    currency_code: \"EUR\",
+                    value: getRealTotal()
+                },
+                quantity: \"".$quantity."\"
+            },
+        ";
+    }
 }
