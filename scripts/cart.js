@@ -63,7 +63,7 @@ function calculateTotal(){
 
         let formatter = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
         subtotal.textContent = formatter.format(response/100);
-        discount.textContent = formatter.format(response/1000);
+        discount.textContent = "- "+formatter.format(response/1000);
         let shippingVal = 0;
         if (response < 10000){
             shippingVal = 10000
