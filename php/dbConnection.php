@@ -73,13 +73,10 @@ class db{
             )",
             "CREATE TABLE IF NOT EXISTS Orders(
                 OrderID int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-                OrderDate date NOT NULL,
-                Arrived boolean NOT NULL
-            )",
-            "CREATE TABLE IF NOT EXISTS OrderUserConnections(
-                OrderID int NOT NULL,
+                OrderDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                Arrived boolean NOT NULL,
+                Total int NOT NULL,
                 UserID int NOT NULL,
-                FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
                 FOREIGN KEY (UserID) REFERENCES users(UserID)
             )",
             "CREATE TABLE IF NOT EXISTS OrderItemConnections(
@@ -101,10 +98,9 @@ class db{
     public function delEverything(){
         $sqlStatements = array(
             "DROP TABLE IF EXISTS OrderItemConnections",
-            "DROP TABLE IF EXISTS OrderUserConnections",
             "DROP TABLE IF EXISTS Carts",
-            "DROP TABLE IF EXISTS USERS",
             "DROP TABLE IF EXISTS Orders",
+            "DROP TABLE IF EXISTS USERS",
             "DROP TABLE IF EXISTS Items",
             "DROP TABLE IF EXISTS Categories",
             "DROP TABLE IF EXISTS Manufacturers"
@@ -547,6 +543,46 @@ class db{
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("ii", $itemID, $userID);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
+
+    public function clearCart($userID){
+        $sqlQuery = "DELETE FROM carts WHERE UserID = ?";
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i", $userID);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
+
+    public function createOrder($userID, $total):int{
+        $sqlQuery = "INSERT INTO orders (Arrived, UserID, Total) VALUES (false,?,?)";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ii", $userID,$total);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+
+        return mysqli_insert_id($this->dbKeyObject);
+    }
+
+    public function createItemOrderRefference($orderID,$itemID,$count){
+        $sqlQuery = "INSERT INTO orderitemconnections (OrderID, ItemID, Count) VALUES (?,?,?)";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("iii", $orderID, $itemID, $count);
 
         if(!$statement->execute()){
             die("Error: ".$statement->error);

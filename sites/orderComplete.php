@@ -22,7 +22,7 @@
             </div>
         </div>
         <p style="margin-top: 90px"><a href="./shop.php">Weiter Shoppen</a></p>
-        <p><a>Bestellungen ansehen</a></p>
+        <p><a href="./rechnungDrucken.php?id=<?php echo $_GET["id"]?>">Rechnung ansehen</a></p>
     </div>
 </body>
 </html>
