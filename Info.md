@@ -10,7 +10,15 @@ Es muss nur eine Datenbank und Nutzer mit den nachfolgenden Daten angelegt werde
 
 (Rechte: localhost - global * Berechtigung)
 
+Danach einfach auf die seite "localhost/ShopSite/tools/setup.php" gehen dann werden alle Datenbanken etc mit Beispieldaten angelegt.
+
+##Seiten Beispiel Login
+- Username: TestTest (NonCaseSensitive)
+- Password: Test1234
+
+In diesem Nutzer sind bereits ein paar Bestellungen etc vorhanden
+
 ##PAYPAL
 Hier sind Testanmeldedaten um das Paypal Checkout zu testen.
-- EMAIL: sb-ag0u214326978@personal.example.com
-- PASSWORD: t>&]CI1l
+- Email: sb-ag0u214326978@personal.example.com
+- Password: t>&]CI1l
