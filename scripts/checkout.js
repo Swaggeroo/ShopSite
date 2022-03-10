@@ -7,7 +7,6 @@ function getTotal(){
     let response = 0.00;
     let prices = document.getElementsByClassName("totalPrice");
     for (let i = 0; i<prices.length;i++){
-        console.log(prices[i].textContent);
         response += parseInt(prices[i].textContent.split('.').join("").split(",").join(""));
     }
     return response;
@@ -48,3 +47,8 @@ function calculateTotal(){
 }
 
 calculateTotal();
+
+console.log(getTotal())
+console.log(getDiscount(getTotal()))
+console.log(getShippingVal(getTotal()))
+console.log(getRealTotal())

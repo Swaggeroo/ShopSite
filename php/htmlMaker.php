@@ -38,14 +38,14 @@ class htmlMaker {
         ";
     }
 
-    public function getPayPalItem($prodName,$prodDescription,$quantity){
+    public function getPayPalItem($prodName,$prodDescription,$quantity,$cost){
         return " 
             {
                 name: \"".$prodName."\",
                 description: \"".$prodDescription."\",
                 unit_amount: {
                     currency_code: \"EUR\",
-                    value: getRealTotal()
+                    value: ".$cost."
                 },
                 quantity: \"".$quantity."\"
             },

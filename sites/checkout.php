@@ -59,7 +59,7 @@ require "../php/#checkPermission.php";
                     <td id="total">0.00€</td>
                 </tr>
             </table>
-            <a href="../php/buy.php" id="checkoutBTN">Kaufen</a>
+            <a href="../php/processBuy.php" id="checkoutBTN">Kaufen</a>
             <div id="paypal-button-container" style="margin: auto; width: 80%"></div>
         </div>
     </div>
@@ -81,11 +81,11 @@ require "../php/#checkPermission.php";
                     purchase_units: [{
                         amount: {
                             currency_code: "EUR",
-                            value: getRealTotal()-getShippingVal(getTotal()),
+                            value: getRealTotal(),
                             breakdown: {
                                 item_total: {  /* Required when including the `items` array */
                                     currency_code: "EUR",
-                                    value: getRealTotal()+getDiscount(getTotal())-getShippingVal(getTotal())
+                                    value: getRealTotal()+getDiscount(getTotal())
                                 },
                                 discount:{
                                     currency_code: "EUR",
@@ -93,27 +93,19 @@ require "../php/#checkPermission.php";
                                 }
                             }
                         },
-                        shipping: {
-                            options: [
-                                {
-                                    id: "SHIP",
-                                    label: "Standard Versand",
-                                    type: "SHIPPING",
-                                    selected: true,
-                                    amount: {
-                                        value: getShippingVal(getTotal()),
-                                        currency_code: "EUR"
-                                    }
-                                }
-                            ]
-                        },
                         items: [
+                            <?php
+                                foreach ($cart as $c){
+                                    $animal = $db->getAnimalById(intval($c["ItemID"]));
+                                    echo $htmlMaker->getPayPalItem($animal["Title"],"",$c["Count"],intval($animal["Price"])/100);
+                                }
+                            ?>
                             {
-                                name: "First Product Name", /* Shows within upper-right dropdown during payment approval */
-                                description: "Optional descriptive text..", /* Item details will also be in the completed paypal.com transaction view */
+                                name: "Versand",
+                                description: "Versandkosten",
                                 unit_amount: {
                                     currency_code: "EUR",
-                                    value: getRealTotal()+getDiscount(getTotal())-getShippingVal(getTotal())
+                                    value: (getShippingVal(getTotal())/100),
                                 },
                                 quantity: "1"
                             },
@@ -126,17 +118,12 @@ require "../php/#checkPermission.php";
             // Finalize the transaction after payer approval
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(orderData) {
-                    //TODO sucsess
                     // Successful capture! For dev/demo purposes:
-                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                    var transaction = orderData.purchase_units[0].payments.captures[0];
-                    alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                    // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    // var transaction = orderData.purchase_units[0].payments.captures[0];
+                    // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
 
-                    // When ready to go live, remove the alert and show a success message within this page. For example:
-                    // var element = document.getElementById('paypal-button-container');
-                    // element.innerHTML = '';
-                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                    // Or go to another URL:  actions.redirect('thank_you.html');
+                    window.location.replace("../php/processBuy.php");
                 });
             },
 
