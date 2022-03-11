@@ -18,7 +18,7 @@
 </head>
 <body>
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Profil"); ?>
-    <?require "../php/#navBar.php" ?>
+    <?php require "../php/#navBar.php" ?>
     <div class="content" align="center">
         <h1><?php echo $user["UserName"]?></h1>
         <div id="infoContext">
