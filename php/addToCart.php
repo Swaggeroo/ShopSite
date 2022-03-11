@@ -1,4 +1,5 @@
 <?php
+require "../tools/config.php";
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -21,6 +22,6 @@ if (isset($_SESSION["userLoggedIn"])){
     }else{
         $cart = array($itemID=>$count);
     }
-    setcookie('cart', json_encode($cart), time()+60*60*24*30, "/ShopSite/");
+    setcookie('cart', json_encode($cart), time()+60*60*24*30, "/".$GLOBALS['rootDir']."ShopSite/");
     $_COOKIE['cart'] = json_encode($cart);
 }
