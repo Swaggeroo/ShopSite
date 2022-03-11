@@ -8,6 +8,14 @@
     require "../php/dbConnection.php";
     $db = new db();
     $verkaeufer = $db->getManufacturerById($_GET["id"]);
+    if ($verkaeufer == null){
+        echo "
+            <script>
+                alert('Error Verkäufer not found');
+                window.location.replace('./shop.php');
+           </script>
+        ";
+    }
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

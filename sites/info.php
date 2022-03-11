@@ -8,6 +8,14 @@
         require "../php/dbConnection.php";
         $db = new db();
         $animal = $db->getAnimalById(intval($_GET["id"]));
+        if ($animal == null){
+            echo "
+                <script>
+                    alert('Error Tier not found');
+                    window.location.replace('./shop.php');
+               </script>
+            ";
+        }
         $verkaeufer = $db->getManufacturerById($animal["ManufacturerID"]);
         $kategorie = $db->getCategoryById($animal["CategoryID"]);
     ?>
