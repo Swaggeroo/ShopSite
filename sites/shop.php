@@ -22,7 +22,7 @@
         <div id="sortContainer" class="hide">
             <p>Sortieren</p>
             <select id="filterKat">
-                <option value="" <?php if (!isset($_GET["kategorie"])) echo "selected"?>>Kategorie auswählen</option>
+                <option value="" <?php if (!isset($_GET["kategorie"])) echo "selected"?>>Alle Kategorie</option>
                 <?php
                     $cats = $db->getAllKategorien();
                     foreach ($cats as $cat){
@@ -35,7 +35,7 @@
                 ?>
             </select>
             <select id="filterVerk">
-                <option value="" <?php if (!isset($_GET["verkaeufer"])) echo "selected"?>>Verkäufer auswählen</option>
+                <option value="" <?php if (!isset($_GET["verkaeufer"])) echo "selected"?>>Alle Verkäufer</option>
                 <?php
                 $verk = $db->getAllVerkaeufer();
                 foreach ($verk as $ver){
