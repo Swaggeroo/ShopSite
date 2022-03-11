@@ -1,4 +1,5 @@
 <?php
+require ("../tools/config.php");
 class htmlMaker {
     public function getProduct($pictureLink,$itemID,$text):string{
         return "
@@ -17,7 +18,7 @@ class htmlMaker {
 
     public function getHeader($pictureLink, $title):string{
         return "
-        <link rel='stylesheet' href='/ShopSite/css/head.css'>
+        <link rel='stylesheet' href='/".$GLOBALS['rootDir']."ShopSite/css/head.css'>
         <div class=\"header\" style=\"background-image: url('".$pictureLink."')\">
             <h1>".$title."</h1>
         </div>";

@@ -11,7 +11,6 @@ class db{
 
     public function __construct(){
         $this->dbKeyObject = new mysqli($this->{"_db_host"}, $this->{"_db_user"}, $this->{"_db_pass"}, $this->{"_db_name"});
-
         if($this->dbKeyObject->connect_error){
             die('Error: Keine Verbindung zur Datenbank!'. $this->dbKeyObject->connect_error);
         }
@@ -25,7 +24,7 @@ class db{
 
     public function createBasicDatabaseStructure(){
         $sqlStatements = array(
-            "CREATE TABLE IF NOT EXISTS USERS(
+            "CREATE TABLE IF NOT EXISTS Users(
                 UserID int PRIMARY KEY AUTO_INCREMENT NOT NULL,
                 UserName varchar(100) NOT NULL,
                 Passwort varchar(255) NOT NULL,
@@ -37,12 +36,12 @@ class db{
                 PLZ int(5) NOT NULL,
                 IBAN varchar(24) NOT NULL,
                 BIC varchar(13) NOT NULL
-            )",
+            ) ENGINE = INNODB",
             "CREATE TABLE IF NOT EXISTS Categories(
                 CategoryID int PRIMARY KEY AUTO_INCREMENT NOT NULL,
                 Title varchar(255) NOT NULL,
                 Content varchar(2500) NOT NULL
-            )",
+            ) ENGINE = INNODB",
             "CREATE TABLE IF NOT EXISTS Manufacturers(
                 ManufacturerID int PRIMARY KEY AUTO_INCREMENT NOT NULL,
                 FirmName varchar(255) NOT NULL,
@@ -52,7 +51,7 @@ class db{
                 Strasse varchar(255) NOT NULL,
                 Stadt varchar(100) NOT NULL,
                 PLZ int(5) NOT NULL
-            )",
+            ) ENGINE = INNODB",
             "CREATE TABLE IF NOT EXISTS Items(
                 ItemID int PRIMARY KEY AUTO_INCREMENT NOT NULL,
                 Title varchar(255) NOT NULL,
@@ -63,34 +62,36 @@ class db{
                 ManufacturerID int NOT NULL,
                 FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID),
                 FOREIGN KEY (ManufacturerID) REFERENCES Manufacturers(ManufacturerID)
-            )",
+            ) ENGINE = INNODB",
             "CREATE TABLE IF NOT EXISTS Carts(
                 ItemID int NOT NULL,
                 UserID int NOT NULL,
                 Count int NOT NULL,
-                FOREIGN KEY (UserID) REFERENCES USERS(UserID),
-                FOREIGN KEY (ItemID) REFERENCES ITEMS(ItemID)
-            )",
+                FOREIGN KEY (UserID) REFERENCES Users(UserID),
+                FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
+            ) ENGINE = INNODB",
             "CREATE TABLE IF NOT EXISTS Orders(
                 OrderID int PRIMARY KEY AUTO_INCREMENT NOT NULL,
                 OrderDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 Arrived boolean NOT NULL,
                 Total int NOT NULL,
                 UserID int NOT NULL,
-                FOREIGN KEY (UserID) REFERENCES users(UserID)
-            )",
+                FOREIGN KEY (UserID) REFERENCES Users(UserID)
+            ) ENGINE = INNODB",
             "CREATE TABLE IF NOT EXISTS OrderItemConnections(
                 OrderID int NOT NULL,
                 ItemID int NOT NULL,
                 Count int NOT NULL,
                 FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
                 FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
-            )"
+            ) ENGINE = INNODB"
         );
 
         echo "<p>Creating Tables</p>";
         for($i = 0; $i < count($sqlStatements); $i++){
-            $this->dbKeyObject->query($sqlStatements[$i]);
+            if (!$this->dbKeyObject->query($sqlStatements[$i])){
+                echo("Error description: " . $this->dbKeyObject -> error);
+            }
             echo "<p>(".($i+1)."/".count($sqlStatements).")</p>";
         }
     }
@@ -179,7 +180,7 @@ class db{
     }
 
     public function getUserNameCount($userName):int{
-        $sqlQuery = "SELECT COUNT(UserName) AS userNameCount FROM users WHERE LOWER(userName) = LOWER(?)";
+        $sqlQuery = "SELECT COUNT(UserName) AS userNameCount FROM Users WHERE LOWER(userName) = LOWER(?)";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("s", $userName);
@@ -205,7 +206,7 @@ class db{
     }
 
     public function getUserIdForUsername($username):int{
-        $sqlQuery = "SELECT userID FROM users WHERE LOWER(userName) = LOWER(?)";
+        $sqlQuery = "SELECT userID FROM Users WHERE LOWER(userName) = LOWER(?)";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("s", $username);
@@ -221,7 +222,7 @@ class db{
     }
 
     public function getUserName($userID) {
-        $sqlQuery = "SELECT userName AS userName FROM users WHERE userID = ?";
+        $sqlQuery = "SELECT userName AS userName FROM Users WHERE userID = ?";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("i", $userID);
@@ -237,7 +238,7 @@ class db{
     }
 
     public function getPasswordForUserID($userID):String{
-        $sqlQuery = "SELECT Passwort FROM users WHERE userID = ?";
+        $sqlQuery = "SELECT Passwort FROM Users WHERE userID = ?";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("i", $userID);
@@ -253,7 +254,7 @@ class db{
     }
 
     public function addUser($username, $password, $email, $vorname, $nachname, $strasse, $stadt, $plz, $iban, $bic){
-        $sqlQuery = "INSERT INTO users(username, passwort, email, vorname, nachname, strasse, stadt, plz, iban, bic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sqlQuery = "INSERT INTO Users(username, passwort, email, vorname, nachname, strasse, stadt, plz, iban, bic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("sssssssiss", $username, $password, $email, $vorname, $nachname, $strasse, $stadt, $plz, $iban, $bic);
@@ -265,7 +266,7 @@ class db{
     }
 
     public function addManufacturer($name, $telnum, $email, $strasse, $stadt, $plz, $beschreibung){
-        $sqlQuery = "INSERT INTO manufacturers (FirmName, Content, Email, TelNumber, Strasse, Stadt, PLZ) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sqlQuery = "INSERT INTO Manufacturers (FirmName, Content, Email, TelNumber, Strasse, Stadt, PLZ) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("ssssssi", $name, $beschreibung, $email, $telnum, $strasse, $stadt, $plz);
@@ -277,7 +278,7 @@ class db{
     }
 
     public function addCategory($name, $beschreibung){
-        $sqlQuery = "INSERT INTO categories (Title, Content) VALUES (?, ?)";
+        $sqlQuery = "INSERT INTO Categories (Title, Content) VALUES (?, ?)";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("ss", $name, $beschreibung);
@@ -289,7 +290,7 @@ class db{
     }
 
     public function addAnimal($title, $beschreibung, $price, $picture, $categoryid, $manufacturerid){
-        $sqlQuery = "INSERT INTO items (Title, Content, Price, Picture, CategoryID, ManufacturerID) VALUES (?, ?, ?, ?, ?, ?)";
+        $sqlQuery = "INSERT INTO Items (Title, Content, Price, Picture, CategoryID, ManufacturerID) VALUES (?, ?, ?, ?, ?, ?)";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("ssisii", $title, $beschreibung, $price, $picture, $categoryid, $manufacturerid);
@@ -301,7 +302,7 @@ class db{
     }
 
     public function getAllKategorien():array{
-        $sqlQuery = "SELECT * FROM categories";
+        $sqlQuery = "SELECT * FROM Categories";
 
         $result = $this->dbKeyObject->query($sqlQuery);
 
@@ -313,7 +314,7 @@ class db{
     }
 
     public function getAllVerkaeufer():array{
-        $sqlQuery = "SELECT * FROM manufacturers";
+        $sqlQuery = "SELECT * FROM Manufacturers";
 
         $result = $this->dbKeyObject->query($sqlQuery);
 
@@ -325,7 +326,7 @@ class db{
     }
 
     public function getAllAnimals():array{
-        $sqlQuery = "SELECT * FROM items";
+        $sqlQuery = "SELECT * FROM Items";
 
         $result = $this->dbKeyObject->query($sqlQuery);
 
@@ -337,7 +338,7 @@ class db{
     }
 
     public function getAnimalsSortedByKategorie($catID):array{
-        $sqlQuery = "SELECT * FROM items WHERE CategoryID = ?";
+        $sqlQuery = "SELECT * FROM Items WHERE CategoryID = ?";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("i", $catID);
@@ -353,7 +354,7 @@ class db{
     }
 
     public function getAnimalsSortedByVerkaeufer($verID):array{
-        $sqlQuery = "SELECT * FROM items WHERE ManufacturerID = ?";
+        $sqlQuery = "SELECT * FROM Items WHERE ManufacturerID = ?";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("i", $verID);
@@ -369,7 +370,7 @@ class db{
     }
 
     public function getAnimalsSortedByVerkaeuferKategorie($catID,$verID):array{
-        $sqlQuery = "SELECT * FROM items WHERE CategoryID = ? AND ManufacturerID = ?";
+        $sqlQuery = "SELECT * FROM Items WHERE CategoryID = ? AND ManufacturerID = ?";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("ii", $catID,$verID);
@@ -385,7 +386,7 @@ class db{
     }
 
     public function getAnimalById($itemID){
-        $sqlQuery = "SELECT * FROM items WHERE ItemID = ?";
+        $sqlQuery = "SELECT * FROM Items WHERE ItemID = ?";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("i", $itemID);
@@ -401,7 +402,7 @@ class db{
     }
 
     public function getCategoryById($categoryID){
-        $sqlQuery = "SELECT * FROM categories WHERE CategoryID = ?";
+        $sqlQuery = "SELECT * FROM Categories WHERE CategoryID = ?";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("i", $categoryID);
@@ -417,7 +418,7 @@ class db{
     }
 
     public function getManufacturerById($manufacturerID){
-        $sqlQuery = "SELECT * FROM manufacturers WHERE ManufacturerID = ?";
+        $sqlQuery = "SELECT * FROM Manufacturers WHERE ManufacturerID = ?";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("i", $manufacturerID);
@@ -433,7 +434,7 @@ class db{
     }
 
     public function getUserById($userID){
-        $sqlQuery = "SELECT * FROM users WHERE UserID = ?";
+        $sqlQuery = "SELECT * FROM Users WHERE UserID = ?";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
         $sqlStatement->bind_param("i", $userID);
@@ -449,7 +450,7 @@ class db{
     }
 
     public function existsInCart($itemID, $userID): bool{
-        $sqlQuery = "SELECT COUNT(UserID) AS count FROM carts WHERE UserID = ? AND ItemID = ?";
+        $sqlQuery = "SELECT COUNT(UserID) AS count FROM Carts WHERE UserID = ? AND ItemID = ?";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("ii", $userID, $itemID);
@@ -465,7 +466,7 @@ class db{
     }
 
     public function getItemCountCart($itemID, $userID): int{
-        $sqlQuery = "SELECT Count FROM carts WHERE UserID = ? AND ItemID = ?";
+        $sqlQuery = "SELECT Count FROM Carts WHERE UserID = ? AND ItemID = ?";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("ii", $userID, $itemID);
@@ -481,7 +482,7 @@ class db{
     }
 
     public function insertItemIntoCart($itemID, $userID, $count){
-        $sqlQuery = "INSERT INTO carts (ItemID, UserID, Count) VALUES (?,?,?)";
+        $sqlQuery = "INSERT INTO Carts (ItemID, UserID, Count) VALUES (?,?,?)";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("iii", $itemID,$userID, $count);
@@ -494,7 +495,7 @@ class db{
     }
 
     public function updateItemInCart($itemID, $userID, $count){
-        $sqlQuery = "UPDATE carts SET Count = ? WHERE ItemID = ? AND UserID = ?";
+        $sqlQuery = "UPDATE Carts SET Count = ? WHERE ItemID = ? AND UserID = ?";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("iii", $count, $itemID, $userID);
@@ -507,7 +508,7 @@ class db{
     }
 
     public function getCartItemCount($userID):int{
-        $sqlQuery = "SELECT SUM(Count) AS Count FROM carts WHERE UserID = ? GROUP BY UserID";
+        $sqlQuery = "SELECT SUM(Count) AS Count FROM Carts WHERE UserID = ? GROUP BY UserID";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("i",$userID);
@@ -523,7 +524,7 @@ class db{
     }
 
     public function getCartFromUser($userID):array{
-        $sqlQuery = "SELECT * FROM carts WHERE UserID = ?";
+        $sqlQuery = "SELECT * FROM Carts WHERE UserID = ?";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("i",$userID);
@@ -539,7 +540,7 @@ class db{
     }
 
     public function removeItemInCart($itemID, $userID){
-        $sqlQuery = "DELETE FROM carts WHERE ItemID = ? AND UserID = ?";
+        $sqlQuery = "DELETE FROM Carts WHERE ItemID = ? AND UserID = ?";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("ii", $itemID, $userID);
@@ -552,7 +553,7 @@ class db{
     }
 
     public function clearCart($userID){
-        $sqlQuery = "DELETE FROM carts WHERE UserID = ?";
+        $sqlQuery = "DELETE FROM Carts WHERE UserID = ?";
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("i", $userID);
 
@@ -564,7 +565,7 @@ class db{
     }
 
     public function createOrder($userID, $total):int{
-        $sqlQuery = "INSERT INTO orders (Arrived, UserID, Total) VALUES (false,?,?)";
+        $sqlQuery = "INSERT INTO Orders (Arrived, UserID, Total) VALUES (false,?,?)";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("ii", $userID,$total);
@@ -579,7 +580,7 @@ class db{
     }
 
     public function createItemOrderRefference($orderID,$itemID,$count){
-        $sqlQuery = "INSERT INTO orderitemconnections (OrderID, ItemID, Count) VALUES (?,?,?)";
+        $sqlQuery = "INSERT INTO OrderItemConnections (OrderID, ItemID, Count) VALUES (?,?,?)";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("iii", $orderID, $itemID, $count);
@@ -592,7 +593,7 @@ class db{
     }
 
     public function getAllOrdersFromUser($userID):array{
-        $sqlQuery = "SELECT * FROM orders WHERE UserID = ?";
+        $sqlQuery = "SELECT * FROM Orders WHERE UserID = ?";
 
         $statement = $this->dbKeyObject->prepare($sqlQuery);
         $statement->bind_param("i", $userID);
