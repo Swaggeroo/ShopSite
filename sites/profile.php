@@ -1,6 +1,7 @@
 <?php
     require "../php/#checkPermission.php";
     require "../php/dbConnection.php";
+    require "../tools/config.php";
     $db = new db();
     $user = $db->getUserById($_SESSION["userID"]);
 ?>
@@ -17,7 +18,7 @@
 </head>
 <body>
     <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Profil"); ?>
-    <?php require "../php/#navBar.php" ?>
+    <?php require "../tools/config.php";require "../php/#navBar.php?rootDir=".$GLOBALS['rootDir'] ?>
     <div class="content" align="center">
         <h1><?php echo $user["UserName"]?></h1>
         <div id="infoContext">

@@ -1,3 +1,6 @@
+<?php
+    require "./tools/config.php";
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -7,7 +10,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./css/home.css">
     <link rel="icon" href="./media/icons/favicon.SVG" sizes="any">
-    <script src="/ShopSite/scripts/home.js" defer></script>
+    <script src="./scripts/home.js" defer></script>
 </head>
 <body>
     <?php require "./php/#navBar.php"?>

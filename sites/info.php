@@ -1,3 +1,6 @@
+<?php
+    require "../tools/config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

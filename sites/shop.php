@@ -1,4 +1,5 @@
 <?php
+    require "../tools/config.php";
     require "../php/dbConnection.php";
     $db = new db();
 ?>

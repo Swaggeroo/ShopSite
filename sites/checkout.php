@@ -1,5 +1,6 @@
 <?php
 require "../php/#checkPermission.php";
+require "../tools/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">

@@ -2,6 +2,7 @@
 require "../php/#checkPermission.php";
 require "../php/dbConnection.php";
 require "../php/htmlMaker.php";
+require "../tools/config.php";
 $db = new db();
 $htmlMaker = new htmlMaker();
 ?>
