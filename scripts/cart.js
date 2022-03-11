@@ -32,6 +32,9 @@ function changeCount(el){
     let factor = el.textContent === "+" ? 1 : -1;
     console.log(input.name + " - "+ factor);
     input.value = parseInt(input.value) + factor;
+    if (input.value > 999){
+        input.value = 999;
+    }
     h2Tag.textContent = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(input.value*pricePerItem/100);
     (async ()=>{
         if (input.value<=0){
