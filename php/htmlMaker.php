@@ -65,7 +65,7 @@ class htmlMaker {
                 <td>".$id."</td>
                 <td><img src=\"../media/icons/".$status."\" alt=\"status\"></td>
                 <td>".number_format($total, 2, ',', '.')."€</td>
-                <td><a href=\"./rechnungDrucken.php?id=".$id."\"><img src=\"../media/icons/printer.SVG\" alt=\"drucken\"></a></td>
+                <td><a href=\"./rechnungDrucken.php?id=".$id."\" target='_blank'><img src=\"../media/icons/printer.SVG\" alt=\"drucken\"></a></td>
             </tr>
         ";
     }
