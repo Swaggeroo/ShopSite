@@ -611,6 +611,38 @@ class db{
         return $rows;
     }
 
+    public function getOrderInfos($orderID):array{
+        $sqlQuery = "SELECT * FROM Orders WHERE OrderID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i",$orderID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
+    public function getItemsFromOrder($orderID):array{
+        $sqlQuery = "SELECT * FROM OrderItemConnections WHERE OrderID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i",$orderID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
 }
 
 ?>

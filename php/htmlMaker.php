@@ -69,4 +69,17 @@ class htmlMaker {
             </tr>
         ";
     }
+
+    public function getRechnungsItem($pos,$artNR,$bezeichnung,$menge,$preisPerItem, $total){
+        return "
+            <tr class=\"contentTable\">
+                <td>".$pos."</td>
+                <td>".$artNR."</td>
+                <td>".$bezeichnung."</td>
+                <td>".$menge."</td>
+                <td>".$preisPerItem."</td>
+                <td>".$total."</td>
+            </tr>
+        ";
+    }
 }

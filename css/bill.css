@@ -1,9 +1,90 @@
 body{
     width: 200mm;
+    font-family: sans-serif;
 }
 
+a{
+    color: black;
+    text-decoration: none;
+}
+
+hr,h2{
+    margin-left: 5mm;
+}
+
+
 img{
-    width: 40mm;
-    height: 40mm;
+    margin-top: 8mm;
+    margin-left: 8mm;
+    width: 30mm;
+    height: 30mm;
     float: left;
+}
+
+#header{
+    width: 200mm;
+    height: 35mm;
+}
+
+#adressen{
+    width: 200mm;
+    height: 80mm;
+}
+
+#adresseKunde,#adresseFirma{
+    font-size: medium;
+}
+
+#adresseKunde{
+    margin-left: 5mm;
+    float: left;
+}
+
+#adresseFirma{
+    margin-right: 15mm;
+    float: right;
+}
+
+#firmname{
+    float: left;
+    margin-left: 25mm;
+    margin-top: 15mm;
+    font-size: xxx-large;
+}
+
+#rechnungsDaten{
+    margin-left: 5mm;
+    width: 200mm;
+    height: 20mm;
+}
+
+#rechnungsDatenTable td{
+    padding-right: 5mm;
+}
+
+#itemsTable{
+    width: 200mm;
+}
+
+.contentTable{
+    margin-left: 5mm;
+}
+
+.contentTable th:nth-child(-n+3),.contentTable td:nth-child(-n+3){
+    text-align: start;
+}
+
+.contentTable th:nth-child(n+4),.contentTable td:nth-child(n+4){
+    text-align: end;
+}
+
+.contentTable th:nth-child(4),.contentTable td:nth-child(4){
+    padding-left: 5mm;
+}
+.contentTable th:nth-child(1),.contentTable td:nth-child(1){
+    padding-left: 5mm;
+}
+
+#totalTable td:nth-child(n+2){
+    text-align: end;
 }
