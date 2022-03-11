@@ -39,6 +39,21 @@ class htmlMaker {
         ";
     }
 
+    public function getCheckoutItem($itemName, $itemCount, $pricePerItem, $picLink, $itemID):string{
+        return "
+            <div class='item' id='".$itemID."'>
+                <div class='itemIMG' style=\"background-image: url('../media/pictures/animals/".$picLink."')\"></div>
+                <div class='itemContent'>
+                    <h2>".$itemName."</h2>
+                    <input class='itemCountInput' name=\"".$itemID."\" value='".$itemCount."' disabled>
+                </div>
+                <div class='itemPreis'>
+                    <h2 class='totalPrice ".$pricePerItem."'>".number_format(($pricePerItem*$itemCount)/100,2,",",".")."€</h2>
+                </div>
+            </div>
+        ";
+    }
+
     public function getPayPalItem($prodName,$prodDescription,$quantity,$cost): string{
         return " 
             {

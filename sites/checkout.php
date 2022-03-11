@@ -32,7 +32,7 @@ require "../tools/config.php";
                 if (count($cart)>0){
                     foreach ($cart as $c){
                         $animal = $db->getAnimalById(intval($c["ItemID"]));
-                        echo $htmlMaker->getCartItem($animal["Title"],$c["Count"],$animal["Price"],$animal["Picture"],$c["ItemID"]);
+                        echo $htmlMaker->getCheckoutItem($animal["Title"],$c["Count"],$animal["Price"],$animal["Picture"],$c["ItemID"]);
                     }
                 }else{
                     echo "Dein Warenkorb ist leer <a href='./shop.php'>Zum Shop</a>";
