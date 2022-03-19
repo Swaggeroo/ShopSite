@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    require "../php/dbConnection.php";
+    require_once "../php/dbConnection.php";
     $db = new db();
 
     $infoVar = array("vorname",
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!isset($_POST[$infoVar[$i]])) {
             die("<script>
            alert('Error: No '.$infoVar[$i]);
-           location.replace('../sites/login.php');
+           history.back();
           </script>"
             );
         }
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($exists){
         die("<script>
            alert('Benutzername bereits vergeben');
-           location.replace('../');
+           history.back();
           </script>"
         );
     }
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($password != $passwortWiederholung){
         die("<script>
            alert('Passwort nicht gleich');
-           location.replace('../');
+           history.back();
           </script>"
         );
     }
@@ -72,9 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Save to Database
     $db->addUser($benutzername, $passwordHash, $email, $vorname, $nachname, $strasse, $stadt, $plz, $iban, $bic);
 
-    echo "<script>
-            alert('Registered!\\nPlease login now!');
-            window.location.replace('../sites/login.php');
-           </script>";
+    $username = $benutzername;
+    $password = $passwordHash;
+
+    require "./processLogin.php";
 
 }
