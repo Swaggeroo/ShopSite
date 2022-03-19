@@ -32,6 +32,7 @@
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <form action="../php/processLogin.php" method="post" id="logForm">
+            <p>Noch kein Account? <a id="crossLink" href="./registration.php">Registration</a></p>
             <h3>Profilinformationen</h3>
             <input class="input" type="text" placeholder="Benutzername" name="benutzername" id="benutzername" pattern="[A-Za-z0-9]{5,}" title="Mindestens 5 Zeichen" required>
             <input class="input" type="password" placeholder="Passwort" name="passwort" id="passwort" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mindestens 8 Zeichen, 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Zahl" required>

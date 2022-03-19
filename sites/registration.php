@@ -33,6 +33,7 @@
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <form action="../php/processRegistration.php" method="post" id="regForm">
+            <p>Schon bereits registriert? <a id="crossLink" href="./login.php">Login</a></p>
             <h3>Persönliche Daten</h3>
             <input class="input" type="text" placeholder="Vorname" name="vorname" id="vorname" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{3,}" title="Nur Buchstaben" required>
             <input class="input" type="text" placeholder="Nachname" name="nachname" id="nachname" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{3,}" title="Nur Buchstaben" required>

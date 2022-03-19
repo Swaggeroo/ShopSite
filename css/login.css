@@ -5,3 +5,11 @@
 #passwort{
     background-image: url('../media/icons/key.svg') !important;
 }
+
+#crossLink{
+    color: green;
+}
+
+#crossLink:hover{
+    text-decoration: underline;
+}
