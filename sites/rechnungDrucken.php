@@ -1,15 +1,25 @@
 <?php
+require "../php/#checkPermission.php";
 require "../php/htmlMaker.php";
 require "../php/dbConnection.php";
 $htmlMaker = new htmlMaker();
 $db = new db();
 $orderID = intval($_GET["id"]);
+$orderInfo = $db->getOrderInfos($orderID)[0];
+if ($orderInfo["UserID"] != $_SESSION["userID"]){
+    die("<script>
+           alert('Error Authentication');
+           location.replace('../');
+          </script>
+          ");
+}
+$kunde = $db->getUserById($orderInfo["UserID"]);
 ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Rechnung Drucken</title>
+    <title>Rechnung <?php echo date("d.m.Y", strtotime($orderInfo['OrderDate']))?></title>
     <link rel="stylesheet" href="../css/bill.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
@@ -23,9 +33,9 @@ $orderID = intval($_GET["id"]);
 
     <div id="adressen">
         <div id="adresseKunde">
-            <p>Hallo GMBH</p>
-            <p>Deine Mutter Straße 890</p>
-            <p>63120 Vatershausen</p>
+            <p><?php echo $kunde["Nachname"]." ".$kunde["Vorname"]?></p>
+            <p><?php echo $kunde["Strasse"]?></p>
+            <p><?php echo $kunde["PLZ"]." ".$kunde["Stadt"]?></p>
         </div>
 
         <div id="adresseFirma">
@@ -43,7 +53,6 @@ $orderID = intval($_GET["id"]);
     <h2>RECHNUNG</h2>
     <div id="rechnungsDaten">
         <table id="rechnungsDatenTable">
-            <?php $orderInfo = $db->getOrderInfos($orderID)[0];?>
             <tr>
                 <td>Bestell-NR:</td>
                 <td><?php echo $orderInfo['OrderID']?></td>
