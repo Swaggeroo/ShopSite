@@ -10,7 +10,11 @@ if (isset($_SESSION["userLoggedIn"])){
     require "../php/dbConnection.php";
     $db = new db();
     if ($db->existsInCart($itemID,$_SESSION["userID"])){
-        $db->updateItemInCart($itemID,$_SESSION["userID"],$db->getItemCountCart($itemID,$_SESSION["userID"])+$count);
+        $count  = $db->getItemCountCart($itemID,$_SESSION["userID"])+$count;
+        if ($count > 999){
+            $count = 999;
+        }
+        $db->updateItemInCart($itemID,$_SESSION["userID"], $count);
     }else{
         $db->insertItemIntoCart($itemID,$_SESSION["userID"],$count);
     }
@@ -18,7 +22,11 @@ if (isset($_SESSION["userLoggedIn"])){
 }else{
     if (isset($_COOKIE["cart"])){
         $cart = json_decode($_COOKIE['cart'], true);
-        $cart[(string)$itemID] = $count + $cart[(string)$itemID];
+        $count = $count + $cart[(string)$itemID];
+        if ($count > 999){
+            $count = 999;
+        }
+        $cart[(string)$itemID] = $count;
     }else{
         $cart = array($itemID=>$count);
     }

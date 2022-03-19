@@ -49,8 +49,9 @@
                     <p><?php echo $animal["Content"]?></p>
                 </div>
                 <div class="itemButtons">
+                    <h3>Preis: <?php echo number_format($animal["Price"]/100, 2, ',', '.')."€"?></h3>
                     <h4>Qnt.<input type="number" name="menge" id="inputMenge" value="1"></h4>
-                    <button>In den Warenkorb</button>
+                    <button onclick="addToCart(<?php echo $_GET["id"]?>)">In den Warenkorb</button>
                 </div>
             </div>
         </div>
