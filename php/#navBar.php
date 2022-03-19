@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/<?php echo $GLOBALS['rootDir']?>ShopSite/css/nav.css">
 <script src="/<?php echo $GLOBALS['rootDir']?>ShopSite/scripts/navBar.js" defer></script>
 <nav class="navbar">
-    <a href="/<?php echo $GLOBALS['rootDir']?>ShopSite/" id="navTitleLink"><div class="navTitle">Shop</div></a>
+    <a href="/<?php echo $GLOBALS['rootDir']?>ShopSite/" id="navTitleLink"><div class="navTitle">Tiertotal</div></a>
     <a href="#" class="toggle-button noScroll">
         <span class="bar"></span>
         <span class="bar"></span>

@@ -18,6 +18,7 @@
         <div id="textbox">
             <h1>Tiertotal</h1>
             <h2>Von klein bis groß - Der Shop für alle Tier Bedürfnisse</h2>
+            <h3><a class="toShopLink" href="./sites/shop.php">Zum Shop</a></h3>
         </div>
     </div>
 </body>

@@ -7,22 +7,35 @@
     height: 100%;
 }
 
-.banner h1,h2{
-    background-color: rgba(0,0,0, 0.75);
+.banner h1,h2,h3{
     margin: 0 auto;
     text-align: center;
     font-size: xxx-large;
     color: white;
 }
 
-h2{
+h2, h3{
     font-size: x-large;
 }
 
+h3{
+    font-size: larger;
+    margin-top: 1em;
+}
+
 #textbox{
+    background-color: rgba(0,0,0, 0.75);
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
+    padding-bottom: .8em;
+}
+
+.toShopLink{
+    padding: .2em;
+    background-color: #cccccc;
+    color: black;
+    border-radius: .2em;
 }
