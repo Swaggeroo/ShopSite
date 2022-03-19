@@ -170,6 +170,18 @@ class db{
             $this->addAnimal($element["name"],$element["beschreibung"],intval($element["price"]),$element["pictureLink"],intval($element["CatID"]),intval($element["ManID"]));
         }
 
+        echo "<p>Creating Example Orders</p>";
+        $orderID = $this->createOrder(1,52000);
+        $this->createItemOrderRefference($orderID,3,2);
+        $this->createItemOrderRefference($orderID,6,2);
+        $this->createItemOrderRefference($orderID,8,2);
+        echo "<p>Added Order</p>";
+
+        $orderID = $this->createOrder(1,113000);
+        $this->createItemOrderRefference($orderID,2,1);
+        $this->createItemOrderRefference($orderID,7,3);
+        $this->createItemOrderRefference($orderID,4,2);
+        echo "<p>Added Order</p>";
         $sqlStatements = array(
 
         );
