@@ -7,9 +7,7 @@ if (!isset($_SESSION)) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     require_once "../php/dbConnection.php";
-    if ($db==null){
-        $db = new db();
-    }
+    $db = new db();
 
     $infoVar = array("benutzername","passwort");
 
