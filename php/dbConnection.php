@@ -337,11 +337,13 @@ class db{
         return $rows;
     }
 
-    public function getAnimalsSortedByKategorie($catID):array{
-        $sqlQuery = "SELECT * FROM Items WHERE CategoryID = ?";
+    public function getAnimalBySearch($catID, $verID, $searchTerm):array{
+        $sqlQuery = "SELECT * FROM Items WHERE CategoryID LIKE ? AND ManufacturerID LIKE ? AND Title LIKE ?";
+
+        $searchTerm = "%".$searchTerm."%";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
-        $sqlStatement->bind_param("i", $catID);
+        $sqlStatement->bind_param("sss", $catID,$verID, $searchTerm);
         $sqlStatement->execute();
 
         $result = $sqlStatement->get_result();
@@ -350,30 +352,21 @@ class db{
         while($row = $result->fetch_array(MYSQLI_ASSOC)){
             array_push($rows, $row);
         }
-        return $rows;
-    }
 
-    public function getAnimalsSortedByVerkaeufer($verID):array{
-        $sqlQuery = "SELECT * FROM Items WHERE ManufacturerID = ?";
-
-        $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
-        $sqlStatement->bind_param("i", $verID);
-        $sqlStatement->execute();
-
-        $result = $sqlStatement->get_result();
-
-        $rows = array();
-        while($row = $result->fetch_array(MYSQLI_ASSOC)){
-            array_push($rows, $row);
+        if (count($rows)<=0){
+            return $this->getByAdvancedSearch($catID,$verID,$searchTerm);
+        }else {
+            return $rows;
         }
-        return $rows;
     }
 
-    public function getAnimalsSortedByVerkaeuferKategorie($catID,$verID):array{
-        $sqlQuery = "SELECT * FROM Items WHERE CategoryID = ? AND ManufacturerID = ?";
+    public function getByAdvancedSearch($catID, $verID, $searchTerm):array{
+        $sqlQuery = "SELECT * FROM Items WHERE CategoryID LIKE ? AND ManufacturerID LIKE ? AND Title LIKE ?";
+
+        $searchTerm = "%".implode('%',str_split($searchTerm))."%";
 
         $sqlStatement = $this->dbKeyObject->prepare($sqlQuery);
-        $sqlStatement->bind_param("ii", $catID,$verID);
+        $sqlStatement->bind_param("sss", $catID,$verID, $searchTerm);
         $sqlStatement->execute();
 
         $result = $sqlStatement->get_result();

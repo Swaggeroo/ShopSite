@@ -21,6 +21,7 @@
     <div align="center" class="content">
         <div id="sortContainer" class="hide">
             <p>Sortieren</p>
+            <input type="text" id="filterSearch" value="<?php if (isset($_GET["search"])) echo $_GET["search"]?>" placeholder="Suchbegriff">
             <select id="filterKat">
                 <option value="" <?php if (!isset($_GET["kategorie"])) echo "selected"?>>Alle Kategorie</option>
                 <?php
@@ -49,7 +50,7 @@
             </select>
             <button onclick="filterShop()">SORTIEREN</button>
             <?php
-                if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"])){
+                if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"]) || isset($_GET["search"])){
                     echo "<button onclick=\"resetFilterShop()\">RESET</button>";
                 }
             ?>
@@ -58,12 +59,21 @@
             <?php
                 $htmlMaker = new htmlMaker();
                 $animals = null;
-                if(isset($_GET["verkaeufer"]) && isset($_GET["kategorie"])){
-                    $animals = $db->getAnimalsSortedByVerkaeuferKategorie(intval($_GET["kategorie"]),intval($_GET["verkaeufer"]));
-                }else if(isset($_GET["verkaeufer"])){
-                    $animals = $db->getAnimalsSortedByVerkaeufer(intval($_GET["verkaeufer"]));
-                }else if (isset($_GET["kategorie"])){
-                    $animals = $db->getAnimalsSortedByKategorie(intval($_GET["kategorie"]));
+                if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"]) || isset($_GET["search"])){
+                    $verkaeufer = "%";
+                    $kategorie = "%";
+                    $search = "%";
+                    if (isset($_GET["verkaeufer"])){
+                        $kategorie = $_GET["verkaeufer"];
+                    }
+                    if (isset($_GET["kategorie"])){
+                        $kat = $_GET["kategorie"];
+                    }
+                    if (isset($_GET["search"])){
+                        $search = $_GET["search"];
+                    }
+
+                    $animals = $db->getAnimalBySearch($kategorie,$verkaeufer,$search);
                 } else{
                     $animals = $db->getAllAnimals();
                 }

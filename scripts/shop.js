@@ -1,4 +1,5 @@
 /* Store the element in el */
+const filterSearch = document.getElementById("filterSearch")
 const filterKat = document.getElementById("filterKat")
 const filterVerk = document.getElementById("filterVerk")
 const filterBTN = document.getElementById("filterBTN")
@@ -55,6 +56,9 @@ function handleMove(e,element) {
 
 function filterShop(){
     let redicrect = "./shop.php?"
+    if (filterSearch.value !== ""){
+        redicrect+="search="+filterSearch.value+"&"
+    }
     if (filterKat.value !== ""){
         redicrect+="kategorie="+filterKat.value+"&"
     }
