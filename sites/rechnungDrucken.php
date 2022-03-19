@@ -1,7 +1,7 @@
 <?php
 require "../php/#checkPermission.php";
-require "../php/htmlMaker.php";
-require "../php/dbConnection.php";
+require_once "../php/htmlMaker.php";
+require_once "../php/dbConnection.php";
 $htmlMaker = new htmlMaker();
 $db = new db();
 $orderID = intval($_GET["id"]);

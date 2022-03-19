@@ -1,7 +1,7 @@
 <?php
-require "../../tools/config.php";
+require_once "../../tools/config.php";
 $itemID = $_POST["id"];
-require "../dbConnection.php";
+require_once "../dbConnection.php";
 $db = new db();
 if (!isset($_SESSION)) {
     session_start();

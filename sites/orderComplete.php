@@ -1,5 +1,5 @@
 <?php
-    require "../tools/config.php";
+    require_once "../tools/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -12,7 +12,7 @@
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
-    <?php require "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Kauf Erfolgreich"); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Kauf Erfolgreich"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <h1>Kauf Erfolgreich</h1>

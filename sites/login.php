@@ -1,5 +1,5 @@
 <?php
-    require "../tools/config.php";
+    require_once "../tools/config.php";
     if(!isset($_SESSION)){
         session_start();
     }
@@ -28,7 +28,7 @@
     <script src="../scripts/form.js" defer></script>
 </head>
 <body>
-    <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Login"); ?>
+    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Login"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <form action="../php/processLogin.php" method="post" id="logForm">

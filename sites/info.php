@@ -1,11 +1,11 @@
 <?php
-    require "../tools/config.php";
+    require_once "../tools/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php
-        require "../php/dbConnection.php";
+        require_once "../php/dbConnection.php";
         $db = new db();
         $animal = $db->getAnimalById(intval($_GET["id"]));
         if ($animal == null){
@@ -28,7 +28,7 @@
     <script src="../scripts/info.js" defer></script>
 </head>
 <body>
-    <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg",$animal["Title"]); ?>
+    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg",$animal["Title"]); ?>
     <?php require "../php/#navBar.php" ?>
     <div style="width: 100%; min-height: 100%; height: auto" class="content">
         <div class="flex-container wrap itemContent">

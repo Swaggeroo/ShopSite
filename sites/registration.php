@@ -1,5 +1,5 @@
 <?php
-    require "../tools/config.php";
+    require_once "../tools/config.php";
     if(!isset($_SESSION)){
         session_start();
     }
@@ -29,7 +29,7 @@
     <script src="../scripts/registration.js" defer></script>
 </head>
 <body>
-    <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Registrierung"); ?>
+    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Registrierung"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <form action="../php/processRegistration.php" method="post" id="regForm">

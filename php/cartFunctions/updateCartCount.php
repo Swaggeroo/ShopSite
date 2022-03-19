@@ -1,8 +1,8 @@
 <?php
-require "../../tools/config.php";
+require_once "../../tools/config.php";
 $itemID = $_POST["id"];
 $newCount = $_POST["count"];
-require "../dbConnection.php";
+require_once "../dbConnection.php";
 $db = new db();
 if (!isset($_SESSION)) {
     session_start();

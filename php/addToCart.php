@@ -1,5 +1,5 @@
 <?php
-require "../tools/config.php";
+require_once "../tools/config.php";
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -7,7 +7,7 @@ $itemID = $_POST["id"];
 $count  = $_POST["count"];
 
 if (isset($_SESSION["userLoggedIn"])){
-    require "../php/dbConnection.php";
+    require_once "../php/dbConnection.php";
     $db = new db();
     if ($db->existsInCart($itemID,$_SESSION["userID"])){
         $count  = $db->getItemCountCart($itemID,$_SESSION["userID"])+$count;

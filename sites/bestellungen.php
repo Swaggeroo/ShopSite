@@ -1,8 +1,8 @@
 <?php
 require "../php/#checkPermission.php";
-require "../php/dbConnection.php";
-require "../php/htmlMaker.php";
-require "../tools/config.php";
+require_once "../php/dbConnection.php";
+require_once "../php/htmlMaker.php";
+require_once "../tools/config.php";
 $db = new db();
 $htmlMaker = new htmlMaker();
 ?>

@@ -1,5 +1,5 @@
 <?php
-    require "./tools/config.php";
+    require_once "./tools/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">

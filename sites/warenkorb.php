@@ -1,5 +1,5 @@
 <?php
-    require "../tools/config.php";
+    require_once "../tools/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -13,7 +13,7 @@
     <script src="../scripts/cart.js" defer></script>
 </head>
 <body>
-    <?php require "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Warenkorb"); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Warenkorb"); ?>
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
         <div id="cartItems">
@@ -22,7 +22,7 @@
             if (!isset($_SESSION)) {
                 session_start();
             }
-            require "../php/dbConnection.php";
+            require_once "../php/dbConnection.php";
             $db = new db();
             if (isset($_SESSION["userLoggedIn"])){
                 $cart = $db->getCartFromUser($_SESSION["userID"]);

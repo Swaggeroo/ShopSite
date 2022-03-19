@@ -1,6 +1,6 @@
 <?php
-    require "../tools/config.php";
-    require "../php/dbConnection.php";
+    require_once "../tools/config.php";
+    require_once "../php/dbConnection.php";
     $db = new db();
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
     <script src="../scripts/shop.js" defer></script>
 </head>
 <body>
-    <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Shop"); ?>
+    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Shop"); ?>
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
         <div id="sortContainer" class="hide">

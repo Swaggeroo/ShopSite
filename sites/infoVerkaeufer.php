@@ -1,11 +1,11 @@
 <?php
-    require "../tools/config.php";
+    require_once "../tools/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <?php
-    require "../php/dbConnection.php";
+    require_once "../php/dbConnection.php";
     $db = new db();
     $verkaeufer = $db->getManufacturerById($_GET["id"]);
     if ($verkaeufer == null){
@@ -25,7 +25,7 @@
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
-    <?php require "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg",htmlspecialchars($verkaeufer["FirmName"])); ?>
+    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg",htmlspecialchars($verkaeufer["FirmName"])); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content" align="center">
         <h1><?php echo htmlspecialchars($verkaeufer["FirmName"])?></h1>

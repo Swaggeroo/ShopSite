@@ -1,5 +1,5 @@
 <?php
-    require "../tools/config.php";
+    require_once "../tools/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,6 @@
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
-    <?php require "../tools/config.php";require "../php/#navBar.php?rootDir=".$GLOBALS['rootDir'] ?>
+    <?php require_once "../tools/config.php";require "../php/#navBar.php?rootDir=".$GLOBALS['rootDir'] ?>
 </body>
 </html>

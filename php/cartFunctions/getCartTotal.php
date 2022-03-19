@@ -1,5 +1,5 @@
 <?php
-require "../dbConnection.php";
+require_once "../dbConnection.php";
 $db = new db();
 if (!isset($_SESSION)) {
     session_start();

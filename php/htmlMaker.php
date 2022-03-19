@@ -1,5 +1,5 @@
 <?php
-require ("../tools/config.php");
+require_once ("../tools/config.php");
 class htmlMaker {
     public function getProduct($pictureLink,$itemID,$text):string{
         return "
