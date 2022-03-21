@@ -20,7 +20,7 @@
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
         <div id="sortContainer" class="hide">
-            <p>Sortieren</p>
+            <p style="margin: 0">Sortieren</p>
             <input type="text" id="filterSearch" value="<?php if (isset($_GET["search"])) echo $_GET["search"]?>" placeholder="Suchbegriff">
             <select id="filterKat">
                 <option value="" <?php if (!isset($_GET["kategorie"])) echo "selected"?>>Alle Kategorie</option>
@@ -55,7 +55,7 @@
                 }
             ?>
         </div>
-        <div class="flex-container row wrap">
+        <div class="shopRoot flex-container row wrap">
             <?php
                 $htmlMaker = new htmlMaker();
                 $animals = null;
