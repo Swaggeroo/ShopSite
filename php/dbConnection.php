@@ -480,8 +480,10 @@ class db{
         $statement->execute();
 
         $result = $statement->get_result();
-
-        $count = $result->fetch_assoc()["Count"];
+        $count = 0;
+        if ($result->lengths > 0){
+            $count = $result->fetch_assoc()["Count"];
+        }
 
         $statement->close();
 

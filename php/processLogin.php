@@ -48,8 +48,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["userLoggedIn"] = true;
         $_SESSION["userID"] = $userID;
         $_SESSION["username"] = $username;
+
+        if (isset($_COOKIE['cart']) && count(json_decode($_COOKIE['cart'], true))>0){
+            $cart = json_decode($_COOKIE['cart'], true);
+            foreach (array_keys($cart) as $k){
+                $db->updateItemInCart(intval($k),$_SESSION["userID"],$cart[(string)$k]+$db->getItemCountCart($k,$userID));
+            }
+            var_dump($cart);
+        }
+
         echo "<script>
-        location.replace('../sites/shop.php');
+        //location.replace('../sites/shop.php');
        </script>";
     }else{
         echo "<script>
