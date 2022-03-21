@@ -64,10 +64,10 @@
                     $kategorie = "%";
                     $search = "%";
                     if (isset($_GET["verkaeufer"])){
-                        $kategorie = $_GET["verkaeufer"];
+                        $verkaeufer = $_GET["verkaeufer"];
                     }
                     if (isset($_GET["kategorie"])){
-                        $kat = $_GET["kategorie"];
+                        $kategorie = $_GET["kategorie"];
                     }
                     if (isset($_GET["search"])){
                         $search = $_GET["search"];
