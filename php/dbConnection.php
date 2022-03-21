@@ -109,7 +109,9 @@ class db{
 
         echo "<p>Deleting existing Tables</p>";
         for($i = 0; $i < count($sqlStatements); $i++){
-            $this->dbKeyObject->query($sqlStatements[$i]);
+            if(!$this->dbKeyObject->query($sqlStatements[$i])){
+                echo("Error description: " . $this->dbKeyObject -> error);
+            }
             echo "<p>(".($i+1)."/".count($sqlStatements).")</p>";
         }
     }
