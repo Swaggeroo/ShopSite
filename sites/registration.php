@@ -37,9 +37,9 @@
             <h3>Persönliche Daten</h3>
             <input class="input" type="text" placeholder="Vorname" name="vorname" id="vorname" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{3,}" title="Nur Buchstaben" required>
             <input class="input" type="text" placeholder="Nachname" name="nachname" id="nachname" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{3,}" title="Nur Buchstaben" required>
-            <input class="input" type="text" placeholder="Straße" name="strasse" id="strasse" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\- ]{2,}[ ]{1}[0-9]{1,}" title="Straße 123" required>
-            <input class="input" type="text" placeholder="Stadt" name="stadt" id="stadt" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{2,}" title="Nur aus Buchstaben" required>
+            <input class="input" type="text" placeholder="Straße und Nr" name="strasse" id="strasse" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\- ]{2,}[ ]{1}[0-9]{1,}" title="Straße 123" required>
             <input class="input" type="text" placeholder="Postleitzahl" name="plz" id="plz" pattern="[0-9]{5}" title="Nur 5 Zahlen" required>
+            <input class="input" type="text" placeholder="Stadt" name="stadt" id="stadt" pattern="[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{2,}" title="Nur aus Buchstaben" required>
 
             <h3>Zahlungsinformationen</h3>
             <input class="input" type="text" placeholder="IBAN" name="iban" id="iban" pattern="[A-Z]{2}[0-9]{20}" title="DE12345678901234567890" required>

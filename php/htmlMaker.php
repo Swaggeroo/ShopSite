@@ -33,7 +33,7 @@ class htmlMaker {
                     <a class='itemCountBTN' id='min".$itemID."' onclick='changeCount(this)'>-</a><input class='itemCountInput' name=\"".$itemID."\" value='".$itemCount."' disabled><a class='itemCountBTN' id='plus".$itemID."' onclick='changeCount(this)'>+</a>
                 </div>
                 <div class='itemPreis'>
-                    <h2 class='totalPrice ".$pricePerItem."'>".number_format(($pricePerItem*$itemCount)/100,2,",",".")."€</h2>
+                    <h2 class='totalPrice ".$pricePerItem."'>".number_format(($pricePerItem*$itemCount)/100,2,",",".")." €</h2>
                 </div>
             </div>
         ";
