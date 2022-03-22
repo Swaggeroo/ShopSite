@@ -21,6 +21,10 @@ footer a{
     color: #a9a9a9;
 }
 
+footer a:hover{
+    color: #d8d8d8;
+}
+
 .footMid{
     text-align: center;
 }
