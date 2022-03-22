@@ -1,5 +1,5 @@
 <?php
-//TODO warenkorb übertragen
+require "../tools/config.php";
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -52,13 +52,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_COOKIE['cart']) && count(json_decode($_COOKIE['cart'], true))>0){
             $cart = json_decode($_COOKIE['cart'], true);
             foreach (array_keys($cart) as $k){
-                $db->updateItemInCart(intval($k),$_SESSION["userID"],$cart[(string)$k]+$db->getItemCountCart($k,$userID));
+                if ($db->existsInCart(intval($k),$_SESSION["userID"])){
+                    $newCount = $cart[(string)$k]+$db->getItemCountCart($k,$userID);
+                    $db->updateItemInCart(intval($k),$_SESSION["userID"],$newCount);
+                }else{
+                    $db->insertItemIntoCart(intval($k),$_SESSION["userID"],$cart[(string)$k]);
+                }
             }
-            var_dump($cart);
+            unset($_COOKIE['cart']);
+            setcookie('cart', '', time() - 3600,  "/".$GLOBALS['rootDir']."ShopSite/");
         }
 
         echo "<script>
-        //location.replace('../sites/shop.php');
+        
+        location.replace('../sites/shop.php');
        </script>";
     }else{
         echo "<script>
