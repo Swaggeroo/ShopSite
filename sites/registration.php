@@ -29,7 +29,7 @@
     <script src="../scripts/registration.js" defer></script>
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Registrierung"); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Registrierung"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <form action="../php/processRegistration.php" method="post" id="regForm">
@@ -54,5 +54,6 @@
             <button type="submit" name="registrierenBTN" id="registrierenBTN">Registrieren</button>
         </form>
     </div>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

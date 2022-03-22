@@ -70,5 +70,6 @@
             <a href="./checkout.php" id="checkoutBTN">Checkout</a>
         </div>
     </div>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

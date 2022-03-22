@@ -89,5 +89,6 @@
             ?>
         </div>
     </div>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

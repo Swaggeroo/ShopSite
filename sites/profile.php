@@ -17,7 +17,7 @@
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Profil"); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Profil"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content" align="center">
         <h1><?php echo $user["UserName"]?></h1>
@@ -63,5 +63,6 @@
             <a id="logoutBTN" href="../php/logout.php">Logout</a>
         </div>
     </div>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

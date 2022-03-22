@@ -1,0 +1,51 @@
+.footerSpacer{
+    width: 100%;
+    height: 2em;
+}
+
+footer{
+    background-color: #4a4a4a;
+    color: white;
+    height: fit-content;
+    width: 100%;
+    position: sticky;
+    top: 100%;
+    padding: .25em 2em;;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+footer a{
+    color: #a9a9a9;
+}
+
+.footMid{
+    text-align: center;
+}
+
+.icon {
+    background: url('../media/icons/favicon.SVG');
+    height: 1.75em;
+    width: 1.75em;
+    display: block;
+    margin-right: .5em;
+    /* Other styles here */
+}
+
+.cardIconFoot{
+    width: 30px;
+    height: 30px;
+    margin-left: .5em;
+}
+
+@media (max-width: 800px) {
+    footer{
+        flex-direction: column;
+    }
+
+    .footMid, .footRight{
+        margin-top: 1em;
+    }
+}

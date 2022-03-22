@@ -28,7 +28,7 @@
     <script src="../scripts/form.js" defer></script>
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Login"); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Login"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <form action="../php/processLogin.php" method="post" id="logForm">
@@ -40,5 +40,6 @@
             <button type="submit" name="registrierenBTN" id="registrierenBTN">Login</button>
         </form>
     </div>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

@@ -25,7 +25,7 @@
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg",htmlspecialchars($verkaeufer["FirmName"])); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg",htmlspecialchars($verkaeufer["FirmName"])); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content" align="center">
         <h1><?php echo htmlspecialchars($verkaeufer["FirmName"])?></h1>
@@ -51,5 +51,6 @@
             <a id="productsLink" href="./shop.php?verkaeufer=<?php echo htmlspecialchars($verkaeufer["ManufacturerID"])?>">Produkte ansehen</a>
         </div>
     </div>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

@@ -27,5 +27,6 @@
         <p style="margin-top: 90px"><a href="./shop.php">Weiter Shoppen</a></p>
         <p><a href="./rechnungDrucken.php?id=<?php echo $_GET["id"]?>" target="_blank">Rechnung drucken</a></p>
     </div>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

@@ -41,5 +41,6 @@ $htmlMaker = new htmlMaker();
         </table>
 
     </div>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

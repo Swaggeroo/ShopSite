@@ -134,5 +134,6 @@ require_once "../tools/config.php";
         }).render('#paypal-button-container');
 
     </script>
+    <?php echo $htmlMaker->getFooter()?>
 </body>
 </html>

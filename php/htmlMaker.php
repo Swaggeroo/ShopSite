@@ -97,4 +97,26 @@ class htmlMaker {
             </tr>
         ";
     }
+
+    public function getFooter(){
+        return "
+            <div class=\"footerSpacer\"></div>
+            <footer>
+                <link rel=\"stylesheet\" href=\"../css/footer.css\">
+                <div class=\"footLeft\">
+                    <div class=\"flex-container row\"><span class=\"icon\"></span><h3>Tiertotal</h3></div>
+                    <span>©2022 Tiertotal</span>
+                </div>
+                <div class=\"footMid\">
+                    <p><a href=\"\">Datenschutz</a></p>
+                    <p><a href=\"\">Impressum</a></p>
+                    <p><a href=\"\">Nutzungsbedingungen</a></p>
+                </div>
+                <div class=\"footRight\">
+                    <img src=\"../media/icons/paypal.png\">
+                    <img class=\"cardIconFoot\" src=\"../media/icons/card-white.svg\">
+                </div>
+            </footer>
+        ";
+    }
 }
