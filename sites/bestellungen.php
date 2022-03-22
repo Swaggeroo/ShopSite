@@ -34,7 +34,7 @@ $htmlMaker = new htmlMaker();
                 <?php
                     $orders = $db->getAllOrdersFromUser($_SESSION["userID"]);
                     foreach ($orders AS $o){
-                        echo $htmlMaker->getOrderItem($o["OrderDate"],$o["OrderID"],$o["Total"],$o["Arrived"]);
+                        echo $htmlMaker->getOrderItem(date("d.m.Y m:h", strtotime($o["OrderDate"])),$o["OrderID"],$o["Total"],$o["Arrived"]);
                     }
                 ?>
             </tbody>
