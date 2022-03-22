@@ -64,9 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         echo "<script>
-        
         location.replace('../sites/shop.php');
-       </script>";
+        </script>";
     }else{
         echo "<script>
            alert('Falsches Passwort!');
