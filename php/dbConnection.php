@@ -522,8 +522,9 @@ class db{
         $statement->execute();
 
         $result = $statement->get_result();
+        $result = $result->fetch_assoc();
+        $count = $result["Count"] ?? 0;
 
-        $count = $result->fetch_assoc()["Count"];
 
         $statement->close();
 

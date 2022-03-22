@@ -17,7 +17,7 @@
                 }
             ?>
             <li><a href="/<?php echo $GLOBALS['rootDir']?>ShopSite/sites/shop.php">Shop</a></li>
-            <li><a href="/<?php echo $GLOBALS['rootDir']?>ShopSite/sites/warenkorb.php">Warenkorb</a></li>
+            <li><a id="warenkorbNavbarElement" href="/<?php echo $GLOBALS['rootDir']?>ShopSite/sites/warenkorb.php">Warenkorb</a></li>
             <?php
                 if(!isset($_SESSION)){
                     session_start();
@@ -36,3 +36,41 @@
         </ul>
     </div>
 </nav>
+<script>
+    const warenkorbElement = document.getElementById("warenkorbNavbarElement");
+    let curVal = 0;
+
+    (async()=>{
+        curVal = parseInt(await getTotal());
+        updateUI();
+    })();
+
+    window.addEventListener('warenkorbUpdated', (e) => {
+        console.log("Event Triggered: "+e.detail.cartChange)
+        curVal += parseInt(e.detail.cartChange);
+        updateUI();
+    });
+
+    async function getTotal(){
+        let module = await import("../scripts/asyncExec.js");
+        let res = await module.asyncGet("../php/cartFunctions/getCartTotalItems.php");
+        console.log("result: "+res);
+        return res;
+    }
+
+    function updateUI(){
+        console.log(curVal)
+        if (curVal > 0){
+            if (curVal > 99){
+                warenkorbElement.classList.add("warenkorbNavbarElementAfter");
+                warenkorbElement.setAttribute("warenKorbCount", "99+");
+            }else {
+                warenkorbElement.classList.add("warenkorbNavbarElementAfter");
+                warenkorbElement.setAttribute("warenKorbCount", curVal);
+            }
+        }else {
+            warenkorbElement.classList.remove("warenkorbNavbarElementAfter");
+            warenkorbElement.setAttribute("warenKorbCount", "");
+        }
+    }
+</script>

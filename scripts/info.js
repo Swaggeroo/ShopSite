@@ -15,11 +15,13 @@ function addToCart(itemID){
     if (qnt > 999){
         qnt = 999;
     }
+    if (qnt < 1){
+        qnt = 0;
+    }
     itemID = parseInt(itemID);
-    console.log(itemID);
+    window.dispatchEvent(new CustomEvent('warenkorbUpdated', {detail:{cartChange: qnt}}));
     (async()=>{
         let asyncLib = await import("./asyncExec.js");
         let returnVal = await asyncLib.asyncPostWithParms("../php/addToCart.php","id="+itemID+"&count="+qnt);
-        console.log(returnVal);
     })();
 }

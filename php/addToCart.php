@@ -5,6 +5,12 @@ if (!isset($_SESSION)) {
 }
 $itemID = $_POST["id"];
 $count  = $_POST["count"];
+if ($count > 999){
+    $count = 999;
+}
+if ($count < 1){
+    $count = 1;
+}
 
 if (isset($_SESSION["userLoggedIn"])){
     require_once "../php/dbConnection.php";
@@ -13,6 +19,9 @@ if (isset($_SESSION["userLoggedIn"])){
         $count  = $db->getItemCountCart($itemID,$_SESSION["userID"])+$count;
         if ($count > 999){
             $count = 999;
+        }
+        if ($count < 1){
+            $count = 1;
         }
         $db->updateItemInCart($itemID,$_SESSION["userID"], $count);
     }else{
@@ -25,6 +34,9 @@ if (isset($_SESSION["userLoggedIn"])){
         $count = $count + $cart[(string)$itemID];
         if ($count > 999){
             $count = 999;
+        }
+        if ($count < 1){
+            $count = 1;
         }
         $cart[(string)$itemID] = $count;
     }else{

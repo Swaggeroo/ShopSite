@@ -78,6 +78,15 @@
     color: white;
 }
 
+.warenkorbNavbarElementAfter::after{
+    content: attr(warenKorbCount);
+    color: black;
+    padding: .25em .5em;
+    margin-left: .4em;
+    background-color: white;
+    border-radius: 2em;
+}
+
 @media (max-width: 800px) {
     .toggle-button{
         display: flex;

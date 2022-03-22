@@ -30,6 +30,7 @@ function changeCount(el){
     let h2Tag = itemNode.getElementsByClassName("itemPreis")[0].getElementsByClassName("totalPrice")[0];
     let pricePerItem = h2Tag.classList.item(1);
     let factor = el.textContent === "+" ? 1 : -1;
+    window.dispatchEvent(new CustomEvent('warenkorbUpdated', {detail:{cartChange: factor}}));
     console.log(input.name + " - "+ factor);
     input.value = parseInt(input.value) + factor;
     if (input.value > 999){

@@ -81,6 +81,7 @@ function addToCart(el){
     (async()=>{
         let asyncLib = await import("./asyncExec.js");
         let returnVal = await asyncLib.asyncPostWithParms("../php/addToCart.php","id="+itemID+"&count=1");
-        console.log(returnVal);
     })();
+
+    window.dispatchEvent(new CustomEvent('warenkorbUpdated', {detail:{cartChange: 1}}));
 }
