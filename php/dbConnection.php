@@ -15,7 +15,7 @@ class db{
             die('Error: Keine Verbindung zur Datenbank!'. $this->dbKeyObject->connect_error);
         }
 
-        $this->dbKeyObject->query("SET NAMES 'utf8'");
+        $this->dbKeyObject->query("SET NAMES 'utf8mb4'");
     }
 
     public function __destruct(){
@@ -54,7 +54,7 @@ class db{
             ) ENGINE = INNODB",
             "CREATE TABLE IF NOT EXISTS Items(
                 ItemID int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-                Title varchar(255) NOT NULL,
+                Title varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                 Content varchar(2500) NOT NULL,
                 Price int NOT NULL,
                 Picture varchar(255) NOT NULL,
