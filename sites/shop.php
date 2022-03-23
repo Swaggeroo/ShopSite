@@ -21,7 +21,7 @@
     <div align="center" class="content">
         <div id="sortContainer" class="hide">
             <p style="margin: 0">Sortieren</p>
-            <input type="text" id="filterSearch" value="<?php if (isset($_GET["search"])) echo $_GET["search"]?>" placeholder="Suchbegriff">
+            <input type="text" id="filterSearch" value="<?php if (isset($_GET["search"])) echo $_GET["search"]?>" placeholder="Suchbegriff" onkeydown="handleEnterSearch()">
             <select id="filterKat">
                 <option value="" <?php if (!isset($_GET["kategorie"])) echo "selected"?>>Alle Kategorie</option>
                 <?php

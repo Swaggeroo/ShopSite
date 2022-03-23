@@ -85,3 +85,9 @@ function addToCart(el){
 
     window.dispatchEvent(new CustomEvent('warenkorbUpdated', {detail:{cartChange: 1}}));
 }
+
+function handleEnterSearch(e){
+    if(event.key === 'Enter') {
+        filterShop();
+    }
+}
