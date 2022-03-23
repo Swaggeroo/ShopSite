@@ -28,7 +28,7 @@
     <script src="../scripts/info.js" defer></script>
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg",$animal["Title"]); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/animals/krokodil.jpg",$animal["Title"]); ?>
     <?php require "../php/#navBar.php" ?>
     <div style="width: 100%; min-height: 100%; height: auto" class="content">
         <div class="flex-container wrap itemContent">

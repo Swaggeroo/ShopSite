@@ -13,7 +13,7 @@
     <script src="../scripts/cart.js" defer></script>
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Warenkorb"); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/animals/kuh.jpg","Warenkorb"); ?>
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
         <div id="cartItems">

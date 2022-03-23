@@ -18,7 +18,7 @@ $htmlMaker = new htmlMaker();
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
-    <?php echo $htmlMaker->getHeader("../media/pictures/test.jpg","Bestellungen"); ?>
+    <?php echo $htmlMaker->getHeader("../media/pictures/animals/schlange.jpg","Bestellungen"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <table>

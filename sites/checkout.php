@@ -16,7 +16,7 @@ require_once "../tools/config.php";
     <script src="https://www.paypal.com/sdk/js?client-id=AaMABOoKf6SEVMD5y_dOA3IhTfepuVTp0O39Ilqn6kmBu3FjqhppjCNAGl2HxZRnA_InbjGc6toag5mc&currency=EUR&locale=de_DE&disable-funding=card,credit,bancontact"></script>
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg","Checkout"); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/animals/heuschrecke.jpg","Checkout"); ?>
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
         <div id="cartItems">

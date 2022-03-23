@@ -25,7 +25,7 @@
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/test.jpg",htmlspecialchars($verkaeufer["FirmName"])); ?>
+    <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/animals/biene.jpg",htmlspecialchars($verkaeufer["FirmName"])); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content" align="center">
         <h1><?php echo htmlspecialchars($verkaeufer["FirmName"])?></h1>

@@ -16,7 +16,7 @@
     <script src="../scripts/shop.js" defer></script>
 </head>
 <body>
-    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/test.jpg","Shop"); ?>
+    <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/animals/salamander.jpg","Shop"); ?>
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
         <div id="sortContainer" class="hide">
