@@ -47,7 +47,7 @@
             }
             ?>
         </div>
-        <div id="cartCheckout" class="card">
+        <div id="cartCheckout">
             <h2>Checkout</h2>
             <table>
                 <tr>

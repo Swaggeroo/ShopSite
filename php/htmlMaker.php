@@ -48,7 +48,7 @@ class htmlMaker {
                     <input class='itemCountInput' name=\"".$itemID."\" value='".$itemCount."' disabled>
                 </div>
                 <div class='itemPreis'>
-                    <h2 class='totalPrice ".$pricePerItem."'>".number_format(($pricePerItem*$itemCount)/100,2,",",".")."€</h2>
+                    <h2 class='totalPrice ".$pricePerItem."'>".number_format(($pricePerItem*$itemCount)/100,2,",",".")." €</h2>
                 </div>
             </div>
         ";
