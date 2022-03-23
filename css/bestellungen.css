@@ -3,7 +3,7 @@ table{
     margin: auto;
 }
 
-img{
+.content img{
     width: 2em;
     height: 2em;
 }
@@ -21,7 +21,7 @@ td{
         width: 100%;
     }
 
-    img{
+    .content img{
         width: 1.5em;
         height: 1.5em;
     }
