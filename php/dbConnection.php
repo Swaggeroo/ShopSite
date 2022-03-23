@@ -351,8 +351,8 @@ class db{
         return $rows;
     }
 
-    public function getAnimalBySearch($catID, $verID, $searchTerm):array{
-        $sqlQuery = "SELECT * FROM Items WHERE CategoryID LIKE ? AND ManufacturerID LIKE ? AND Title LIKE ?";
+    public function getAnimalBySearch($catID, $verID, $searchTerm, $orderBY, $orderDESCASC):array{
+        $sqlQuery = "SELECT * FROM Items WHERE CategoryID LIKE ? AND ManufacturerID LIKE ? AND Title LIKE ? ORDER BY ".$orderBY." ".$orderDESCASC;
 
         $searchTerm = "%".$searchTerm."%";
 
@@ -368,14 +368,14 @@ class db{
         }
 
         if (count($rows)<=0){
-            return $this->getByAdvancedSearch($catID,$verID,$searchTerm);
+            return $this->getByAdvancedSearch($catID,$verID,$searchTerm,$orderBY,$orderDESCASC);
         }else {
             return $rows;
         }
     }
 
-    public function getByAdvancedSearch($catID, $verID, $searchTerm):array{
-        $sqlQuery = "SELECT * FROM Items WHERE CategoryID LIKE ? AND ManufacturerID LIKE ? AND Title LIKE ?";
+    public function getByAdvancedSearch($catID, $verID, $searchTerm, $orderBY, $orderDESCASC):array{
+        $sqlQuery = "SELECT * FROM Items WHERE CategoryID LIKE ? AND ManufacturerID LIKE ? AND Title LIKE ? ORDER BY ".$orderBY." ".$orderDESCASC;
 
         $searchTerm = "%".implode('%',str_split($searchTerm))."%";
 

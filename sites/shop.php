@@ -20,7 +20,7 @@
     <?php require "../php/#navBar.php" ?>
     <div align="center" class="content">
         <div id="sortContainer" class="hide">
-            <p style="margin: 0">Sortieren</p>
+            <p style="margin: 0">Filtern</p>
             <input type="text" id="filterSearch" value="<?php if (isset($_GET["search"])) echo $_GET["search"]?>" placeholder="Suchbegriff" onkeydown="handleEnterSearch()">
             <select id="filterKat">
                 <option value="" <?php if (!isset($_GET["kategorie"])) echo "selected"?>>Alle Kategorie</option>
@@ -48,9 +48,21 @@
                 }
                 ?>
             </select>
+            <p></p>
+            <p style="margin: 0">Sortieren</p>
+            <select id="sortType">
+                <option value="Title" <?php if (!isset($_GET["sortBY"]) || $_GET["sortBY"] == "Title") echo "selected"?>>Name</option>
+                <option value="Price" <?php if (isset($_GET["sortBY"]) && $_GET["sortBY"] == "Price") echo "selected"?>>Price</option>
+            </select>
+            <select id="sortAscDesc">
+                <option value="ASC" <?php if (!isset($_GET["ascDsc"]) || $_GET["ascDsc"] == "ASC") echo "selected"?>>Aufsteigend</option>
+                <option value="DESC" <?php if (isset($_GET["ascDsc"]) && $_GET["ascDsc"] == "DESC") echo "selected"?>>Absteigend</option>
+            </select>
+            <p></p>
+            <p></p>
             <button onclick="filterShop()">SORTIEREN</button>
             <?php
-                if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"]) || isset($_GET["search"])){
+                if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"]) || isset($_GET["search"]) || isset($_GET["sortBY"]) || isset($_GET["ascDsc"])){
                     echo "<button onclick=\"resetFilterShop()\">RESET</button>";
                 }
             ?>
@@ -59,10 +71,12 @@
             <?php
                 $htmlMaker = new htmlMaker();
                 $animals = null;
-                if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"]) || isset($_GET["search"])){
+                if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"]) || isset($_GET["search"]) || isset($_GET["sortBY"]) || isset($_GET["ascDsc"])){
                     $verkaeufer = "%";
                     $kategorie = "%";
                     $search = "%";
+                    $sortBY = "Title";
+                    $ascDsc = "ASC";
                     if (isset($_GET["verkaeufer"])){
                         $verkaeufer = $_GET["verkaeufer"];
                     }
@@ -72,8 +86,18 @@
                     if (isset($_GET["search"])){
                         $search = $_GET["search"];
                     }
+                    if (isset($_GET["sortBY"])){
+                        if ($_GET["sortBY"] == "Price"){
+                            $sortBY = "Price";
+                        }
+                    }
+                    if (isset($_GET["ascDsc"])){
+                        if ($_GET["ascDsc"] == "DESC"){
+                            $ascDsc = "DESC";
+                        }
+                    }
 
-                    $animals = $db->getAnimalBySearch($kategorie,$verkaeufer,$search);
+                    $animals = $db->getAnimalBySearch($kategorie,$verkaeufer,$search,$sortBY,$ascDsc);
                 } else{
                     $animals = $db->getAllAnimals();
                 }

@@ -2,6 +2,8 @@
 const filterSearch = document.getElementById("filterSearch")
 const filterKat = document.getElementById("filterKat")
 const filterVerk = document.getElementById("filterVerk")
+const sortType = document.getElementById("sortType")
+const sortAscDesc = document.getElementById("sortAscDesc")
 const filterBTN = document.getElementById("filterBTN")
 const filterContainer = document.getElementById("sortContainer")
 let el = document.getElementsByClassName('shopContainer')
@@ -63,7 +65,13 @@ function filterShop(){
         redicrect+="kategorie="+filterKat.value+"&"
     }
     if (filterVerk.value !== ""){
-        redicrect+="verkaeufer="+filterVerk.value
+        redicrect+="verkaeufer="+filterVerk.value+"&"
+    }
+    if (sortType.value !== ""){
+        redicrect+="sortBY="+sortType.value+"&"
+    }
+    if (sortAscDesc.value !== ""){
+        redicrect+="ascDsc="+sortAscDesc.value
     }
     window.location.href = redicrect
 }
