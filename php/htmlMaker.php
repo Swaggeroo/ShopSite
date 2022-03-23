@@ -108,9 +108,9 @@ class htmlMaker {
                     <span>©2022 Tiertotal</span>
                 </div>
                 <div class=\"footMid\">
-                    <p><a href=\"\">Datenschutz</a></p>
-                    <p><a href=\"\">Impressum</a></p>
-                    <p><a href=\"\">Nutzungsbedingungen</a></p>
+                    <p><a href=\"../legal/Datenschutz.html\">Datenschutz</a></p>
+                    <p><a href=\"../legal/Nutzungsbedingungen.html\">Nutzungsbedingungen</a></p>
+                    <p><a href=\"../legal/Credits.html\">Credits</a></p>
                 </div>
                 <div class=\"footRight\">
                     <img src=\"../media/icons/paypal.png\">
