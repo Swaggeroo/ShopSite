@@ -6,6 +6,7 @@
     background-position: center;
     z-index: 100;
     position: relative;
+    user-select: none;
 }
 
 .header:after{
