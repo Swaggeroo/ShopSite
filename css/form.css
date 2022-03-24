@@ -43,6 +43,24 @@ input:valid:focus{
     justify-content: center;
 }
 
+.togglePassword{
+    height: 1.5em;
+    width: 1.5em;
+    margin-left: -2.25em;
+    background-image: url("../media/icons/hidePW.SVG");
+    z-index: 1000;
+}
+
+.showPW{
+    background-image: url("../media/icons/showPW.SVG") !important;
+}
+
+.passwordContainer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 @media (max-width: 800px) {
     form{
         width: 90%;

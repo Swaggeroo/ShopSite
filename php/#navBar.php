@@ -46,7 +46,6 @@
     })();
 
     window.addEventListener('warenkorbUpdated', (e) => {
-        console.log("Event Triggered: "+e.detail.cartChange)
         curVal += parseInt(e.detail.cartChange);
         updateUI();
     });
@@ -54,12 +53,10 @@
     async function getTotal(){
         let module = await import("../scripts/asyncExec.js");
         let res = await module.asyncGet("../php/cartFunctions/getCartTotalItems.php");
-        console.log("result: "+res);
         return res;
     }
 
     function updateUI(){
-        console.log(curVal)
         if (curVal > 0){
             if (curVal > 99){
                 warenkorbElement.classList.add("warenkorbNavbarElementAfter");

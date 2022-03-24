@@ -48,9 +48,14 @@
             <h3>Profilinformationen</h3>
             <input class="input" type="text" placeholder="Benutzername" name="benutzername" id="benutzername" pattern="[A-Za-z0-9]{5,}" title="Mindestens 5 Zeichen" required>
             <input class="input" type="email" placeholder="Email" name="email" id="email" required>
-            <input class="input" type="password" placeholder="Passwort" name="passwort" id="passwort" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mindestens 8 Zeichen, 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Zahl" required>
-            <input class="input" type="password" placeholder="Passwort wiederholen" name="passwortWiederholung" id="passwortWiederholung" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mindestens 8 Zeichen, 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Zahl" required>
-
+            <div class="passwordContainer">
+                <input class="input pwInput" type="password" placeholder="Passwort" name="passwort" id="passwort" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mindestens 8 Zeichen, 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Zahl" required>
+                <i class="togglePassword" ></i>
+            </div>
+            <div class="passwordContainer">
+                <input class="input pwInput" type="password" placeholder="Passwort wiederholen" name="passwortWiederholung" id="passwortWiederholung" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mindestens 8 Zeichen, 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Zahl" required>
+                <i class="togglePassword" ></i>
+            </div>
             <button type="submit" name="registrierenBTN" id="registrierenBTN">Registrieren</button>
         </form>
     </div>
