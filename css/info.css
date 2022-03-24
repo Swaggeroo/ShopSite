@@ -75,6 +75,11 @@
     display: none;
 }
 
+.star{
+    height: 2em;
+    width: 2em;
+}
+
 @media (max-width: 800px) {
     .bigPicture{
         left: 2.5%;

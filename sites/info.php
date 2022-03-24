@@ -49,11 +49,21 @@
                     <p><?php echo $animal["Content"]?></p>
                     <h4>Bewertung</h4>
                     <div class="starsContainer">
-                        <img src="../media/icons/star.SVG" style="height: 2em; width: 2em">
-                        <img src="../media/icons/star.SVG" style="height: 2em; width: 2em">
-                        <img src="../media/icons/star.SVG" style="height: 2em; width: 2em">
-                        <img src="../media/icons/star.SVG" style="height: 2em; width: 2em">
-                        <img src="../media/icons/starGray.SVG" style="height: 2em; width: 2em">
+                        <?php
+                        $starcount = $db->getStarAverage(intval($_GET["id"]));
+                        $starString = "<img src=\"../media/icons/star.SVG\" class=\"star\">";
+                        $grayStars = 5-$starcount;
+                        while ($starcount > 1){
+                            $starString .= "<img src=\"../media/icons/star.SVG\" class=\"star\">";
+                            $starcount--;
+                        }
+                        while ($grayStars>0){
+                            $starString .= "<img src=\"../media/icons/starGray.SVG\" class=\"star\">";
+                            $grayStars--;
+                        }
+
+                        echo $starString;
+                        ?>
                         <p><a href="./bewertungen.php?id=<?php echo $_GET["id"]?>">Alle <?php echo $db->getCommentCount(intval($_GET["id"]))?> Bewertungen sehen</a></p>
                     </div>
                 </div>
