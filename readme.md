@@ -26,3 +26,44 @@ Hier sind Testanmeldedaten um das Paypal Checkout zu testen.
 
 # Features
 - Responsiv
+- Bewertungen
+  - Mit Kauf-Verifizierung
+  - Visualisierungen
+- Anmeldung
+- Registration
+- Sortierung
+  - Preis
+  - Name
+  - Aufsteigend absteigend
+- Filter
+  - Kategorie
+  - Verkäufer
+- Suchfunktion
+- Händlerseite
+- Warenkorb
+  - Lokal gespeichert wenn nicht angemeldet
+  - Auf Server gespeichert und Übertragen, wenn angemeldet
+- Profil
+- Checkout-Seite
+  - Paypal Checkout
+- Kaufbestätigungsseite
+- Rechnungen-Übersicht
+- Rechnungen drucken
+- Datenschutz
+- Nutzungsbedingungen
+- Viele Produkte/Tiere (73)
+  - Mit Bildern
+  - Mit Beschreibung
+
+# Stats
+## Time
+- Coding 62,5h
+- Total ~75h
+
+## Code
+- 5462 Total Lines
+- 91 Files (ohne Bilder)
+  - 31 PHP
+  - 17 CSS
+  - 10 JS
+  - 23 SVG
