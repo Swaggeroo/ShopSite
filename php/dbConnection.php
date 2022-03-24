@@ -84,6 +84,16 @@ class db{
                 Count int NOT NULL,
                 FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
                 FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
+            ) ENGINE = INNODB",
+            "CREATE TABLE IF NOT EXISTS Comments(
+                CommentID int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+                CommentDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                ItemID int NOT NULL,
+                UserID int NOT NULL,
+                Comment varchar(2500) NOT NULL,
+                Stars int NOT NULL,
+                FOREIGN KEY (UserID) REFERENCES Users(UserID),
+                FOREIGN KEY (ItemID) REFERENCES Items(ItemID)
             ) ENGINE = INNODB"
         );
 
@@ -99,9 +109,10 @@ class db{
     public function delEverything(){
         $sqlStatements = array(
             "DROP TABLE IF EXISTS OrderItemConnections",
+            "DROP TABLE IF EXISTS Comments",
             "DROP TABLE IF EXISTS Carts",
             "DROP TABLE IF EXISTS Orders",
-            "DROP TABLE IF EXISTS USERS",
+            "DROP TABLE IF EXISTS Users",
             "DROP TABLE IF EXISTS Items",
             "DROP TABLE IF EXISTS Categories",
             "DROP TABLE IF EXISTS Manufacturers"
@@ -651,6 +662,137 @@ class db{
         return $rows;
     }
 
+    public function addComment($userID, $animalID, $comment, $stars){
+        $sqlQuery = "INSERT INTO Comments (ItemID, UserID, Comment, Stars) VALUES (?, ?, ?, ?)";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("iisi", $animalID, $userID, $comment, $stars);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
+
+    public function updateComment($userID, $animalID, $comment, $stars){
+        $sqlQuery = "UPDATE Comments SET  Comment = ?, Stars = ?, CommentDate = CURRENT_TIMESTAMP WHERE ItemID = ? AND UserID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("siii",  $comment, $stars, $animalID, $userID);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
+
+    public function getAllComments($animalID):array{
+        $sqlQuery = "SELECT * FROM Comments WHERE ItemID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i",$animalID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
+
+    public function getCommentCount($animalID):int{
+        $sqlQuery = "SELECT COUNT(CommentID) AS Count FROM Comments WHERE ItemID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i",$animalID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        return $result->fetch_assoc()["Count"];
+    }
+
+    public function hasCommented($animalID, $userID):bool{
+        $sqlQuery = "SELECT COUNT(CommentID) AS Count FROM Comments WHERE ItemID = ? AND UserID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ii",$animalID, $userID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $count =  $result->fetch_assoc()["Count"];
+        return $count > 0;
+    }
+
+    public function getComment($animalID, $userID):array{
+        $sqlQuery = "SELECT * FROM Comments WHERE ItemID = ? AND UserID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ii",$animalID, $userID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $rows = array();
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
+    public function getStarAverage($animalID):int{
+        $sqlQuery = "SELECT AVG(Stars) AS star FROM Comments WHERE ItemID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i",$animalID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        return ceil($result->fetch_assoc()["star"]);
+    }
+
+    public function getStartCounts($animalID, $starType):int{
+        $sqlQuery = "SELECT COUNT(CommentID) AS Count FROM Comments WHERE ItemID = ? AND Stars = ? GROUP BY Stars";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ii",$animalID, $starType);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        return $result->fetch_assoc()["Count"] ?? 0;
+    }
+
+    public function getMaxStars($animalID):int{
+        $sqlQuery = "SELECT MAX(s.Count) AS maxCount FROM (SELECT COUNT(CommentID) AS Count FROM Comments WHERE ItemID = ? GROUP BY Stars) s";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("i",$animalID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        return $result->fetch_assoc()["maxCount"] ?? 0;
+    }
+
+    public function hasUserBoughtThisItem($animalID,$userID):bool{
+        $sqlQuery = "SELECT Count(ItemID) AS Count FROM OrderItemConnections WHERE ItemID = ? AND OrderID IN (SELECT OrderID FROM Orders WHERE UserID = ?) ORDER BY ItemID";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ii",$animalID, $userID);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        return $result->fetch_assoc()["Count"] > 0;
+    }
 }
 
 ?>

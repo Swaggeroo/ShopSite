@@ -119,4 +119,34 @@ class htmlMaker {
             </footer>
         ";
     }
+
+    public function getComment($comment,$name,$date,$starcount,$hasBought){
+        $starString = "<img src=\"../media/icons/star.SVG\" class=\"star\">";
+        $grayStars = 5-$starcount;
+        while ($starcount > 1){
+            $starString .= "<img src=\"../media/icons/star.SVG\" class=\"star\">";
+            $starcount--;
+        }
+        while ($grayStars>0){
+            $starString .= "<img src=\"../media/icons/starGray.SVG\" class=\"star\">";
+            $grayStars--;
+        }
+
+        $hasBoughtString = "";
+        if ($hasBought){
+            $hasBoughtString = "<img src='../media/icons/checkMark.SVG' class='checkMark'>";
+        }
+
+        return "
+            <div class=\"bewertung card\">
+                <h4>".$name." ".$hasBoughtString."</h4>
+                <h5>".$date."</h5>
+                <div>
+                    ".$starString."
+                </div>
+                <p class=\"kommentar\">".$comment."</p>
+            </div>
+
+        ";
+    }
 }

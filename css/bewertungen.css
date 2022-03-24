@@ -1,0 +1,90 @@
+.content{
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.starsContainer{
+    width: 20%;
+    display: unset;
+    margin-top: 2em;
+}
+
+.bewertungenContainer{
+    width: 60%;
+    margin-left: 4em;
+    display: unset;
+}
+
+.kommentarText{
+    width: 100%;
+    height: 8em;
+}
+
+.bewertungsForm{
+    margin-top: 2.5em;
+}
+
+.content h3,h4,h5{
+    margin: 0 0 .5em;
+}
+
+.bewertung{
+    padding: .75em;
+    border-radius: .5em;
+    margin-bottom: 1em;
+}
+
+.star{
+    height: 2em;
+    width: 2em;
+}
+
+.starSmall{
+    height: 1em;
+    width: 1em;
+    margin-right: .25em;
+}
+
+.checkMark{
+    height: 1em;
+    width: 1em;
+}
+
+@media (max-width: 1000px) {
+    .starsContainer{
+        width: 80%;
+        display: unset;
+    }
+
+    .bewertungenContainer{
+        width: 80%;
+        margin-left: 1em;
+        display: unset;
+    }
+}
+
+@media (max-width: 800px) {
+    .content{
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+    }
+
+    .starsContainer{
+        margin: auto;
+        width: 90%;
+        display: unset;
+    }
+
+    .bewertungenContainer{
+        width: 90%;
+        margin-left: 0;
+        display: unset;
+        margin-top: 2em;
+    }
+}

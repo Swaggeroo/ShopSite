@@ -47,6 +47,15 @@
                     <a href="./infoVerkaeufer.php?id=<?php echo $verkaeufer["ManufacturerID"]?>"><p><?php echo $verkaeufer["FirmName"]?></p></a>
                     <h4>Beschreibung</h4>
                     <p><?php echo $animal["Content"]?></p>
+                    <h4>Bewertung</h4>
+                    <div class="starsContainer">
+                        <img src="../media/icons/star.SVG" style="height: 2em; width: 2em">
+                        <img src="../media/icons/star.SVG" style="height: 2em; width: 2em">
+                        <img src="../media/icons/star.SVG" style="height: 2em; width: 2em">
+                        <img src="../media/icons/star.SVG" style="height: 2em; width: 2em">
+                        <img src="../media/icons/starGray.SVG" style="height: 2em; width: 2em">
+                        <p><a href="./bewertungen.php?id=<?php echo $_GET["id"]?>">Alle <?php echo $db->getCommentCount(intval($_GET["id"]))?> Bewertungen sehen</a></p>
+                    </div>
                 </div>
                 <div class="itemButtons">
                     <h3>Preis: <?php echo number_format($animal["Price"]/100, 2, ',', '.')."€"?></h3>
