@@ -27,6 +27,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     -webkit-font-smoothing: antialiased;
+    display: inline-block;
 }
 .fancy-btn-cont .fancy-btn:hover {
     border: 1px solid transparent;

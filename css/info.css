@@ -80,6 +80,10 @@
     width: 2em;
 }
 
+.itemButtons h4{
+    margin-bottom: 0;
+}
+
 @media (max-width: 800px) {
     .bigPicture{
         left: 2.5%;
