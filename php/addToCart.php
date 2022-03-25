@@ -3,8 +3,8 @@ require_once "../tools/config.php";
 if (!isset($_SESSION)) {
     session_start();
 }
-$itemID = $_POST["id"];
-$count  = $_POST["count"];
+$itemID = intval(stripslashes(htmlspecialchars(trim($_POST["id"]))));
+$count  = intval(stripslashes(htmlspecialchars(trim($_POST["count"]))));
 if ($count > 999){
     $count = 999;
 }

@@ -4,7 +4,7 @@ $db = new db();
 if (!isset($_SESSION)) {
     session_start();
 }
-$userID = $_SESSION["userID"];
+$userID = intval(stripslashes(htmlspecialchars(trim($_SESSION["userID"]))));
 
 $cart = $db->getCartFromUser($userID);
 

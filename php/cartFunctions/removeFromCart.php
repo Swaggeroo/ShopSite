@@ -1,6 +1,6 @@
 <?php
 require_once "../../tools/config.php";
-$itemID = $_POST["id"];
+$itemID = intval(stripslashes(htmlspecialchars(trim($_POST["id"]))));
 require_once "../dbConnection.php";
 $db = new db();
 if (!isset($_SESSION)) {

@@ -1,7 +1,7 @@
 <?php
 require_once "../../tools/config.php";
-$itemID = $_POST["id"];
-$newCount = $_POST["count"];
+$itemID = intval(stripslashes(htmlspecialchars(trim($_POST["id"]))));
+$newCount = intval(stripslashes(htmlspecialchars(trim($_POST["count"]))));
 require_once "../dbConnection.php";
 $db = new db();
 if (!isset($_SESSION)) {

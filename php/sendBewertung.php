@@ -1,8 +1,8 @@
 <?php
 require_once "../tools/config.php";
-$itemID = $_POST["id"];
-$comment = $_POST["comment"];
-$stars = $_POST["stars"];
+$itemID = intval(stripslashes(htmlspecialchars(trim($_POST["id"]))));
+$comment = stripslashes(htmlspecialchars(trim($_POST["comment"])));
+$stars = intval(stripslashes(htmlspecialchars(trim($_POST["stars"]))));
 require_once "./dbConnection.php";
 $db = new db();
 if (!isset($_SESSION)) {
