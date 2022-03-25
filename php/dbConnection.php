@@ -793,6 +793,45 @@ class db{
 
         return $result->fetch_assoc()["Count"] > 0;
     }
+
+    public function updatePersData($vorname, $nachname, $strasse, $stadt, $plz, $userID){
+        $sqlQuery = "UPDATE Users SET  Vorname = ?, Nachname = ?, Strasse = ?, Stadt = ?, PLZ = ? WHERE UserID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ssssii",  $vorname, $nachname, $strasse, $stadt, $plz, $userID);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
+
+    public function updatePayData($iban, $bic ,$userID){
+        $sqlQuery = "UPDATE Users SET  IBAN = ?, BIC = ? WHERE UserID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ssi",  $iban, $bic, $userID);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
+
+    public function updateProData($email, $passwordHash ,$userID){
+        $sqlQuery = "UPDATE Users SET  Email = ?, Passwort = ? WHERE UserID = ?";
+
+        $statement = $this->dbKeyObject->prepare($sqlQuery);
+        $statement->bind_param("ssi",  $email, $passwordHash, $userID);
+
+        if(!$statement->execute()){
+            die("Error: ".$statement->error);
+        }
+
+        $statement->close();
+    }
 }
 
 ?>

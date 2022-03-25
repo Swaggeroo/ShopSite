@@ -1,20 +1,5 @@
-let inputs = document.getElementsByClassName("input");
 let pwInputs = document.getElementsByClassName("pwInput");
 let shown = false;
-
-for(let i = 0; i<inputs.length; i++){
-    inputs[i].addEventListener("focusout", checkVal);
-
-    inputs[i].addEventListener("change", checkVal);
-
-    function checkVal(event) {
-        if (event.target.checkValidity()) {
-            event.target.classList.remove("invalid");
-        } else {
-            event.target.classList.add("invalid");
-        }
-    }
-}
 
 for(let i = 0; i<pwInputs.length; i++){
     let parent = pwInputs[i].parentNode;

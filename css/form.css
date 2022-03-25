@@ -34,6 +34,11 @@ input:valid:focus{
     border: 3px solid #16c116;
 }
 
+input:disabled{
+    color: #a5a5a5;
+    cursor: not-allowed;
+}
+
 .invalid{
     border: 3px solid #c40429;
 }
@@ -59,6 +64,30 @@ input:valid:focus{
     display: flex;
     align-items: center;
     width: 100%;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    /*visibility: hidden; !* Hidden by default. Visible on click *!*/
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: -30px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out,bottom 0.5s ease-out;
+}
+
+#snackbar.show {
+    bottom: 30px !important;
+    opacity: 1 !important;
+    transition: opacity 0.5s ease-out,bottom 0.5s ease-out;
 }
 
 @media (max-width: 800px) {

@@ -27,12 +27,14 @@
     <link rel="stylesheet" href="../css/button.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/form.js" defer></script>
+    <script src="../scripts/keepInputsRed.js" defer></script>
 </head>
 <body>
     <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/animals/zebra.jpg","Login"); ?>
     <?php require "../php/#navBar.php" ?>
     <div class="content">
         <form action="../php/processLogin.php" method="post" id="logForm">
+            <div id="snackbar">Some text some message..</div>
             <p>Noch kein Account? <a id="crossLink" href="./registration.php">Registration</a></p>
             <h3>Profilinformationen</h3>
             <input class="input" type="text" placeholder="Benutzername" name="benutzername" id="benutzername" pattern="[A-Za-z0-9]{5,}" title="Mindestens 5 Zeichen" required>

@@ -34,6 +34,10 @@
     background-image: url('../media/icons/email.svg') !important;
 }
 
+#oldPasswort{
+    background-image: url('../media/icons/key.svg') !important;
+}
+
 #passwort{
     background-image: url('../media/icons/key.svg') !important;
 }
