@@ -46,6 +46,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = stripslashes(htmlspecialchars(trim($_POST["passwort"])));
     $passwortWiederholung = stripslashes(htmlspecialchars(trim($_POST["passwortWiederholung"])));
 
+    //checkForRegex
+    if (!preg_match("/[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{3,}/", $vorname)){
+        dieError("Vorname Pattern Mismatch");
+    }
+    if (!preg_match("/[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{3,}/", $nachname)){
+        dieError("Nachname Pattern Mismatch");
+    }
+    if (!preg_match("/[A-Za-zßÄÜÖäüöÉÚÓÁéúóá\- ]{2,}[ ]{1}[0-9]{1,}/", $strasse)){
+        dieError("Strasse Pattern Mismatch");
+    }
+    if (!preg_match("/[A-Za-zÄÜÖäüöÉÚÓÁéúóá\-]{2,}/", $stadt)){
+        dieError("Stadt Pattern Mismatch");
+    }
+    if (!preg_match("/[0-9]{5}/", $plz)){
+        dieError("Plz Pattern Mismatch");
+    }
+    if (!preg_match("/[A-Z]{2}[0-9]{20}/", $iban)){
+        dieError("Iban Pattern Mismatch");
+    }
+    if (!preg_match("/[A-Z0-9]{11}/", $bic)){
+        dieError("Bic Pattern Mismatch");
+    }
+    if (!preg_match("/[A-Za-z0-9]{5,}/", $benutzername)){
+        dieError("Benutzername Pattern Mismatch");
+    }
+    if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        dieError("Email Pattern Mismatch ".$email);
+    }
+    if (!preg_match("/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/", $password)){
+        dieError("Password Pattern Mismatch");
+    }
+    if (!preg_match("/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/", $passwortWiederholung)){
+        dieError("Passwort Wiederholung Pattern Mismatch");
+    }
+
 
     $exists = $db->userNameExists($benutzername);
 
@@ -74,6 +109,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = $benutzername;
     $password = $passwordHash;
+
+    function dieError($error){
+        die("<script>
+        console.log('Error: ".$error."');
+        alert('Ein Fehler ist aufgetreten');
+        location.replace('../../sites/profile.php');
+    </script>");
+    }
 
     require "./processLogin.php";
 

@@ -25,6 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //get variables
     $username = stripslashes(htmlspecialchars(trim($_POST["benutzername"])));
     $password = stripslashes(htmlspecialchars(trim($_POST["passwort"])));
+    if (!preg_match("/[A-Za-z0-9]{5,}/", $username)){
+        dieError("Benutzername Pattern Mismatch");
+    }
+    if (!preg_match("/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/", $password)){
+        dieError("Password Pattern Mismatch");
+    }
 
     $exists = $db->userNameExists($username);
 
