@@ -11,6 +11,7 @@
     <title>Shop</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/button.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/shop.js" defer></script>
@@ -60,10 +61,30 @@
             </select>
             <p></p>
             <p></p>
-            <button onclick="filterShop()">SORTIEREN</button>
+            <button onclick="filterShop()" class="oldBTN">
+                <div class='fancy-btn-cont'>
+                    <a class='fancy-btn'>
+                        SORTIEREN
+                        <span class='line-1'></span>
+                        <span class='line-2'></span>
+                        <span class='line-3'></span>
+                        <span class='line-4'></span>
+                    </a>
+                </div>
+            </button>
             <?php
                 if (isset($_GET["verkaeufer"]) || isset($_GET["kategorie"]) || isset($_GET["search"]) || isset($_GET["sortBY"]) || isset($_GET["ascDsc"])){
-                    echo "<button onclick=\"resetFilterShop()\">RESET</button>";
+                    echo "<button onclick=\"resetFilterShop()\" class=\"oldBTN\">
+                        <div class='fancy-btn-cont'>
+                            <a class='fancy-btn'>
+                                RESET
+                                <span class='line-1'></span>
+                                <span class='line-2'></span>
+                                <span class='line-3'></span>
+                                <span class='line-4'></span>
+                            </a>
+                        </div>
+                    </button>";
                 }
             ?>
         </div>
