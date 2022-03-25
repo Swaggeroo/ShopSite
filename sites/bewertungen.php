@@ -84,7 +84,7 @@
             <?php
                 $comments = $db->getAllComments(intval($_GET["id"]));
                 foreach ($comments AS $c){
-                    echo $htmlMaker->getComment($c["Comment"],$db->getUserName($c["UserID"]),date("d.m.Y m:h", strtotime($c["CommentDate"])),$c["Stars"],$db->hasUserBoughtThisItem(intval($_GET["id"]),$c["UserID"]));
+                    echo $htmlMaker->getComment($c["Comment"],$db->getUserName($c["UserID"]),date("d.m.Y H:i", strtotime($c["CommentDate"])),$c["Stars"],$db->hasUserBoughtThisItem(intval($_GET["id"]),$c["UserID"]));
                 }
             ?>
         </div>
