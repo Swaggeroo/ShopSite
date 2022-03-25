@@ -53,7 +53,7 @@ input:disabled{
     width: 1.5em;
     margin-left: -2.25em;
     background-image: url("../media/icons/hidePW.SVG");
-    z-index: 1000;
+    z-index: 100;
 }
 
 .showPW{
