@@ -105,7 +105,7 @@ class htmlMaker {
                 <link rel=\"stylesheet\" href=\"../css/footer.css\">
                 <div class=\"footLeft\">
                     <div class=\"flex-container row\"><span class=\"icon\"></span><h3>Tiertotal</h3></div>
-                    <span>©2022 Tiertotal</span>
+                    <span><a href=\"https://github.com/swaggeroo\">&copy;2022 Tiertotal</a></span>
                 </div>
                 <div class=\"footMid\">
                     <p><a href=\"../legal/Datenschutz.html\">Datenschutz</a></p>
