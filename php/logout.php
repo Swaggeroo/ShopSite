@@ -6,7 +6,7 @@ if(!session_destroy()){
     die("Error: Could not destroy session!");
 }else{
     echo "<script>
-   alert('logged out!');
+   alert('Erfolgreich ausgeloggt');
    window.location.replace('../');
   </script>";
 }
