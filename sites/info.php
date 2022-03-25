@@ -52,6 +52,9 @@
                     <div class="starsContainer">
                         <?php
                         $starcount = $db->getStarAverage(intval($_GET["id"]));
+                        if ($starcount<1){
+                            $starcount = 5;
+                        }
                         $starString = "<img src=\"../media/icons/star.SVG\" class=\"star\">";
                         $grayStars = 5-$starcount;
                         while ($starcount > 1){
