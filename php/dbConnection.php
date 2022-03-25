@@ -130,7 +130,7 @@ class db{
     public function exampleData(){
         echo "<p>Filling Tables with Data</p>";
         echo "<p>Creating Users</p>";
-        $this->addUser("TestTest",
+        $this->addUser("TestAccount",
             password_hash("Test1234", PASSWORD_DEFAULT),
             "test@test.com",
             "Jürgen",
@@ -141,7 +141,7 @@ class db{
             "DE12345678900000000000",
             "GEOOOOOOOOO"
         );
-        echo "<p>User (1/2)</p>";
+        echo "<p>User (1/8)</p>";
         $this->addUser("SuperDude",
             password_hash("Cool1234", PASSWORD_DEFAULT),
             "test@test.com",
@@ -153,7 +153,79 @@ class db{
             "DE12345678900000000000",
             "GEOOOOOOOOO"
         );
-        echo "<p>User (2/2)</p>";
+        echo "<p>User (2/8)</p>";
+        $this->addUser("GuenterDerGruene",
+            password_hash("Cool1234", PASSWORD_DEFAULT),
+            "Günter@grün.de",
+            "Günter",
+            "Grün",
+            "Frankfurterstraße 659",
+            "Traumhausen",
+            55789,
+            "DE12345678900000000000",
+            "GEOOOOOOOOO"
+        );
+        echo "<p>User (3/8)</p>";
+        $this->addUser("Udoswelt",
+            password_hash("Cool1234", PASSWORD_DEFAULT),
+            "udo@welt.com",
+            "Udo",
+            "Schneider",
+            "Frankfurterstraße 659",
+            "Traumhausen",
+            55789,
+            "DE12345678900000000000",
+            "GEOOOOOOOOO"
+        );
+        echo "<p>User (4/8)</p>";
+        $this->addUser("Ortholaan",
+            password_hash("Cool1234", PASSWORD_DEFAULT),
+            "jonas@wunsch.aerztesohn",
+            "Jonas",
+            "Wunsch",
+            "Frankfurterstraße 659",
+            "Traumhausen",
+            55789,
+            "DE12345678900000000000",
+            "GEOOOOOOOOO"
+        );
+        echo "<p>User (5/8)</p>";
+        $this->addUser("FeedMeImSmurf",
+            password_hash("Cool1234", PASSWORD_DEFAULT),
+            "ich.bin@ein.weeb",
+            "Maik",
+            "Jökel",
+            "Frankfurterstraße 659",
+            "Traumhausen",
+            55789,
+            "DE12345678900000000000",
+            "GEOOOOOOOOO"
+        );
+        echo "<p>User (6/8)</p>";
+        $this->addUser("RedEagle",
+            password_hash("Cool1234", PASSWORD_DEFAULT),
+            "lol@ist.gut",
+            "David",
+            "Schmermen",
+            "Frankfurterstraße 659",
+            "Traumhausen",
+            55789,
+            "DE12345678900000000000",
+            "GEOOOOOOOOO"
+        );
+        echo "<p>User (7/8)</p>";
+        $this->addUser("WaffleWeapon",
+            password_hash("Cool1234", PASSWORD_DEFAULT),
+            "Waffelb@mmmh.lecker",
+            "Maxi",
+            "Max",
+            "Frankfurterstraße 659",
+            "Traumhausen",
+            55789,
+            "DE12345678900000000000",
+            "GEOOOOOOOOO"
+        );
+        echo "<p>User (8/8)</p>";
 
 
         echo "<p>Creating Verkäufer</p>";
@@ -195,6 +267,50 @@ class db{
         $this->createItemOrderRefference($orderID,7,3);
         $this->createItemOrderRefference($orderID,4,2);
         echo "<p>Added Order</p>";
+
+
+        echo "<p>Creating Example Comments</p>";
+        $exampleComments = array(
+            "Super Tier",
+            "Das ist aber süß",
+            "Viel zu teuer",
+            "Wucher",
+            "Kann ich mir leider nicht leisten",
+            "Zu laut",
+            "Sau Geil",
+            "10 von 10",
+            "-1 von 10",
+            "Stinkt mir zu viel",
+            "Schmeckt gut",
+            "Die Lieferung war super schnell",
+            "Top Qualität",
+            "Ich glaube mein Exemplar ist kaputt",
+            "NICHT WIE IM BILD!",
+            "Viel zu schwer",
+            "Viel zu groß",
+            "Ich LIEBE es",
+            "Das beste was ich je gekauft habe",
+            "Würde es immer wieder kaufen",
+            "Empfehle ich meinen Freunden",
+            "Ich habe gleich meiner ganzen Familie eins gekauft",
+            "Das ist doch Tierquälerei",
+            "Meins war sehr dreckig als es angekommen ist",
+            "Ich hoffe es hat nicht Corona",
+            "Ich mag die Geräusche die es macht",
+            "Die Geräusche sind Musik in meinen Ohren",
+            "Ich hoffe es wurde auf Krankheiten vorher getestet"
+        );
+
+        $commentCount = 0;
+
+        for ($exampleCommentCount = 1; $exampleCommentCount <= count($animalsJSONObj); $exampleCommentCount++){
+            for ($comC = rand(0,8); $comC > 0; $comC--){
+                $commentCount++;
+                echo "<p>Added Comment ".$commentCount."</p>";
+                $this->addComment($comC,$exampleCommentCount,$exampleComments[rand(0,count($exampleComments)-1)],rand(1,5));
+            }
+        }
+
         $sqlStatements = array(
 
         );
