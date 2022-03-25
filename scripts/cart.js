@@ -4,12 +4,22 @@ let subtotal = document.getElementById("subtotal");
 let discount = document.getElementById("discount");
 let shipping = document.getElementById("shipping");
 let total = document.getElementById("total");
+let itemContainer = document.getElementById("cartItems");
+let checkoutBTN = document.getElementById("checkoutFancyBTN");
 
 let stickyCheck = checkout.offsetTop;
 
 window.addEventListener("scroll", scrollfunk);
 
 window.addEventListener('resize', scrollfunk);
+
+checkoutBTN.addEventListener('click', ()=>{
+   if (!isEmpty()){
+       window.location.href = "./checkout.php";
+   }else {
+       alert("Dein Warenkorb ist leer");
+   }
+});
 
 function scrollfunk() {
     if (!(window.innerWidth < 800)){
@@ -31,7 +41,6 @@ function changeCount(el){
     let pricePerItem = h2Tag.classList.item(1);
     let factor = el.textContent === "+" ? 1 : -1;
     window.dispatchEvent(new CustomEvent('warenkorbUpdated', {detail:{cartChange: factor}}));
-    console.log(input.name + " - "+ factor);
     input.value = parseInt(input.value) + factor;
     if (input.value > 999){
         input.value = 999;
@@ -40,6 +49,9 @@ function changeCount(el){
     (async ()=>{
         if (input.value<=0){
             itemNode.parentNode.removeChild(itemNode);
+            if (isEmpty()){
+                showEmpty();
+            }
             let module = await import("../scripts/asyncExec.js");
             let response = await module.asyncPostWithParms("../php/cartFunctions/removeFromCart.php","id="+parseInt(input.name));
             console.log(response);
@@ -82,4 +94,28 @@ function calculateTotal(){
 
 }
 
+
+
+function isEmpty(){
+    let items = document.getElementsByClassName("item");
+    if (items.length <= 0){
+        return true;
+    }
+}
+
+function showEmpty(){
+    let text = document.createElement("span");
+    text.innerText = "Dein Warenkorb ist leer "
+    let link = document.createElement('a');
+    link.innerText = "Zum Shop";
+    link.classList.add("emptyButton");
+    link.href = "./shop.php";
+    itemContainer.appendChild(text);
+    itemContainer.appendChild(link);
+    checkoutBTN.style.color = "gray";
+}
+
 calculateTotal();
+if (isEmpty()){
+    showEmpty();
+}

@@ -32,8 +32,6 @@
                         $animal = $db->getAnimalById(intval($c["ItemID"]));
                         echo $htmlMaker->getCartItem($animal["Title"],$c["Count"],$animal["Price"],$animal["Picture"],$c["ItemID"]);
                     }
-                }else{
-                    echo "Dein Warenkorb ist leer <a href='./shop.php'>Zum Shop</a>";
                 }
             }else{
                 if (isset($_COOKIE['cart']) && count(json_decode($_COOKIE['cart'], true))>0){
@@ -42,8 +40,6 @@
                         $animal = $db->getAnimalById(intval($k));
                         echo $htmlMaker->getCartItem($animal["Title"],$cart[(string)$k],$animal["Price"],$animal["Picture"],$k);
                     }
-                }else{
-                    echo "Dein Warenkorb ist leer <a href='./shop.php'>Zum Shop</a>";
                 }
             }
             ?>
@@ -70,7 +66,7 @@
             </table>
 <!--            <a href="./checkout.php" id="checkoutBTN">Checkout</a>-->
             <div class='fancy-btn-cont'>
-                <a class='fancy-btn' href="./checkout.php">
+                <a class='fancy-btn' id="checkoutFancyBTN">
                     Checkout
                     <span class='line-1'></span>
                     <span class='line-2'></span>

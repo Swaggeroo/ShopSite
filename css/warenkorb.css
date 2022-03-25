@@ -4,6 +4,14 @@
     margin: auto;
 }
 
+.emptyButton{
+    color: green;
+}
+
+.emptyButton:hover{
+    text-decoration: underline;
+}
+
 .item{
     height: 7.5em;
     width: 95%;

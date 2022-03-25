@@ -46,9 +46,16 @@ function calculateTotal(){
 
 }
 
+function isEmpty(){
+    let items = document.getElementsByClassName("item");
+    if (items.length <= 0){
+        return true;
+    }
+}
+
 calculateTotal();
 
-console.log(getTotal())
-console.log(getDiscount(getTotal()))
-console.log(getShippingVal(getTotal()))
-console.log(getRealTotal())
+if (isEmpty()){
+    alert("Warenkorb ist leer");
+    history.back();
+}

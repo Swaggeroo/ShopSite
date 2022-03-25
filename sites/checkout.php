@@ -36,7 +36,7 @@ require_once "../tools/config.php";
                         echo $htmlMaker->getCheckoutItem($animal["Title"],$c["Count"],$animal["Price"],$animal["Picture"],$c["ItemID"]);
                     }
                 }else{
-                    echo "Dein Warenkorb ist leer <a href='./shop.php'>Zum Shop</a>";
+                    echo "Dein Warenkorb ist leer <a class='emptyButton' href='./shop.php'>Zum Shop</a>";
                 }
             }
             ?>
