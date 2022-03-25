@@ -25,12 +25,14 @@ Hier sind Testanmeldedaten um das Paypal Checkout zu testen.
 - Password: t>&]CI1l
 
 # Features
+## Frontend
 - Responsiv
 - Bewertungen
   - Mit Kauf-Verifizierung
   - Visualisierungen
 - Anmeldung
 - Registration
+  - Pattern validation
 - Sortierung
   - Preis
   - Name
@@ -44,6 +46,7 @@ Hier sind Testanmeldedaten um das Paypal Checkout zu testen.
   - Lokal gespeichert wenn nicht angemeldet
   - Auf Server gespeichert und Übertragen, wenn angemeldet
 - Profil
+  - Accountdaten ändern
 - Checkout-Seite
   - Paypal Checkout
 - Kaufbestätigungsseite
@@ -54,6 +57,13 @@ Hier sind Testanmeldedaten um das Paypal Checkout zu testen.
 - Viele Produkte/Tiere (73)
   - Mit Bildern
   - Mit Beschreibung
+
+## Backend
+- Ausgelagerte DB-Funktionen
+- Anmeldeüberprüfung
+- Input Validation
+- Crossitescripting protection
+- SQL-Injection protection
 
 # Stats
 ## Time
