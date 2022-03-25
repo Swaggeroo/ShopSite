@@ -9,6 +9,7 @@
     <title>Warenkorb</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/warenkorb.css">
+    <link rel="stylesheet" href="../css/button.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/cart.js" defer></script>
 </head>
@@ -67,7 +68,16 @@
                     <td id="total">0.00€</td>
                 </tr>
             </table>
-            <a href="./checkout.php" id="checkoutBTN">Checkout</a>
+<!--            <a href="./checkout.php" id="checkoutBTN">Checkout</a>-->
+            <div class='fancy-btn-cont'>
+                <a class='fancy-btn' href="./checkout.php">
+                    Checkout
+                    <span class='line-1'></span>
+                    <span class='line-2'></span>
+                    <span class='line-3'></span>
+                    <span class='line-4'></span>
+                </a>
+            </div>
         </div>
     </div>
     <?php echo $htmlMaker->getFooter()?>

@@ -24,6 +24,7 @@
     <title><?php echo $animal["Title"]?></title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/info.css">
+    <link rel="stylesheet" href="../css/button.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/info.js" defer></script>
 </head>
@@ -70,7 +71,17 @@
                 <div class="itemButtons">
                     <h3>Preis: <?php echo number_format($animal["Price"]/100, 2, ',', '.')."€"?></h3>
                     <h4>Qnt.<input type="number" name="menge" id="inputMenge" value="1"></h4>
-                    <button onclick="addToCart(<?php echo $_GET["id"]?>)">In den Warenkorb</button>
+                    <button class="oldBTN" onclick="addToCart(<?php echo $_GET["id"]?>)">
+                        <div class='fancy-btn-cont'>
+                            <a class='fancy-btn'>
+                                In den Warenkorb
+                                <span class='line-1'></span>
+                                <span class='line-2'></span>
+                                <span class='line-3'></span>
+                                <span class='line-4'></span>
+                            </a>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>

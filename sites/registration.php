@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/registration.css">
     <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/button.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/form.js" defer></script>
     <script src="../scripts/registration.js" defer></script>
@@ -56,7 +57,17 @@
                 <input class="input pwInput" type="password" placeholder="Passwort wiederholen" name="passwortWiederholung" id="passwortWiederholung" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mindestens 8 Zeichen, 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Zahl" required>
                 <i class="togglePassword" ></i>
             </div>
-            <button type="submit" name="registrierenBTN" id="registrierenBTN">Registrieren</button>
+            <button class="oldBTN" type="submit" name="registrierenBTN" id="registrierenBTN">
+                <div class='fancy-btn-cont'>
+                    <a class='fancy-btn'>
+                        Registrieren
+                        <span class='line-1'></span>
+                        <span class='line-2'></span>
+                        <span class='line-3'></span>
+                        <span class='line-4'></span>
+                    </a>
+                </div>
+            </button>
         </form>
     </div>
     <?php echo $htmlMaker->getFooter()?>

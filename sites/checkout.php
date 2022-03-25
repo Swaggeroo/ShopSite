@@ -10,6 +10,7 @@ require_once "../tools/config.php";
     <title>Checkout</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/warenkorb.css">
+    <link rel="stylesheet" href="../css/button.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/checkout.js" defer></script>
     <!-- Include the PayPal JavaScript SDK; replace "test" with your own sandbox Business account app client ID -->
@@ -60,7 +61,15 @@ require_once "../tools/config.php";
                     <td id="total">0.00€</td>
                 </tr>
             </table>
-            <a href="../php/processBuy.php" id="checkoutBTN">Kaufen</a>
+            <div class='fancy-btn-cont' style="margin-bottom: 1.75em">
+                <a class='fancy-btn' href="../php/processBuy.php">
+                    Kaufen
+                    <span class='line-1'></span>
+                    <span class='line-2'></span>
+                    <span class='line-3'></span>
+                    <span class='line-4'></span>
+                </a>
+            </div>
             <div id="paypal-button-container" style="margin: auto; width: 80%"></div>
         </div>
     </div>

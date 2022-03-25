@@ -8,6 +8,10 @@
   text-decoration: underline;
 }
 
+.content a:hover{
+  color: #7b7b7b;
+}
+
 .success-checkmark {
   width: 80px;
   height: 115px;

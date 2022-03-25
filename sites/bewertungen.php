@@ -21,6 +21,7 @@
     <title>Bewertungen <?php echo $animal["Title"]?></title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/bewertungen.css">
+    <link rel="stylesheet" href="../css/button.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
 </head>
 <body>
@@ -65,7 +66,17 @@
                     <textarea class="kommentarText" required></textarea>
                 </label>
                 <br>
-                <button type="submit">Senden</button>
+                <button class="oldBTN" type="submit">
+                    <div class='fancy-btn-cont'>
+                        <a class='fancy-btn'>
+                            Senden
+                            <span class='line-1'></span>
+                            <span class='line-2'></span>
+                            <span class='line-3'></span>
+                            <span class='line-4'></span>
+                        </a>
+                    </div>
+                </button>
             </form>
         </div>
         <div class="bewertungenContainer">
@@ -95,5 +106,22 @@
         }
     }
     ?>
+    <script>
+        let inputs = document.getElementsByClassName("kommentarText");
+
+        for(let i = 0; i<inputs.length; i++){
+            inputs[i].addEventListener("focusout", checkVal);
+
+            inputs[i].addEventListener("change", checkVal);
+
+            function checkVal(event) {
+                if (event.target.checkValidity()) {
+                    event.target.classList.remove("invalid");
+                } else {
+                    event.target.classList.add("invalid");
+                }
+            }
+        }
+    </script>
 </body>
 </html>
