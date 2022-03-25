@@ -33,7 +33,7 @@ $kunde = $db->getUserById($orderInfo["UserID"]);
 
     <div id="adressen">
         <div id="adresseKunde">
-            <p><?php echo $kunde["Nachname"]." ".$kunde["Vorname"]?></p>
+            <p><?php echo $kunde["Vorname"]." ".$kunde["Nachname"]?></p>
             <p><?php echo $kunde["Strasse"]?></p>
             <p><?php echo $kunde["PLZ"]." ".$kunde["Stadt"]?></p>
         </div>
