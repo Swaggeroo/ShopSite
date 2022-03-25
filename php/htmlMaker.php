@@ -112,10 +112,12 @@ class htmlMaker {
                     <p><a href=\"../legal/Nutzungsbedingungen.html\">Nutzungsbedingungen</a></p>
                     <p><a href=\"../legal/Credits.html\">Credits</a></p>
                 </div>
+                <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>
                 <div class=\"footRight\">
                     <img src=\"../media/icons/paypal.png\">
                     <img class=\"cardIconFoot\" src=\"../media/icons/card-white.svg\">
                 </div>
+                </a>
             </footer>
         ";
     }
