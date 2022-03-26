@@ -80,7 +80,7 @@ require_once "../tools/config.php";
                 color: 'gold',
                 layout: 'horizontal',
                 label: 'paypal',
-                tagline: false //TODO
+                tagline: false
             },
 
             // Sets up the transaction when a payment button is clicked
@@ -92,7 +92,7 @@ require_once "../tools/config.php";
                             currency_code: "EUR",
                             value: getRealTotal(),
                             breakdown: {
-                                item_total: {  /* Required when including the `items` array */
+                                item_total: {
                                     currency_code: "EUR",
                                     value: getRealTotal()+getDiscount(getTotal())
                                 },
@@ -127,17 +127,8 @@ require_once "../tools/config.php";
             // Finalize the transaction after payer approval
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(orderData) {
-                    // Successful capture! For dev/demo purposes:
-                    // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                    // var transaction = orderData.purchase_units[0].payments.captures[0];
-                    // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-
                     window.location.replace("../php/processBuy.php");
                 });
-            },
-
-            onCancel: function (data) {
-                // TODO Cancel
             }
         }).render('#paypal-button-container');
 
