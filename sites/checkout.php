@@ -13,7 +13,6 @@ require_once "../tools/config.php";
     <link rel="stylesheet" href="../css/button.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/checkout.js" defer></script>
-    <!-- Include the PayPal JavaScript SDK; replace "test" with your own sandbox Business account app client ID -->
     <script src="https://www.paypal.com/sdk/js?client-id=AaMABOoKf6SEVMD5y_dOA3IhTfepuVTp0O39Ilqn6kmBu3FjqhppjCNAGl2HxZRnA_InbjGc6toag5mc&currency=EUR&locale=de_DE&disable-funding=card,credit,bancontact"></script>
 </head>
 <body>
