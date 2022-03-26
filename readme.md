@@ -1,5 +1,4 @@
 # Setup Guide
-Die Seite ist auch aus dem Internet unter https://mhsl.eu/provide/frederickWebshop/ShopSite/ erreichbar.
 Außerdem sind auch alle Files auch auf Github unter https://github.com/Swaggeroo/ShopSite.
 ## Seiten Struktur
 Alle Dateien müssen in dem Shopsite Ordner bleiben und dieser muss dann direkt auf dem Root liegen.
