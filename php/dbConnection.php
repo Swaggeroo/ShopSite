@@ -256,17 +256,30 @@ class db{
         }
 
         echo "<p>Creating Example Orders</p>";
+        $exampleOrderCount = 0;
+
         $orderID = $this->createOrder(1,52000);
         $this->createItemOrderRefference($orderID,3,2);
         $this->createItemOrderRefference($orderID,6,2);
         $this->createItemOrderRefference($orderID,8,2);
-        echo "<p>Added Order</p>";
+        $exampleOrderCount++;
+        echo "<p>Added Order".$exampleOrderCount."</p>";
 
         $orderID = $this->createOrder(1,113000);
         $this->createItemOrderRefference($orderID,2,1);
         $this->createItemOrderRefference($orderID,7,3);
         $this->createItemOrderRefference($orderID,4,2);
-        echo "<p>Added Order</p>";
+        $exampleOrderCount++;
+        echo "<p>Added Order".$exampleOrderCount."</p>";
+
+        for ($exampleOrdersCount = 0; $exampleOrdersCount < 1000; $exampleOrdersCount++){
+            $orderID = $this->createOrder(rand(2,8),113000);
+            for ($exampleOrdersItemCount = 0; $exampleOrdersItemCount < rand(1,15); $exampleOrdersItemCount++){
+                $this->createItemOrderRefference($orderID,rand(1,count($animalsJSONObj)),rand(1,150));
+            }
+            $exampleOrderCount++;
+            echo "<p>Added Order".$exampleOrderCount."</p>";
+        }
 
 
         echo "<p>Creating Example Comments</p>";
