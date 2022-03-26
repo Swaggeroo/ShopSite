@@ -24,6 +24,9 @@ Hier sind Testanmeldedaten um das Paypal Checkout zu testen.
 - Email: sb-ag0u214326978@personal.example.com
 - Password: t>&]CI1l
 
+## ER-Diagramm
+![ER-Diagramm](./ERDiagramm.png)
+
 # Features
 ## Frontend
 - Responsiv
