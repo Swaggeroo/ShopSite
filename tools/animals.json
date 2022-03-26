@@ -235,7 +235,7 @@
     "name" : "Huhn",
     "pictureLink" : "huhn.jpg",
     "beschreibung" : "Hühner werden inzwischen auf der ganzen Welt als Haustiere gehalten. Die Stammform ist das Bankiva-Huhn, ein Wildhuhn aus Südostasien. Der Hahn hat ein prächtiges Gefieder, lange Schwanzfedern und einen kräftigen Schnabel. Er besitzt am Bein einen großen Sporn. Er ist auf dem Hühnerhof der Chef, kann gackern und krähen und weckt am Morgen alle mit lautem Geschrei auf. Er wiegt bis zu 6 kg und kann 30 Jahre alt werden.",
-    "price" : 1523,
+    "price" : 1520,
     "CatID" : 6,
     "ManID" : 5
   },
@@ -243,7 +243,7 @@
     "name" : "Indianermeise",
     "pictureLink" : "indianermeise.jpg",
     "beschreibung" : "Die Indianermeise erreicht eine Körperlänge von 14 bis 16 Zentimeter, eine Flügelspannweite von 23 bis 26 Zentimeter sowie ein Gewicht von 20 bis 25 Gramm. Die Geschlechter weisen keinen nennenswerten Dimorphismus auf. Die Indianermeise ist überwiegend gräulich gefärbt.",
-    "price" : 23423,
+    "price" : 23420,
     "CatID" : 3,
     "ManID" : 3
   },
@@ -251,7 +251,7 @@
     "name" : "Koi",
     "pictureLink" : "koi.jpg",
     "beschreibung" : "Nishikigoi, allgemein gekennzeichnet als \"Koi\" sind die nationalen Fische von Japan, folglich wird der Name des Fisches von der japanischen Sprache abgeleitet. \"Nishiki\" ist das japanische Wort, das verwendet wird, um ein in hohem Grade farbiges Tuch zu beschreiben. \"Goior Koi\" ist der japanische Name für Karpfen.",
-    "price" : 150003423,
+    "price" : 150003420,
     "CatID" : 8,
     "ManID" : 1
   },
@@ -259,7 +259,7 @@
     "name" : "Krebs",
     "pictureLink" : "krebs.jpg",
     "beschreibung" : "Die Krebstiere sind in ihrem äußeren Körperbau sehr vielgestaltig. Neben winzigen Kleinkrebsen, die im Wasser schweben (z. B. Wasserfloh) und nur unter dem Mikroskop genau erkennbar sind, gibt es fest gepanzerte, wehrhafte Arten, wie den Hummer, bei dem das Männchen bis zu 60 cm lang werden kann.",
-    "price" : 1523,
+    "price" : 1520,
     "CatID" : 5,
     "ManID" : 4
   },
@@ -267,7 +267,7 @@
     "name" : "Krokodil",
     "pictureLink" : "krokodil.jpg",
     "beschreibung" : "Krokodile haben einen flachen, langen Körper und einen seitlich abgeflachten Schwanz, der im Wasser als Ruder und Antrieb dient. Die Augen sitzen weit oben am Kopf, so dass die Tiere, auch wenn sie unter Wasser sind, damit über die Wasseroberfläche blicken können. Außerdem ist die Nase der Tiere sehr lang.",
-    "price" : 1730523,
+    "price" : 1730520,
     "CatID" : 4,
     "ManID" : 1
   },
@@ -299,7 +299,7 @@
     "name" : "Maus",
     "pictureLink" : "maus.jpg",
     "beschreibung" : "Mäuse sind klein, nur etwa fünf bis zwölf Zentimeter lang. Der Schwanz ist fast nochmals so lang. Mäuse sind zwischen zwölf und 35 Gramm schwer. Es braucht also je nach Art drei bis acht Mäuse, um eine Tafel Schokolade aufzuwiegen.",
-    "price" : 6615,
+    "price" : 6610,
     "CatID" : 5,
     "ManID" : 5
   },
@@ -307,7 +307,7 @@
     "name" : "Meerschweinchen",
     "pictureLink" : "meerschweinchen.jpg",
     "beschreibung" : "Je nach Art können Meerschweinchen bis zu 130 Zentimeter lang werden und kurze Beine ebenso besitzen wie lange Gliedmaßen, die ihnen ein den Hasen ähnliches Aussehen verleihen. Gemeinsam ist allen Meerschweinchen, auch der domestizierten Art die Struktur des Schädels und die Beschaffenheit des Kiefers.",
-    "price" : 645,
+    "price" : 640,
     "CatID" : 5,
     "ManID" : 5
   },
@@ -315,7 +315,7 @@
     "name" : "Mops",
     "pictureLink" : "mops.jpg",
     "beschreibung" : "Der Mops ist klein, anpassungsfähig, menschenfreundlich, fröhlich und unkompliziert. Damit ist er ein idealer Begleithund für Menschen, die in einer kleinen Stadtwohnung leben und ihren Hund immer gerne mit dabei haben. Alleine bleiben mag der Mops tatsächlich nicht besonders gern.",
-    "price" : 15645,
+    "price" : 15640,
     "CatID" : 2,
     "ManID" : 2
   },
@@ -323,7 +323,7 @@
     "name" : "Orca",
     "pictureLink" : "orca.jpg",
     "beschreibung" : "Eigentlich sind Orcas aber Delfine, sogar die größten. Seine Brustflossen sind groß und oval, sie sehen aus wie kleine Paddel. Und auch dahinter befindet sich ein weißer Fleck. An der Unterseite sind Orcas weiß. Diese Färbung macht sie unverwechselbar.",
-    "price" : 12125645,
+    "price" : 12125640,
     "CatID" : 8,
     "ManID" : 6
   },
@@ -331,7 +331,7 @@
     "name" : "Otter",
     "pictureLink" : "otter.jpg",
     "beschreibung" : "Die Otter (Lutrinae) – auch Wassermarder genannt – sind eine amphibisch lebende Unterfamilie der Marder (Mustelidae). Es gibt dreizehn Arten in sieben Gattungen.",
-    "price" : 12145,
+    "price" : 12140,
     "CatID" : 5,
     "ManID" : 4
   },
@@ -347,7 +347,7 @@
     "name" : "Pfau",
     "pictureLink" : "pfau.jpg",
     "beschreibung" : "Der Pfau beschreibt mehrere Gattungen von Fasanartigen, deren männlichen Exemplaren als auffälligstes Merkmal den Federschwanz gemeinsam haben. Der zur Familie der Hühnervögel gezählte Pfau ist ein äußerst standortbezogener und zutraulicher Vogel, der in vielen Ländern von den Menschen gerne als Haustier gehalten wird.",
-    "price" : 143754225,
+    "price" : 143754220,
     "CatID" : 3,
     "ManID" : 3
   },
@@ -355,7 +355,7 @@
     "name" : "Pferd",
     "pictureLink" : "pferd.jpg",
     "beschreibung" : "Das Pferd hat einen schlanken Körperbau und hohe Beine. Der lang gestreckte Kopf hat weite Nasenlöcher (Nüstern), große Augen, sehr bewegliche Lippen und Ohrmuscheln, die tütenförmig aussehen. Sie stellen sich bereits bei kleinen Geräuschen auf und bewegen sich hin und her.",
-    "price" : 134225,
+    "price" : 134220,
     "CatID" : 7,
     "ManID" : 5
   },
@@ -363,7 +363,7 @@
     "name" : "Qualle",
     "pictureLink" : "qualle.jpg",
     "beschreibung" : "Quallen nennt man auch Medusen. Sie sind Nesseltiere. Sie heißen so, weil sie ein Gift ausstoßen, wenn man sie berührt. Dieses Gift brennt manchmal auf der Haut, ähnlich wie bei Brennnesseln.",
-    "price" : 3215,
+    "price" : 3210,
     "CatID" : 8,
     "ManID" : 6
   },
@@ -371,7 +371,7 @@
     "name" : "Regenbogenfisch",
     "pictureLink" : "regenbogenfisch.jpg",
     "beschreibung" : "Regenbogenfische sind im Allgemeinen hochrückiger, vor allem im Alter, und bunter als die mit ihnen verwandten Ährenfische. Ihr Körper ist seitlich etwas abgeflacht und erreicht je nach Art Längen zwischen vier und zwölf Zentimeter. Der Kopf ist mehr oder weniger zugespitzt, die Augen groß.",
-    "price" : 395,
+    "price" : 390,
     "CatID" : 8,
     "ManID" : 6
   },
@@ -379,7 +379,7 @@
     "name" : "Rotfeuerfisch",
     "pictureLink" : "rotfeuerfisch.jpg",
     "beschreibung" : "Sein Körper ist mit einem rotbraunen bis goldbraunen Streifenmuster versehen. Die dorsalen und die analen Flossen besitzen eine dunkelbraune Bänderung. Die dorsalen Flossen verfügen über dreizehn etwa 14 cm lange Stacheln, die ein hochwirksames Gift abgeben und der Verteidigung dienen.",
-    "price" : 455,
+    "price" : 450,
     "CatID" : 8,
     "ManID" : 6
   },
@@ -387,7 +387,7 @@
     "name" : "Rotkehlchen",
     "pictureLink" : "rotkehlchen.jpg",
     "beschreibung" : "Das Rotkehlchen ist von rundlicher Gestalt mit langen, dünnen Beinen. Die orangerote Kehle, Stirn und Vorderbrust sind leicht zu erkennen und erlauben eine einfache Bestimmung. Füße und Iris sind dunkelbraun, der Schnabel ist schwarzgrau bis braunschwarz. Über den Schnabelwinkeln stehen je drei bis vier Bartborsten.",
-    "price" : 4855,
+    "price" : 4850,
     "CatID" : 3,
     "ManID" : 3
   },
@@ -395,7 +395,7 @@
     "name" : "Salamander",
     "pictureLink" : "salamander.jpg",
     "beschreibung" : "Salamander sind Amphibien. Sie haben eine ähnliche Körperform wie Eidechsen oder kleine Krokodile, sind aber mit ihnen nicht verwandt. Verwandt sind sie eher mit Molchen und Fröschen.",
-    "price" : 37855,
+    "price" : 37850,
     "CatID" : 4,
     "ManID" : 1
   },
@@ -403,7 +403,7 @@
     "name" : "Schäferhund",
     "pictureLink" : "schaeferhund.jpg",
     "beschreibung" : "Der Deutsche Schäferhund ist ein selbstsicherer und kluger Hund, der seiner Familie gegenüber treu und anhänglich ist. Er besticht mit einer hohen Arbeitsbereitschaft und hat einen ausgeprägten „Will-to-please“. Die Rasse ist außerdem sehr kinderlieb und auch mit anderen Haustieren gut verträglich.",
-    "price" : 43755,
+    "price" : 43750,
     "CatID" : 2,
     "ManID" : 5
   },
@@ -411,7 +411,7 @@
     "name" : "Schaf",
     "pictureLink" : "schaf.jpg",
     "beschreibung" : "Schafe erreichen eine Kopfrumpflänge von 1,2 bis 1,8 Metern, wozu noch ein 7 bis 15 Zentimeter langer Schwanz kommt. Die Schulterhöhe beträgt 65 bis 125 Zentimeter und das Gewicht 20 bis 200 Kilogramm – wobei die Männchen stets deutlich schwerer werden als die Weibchen.",
-    "price" : 4309,
+    "price" : 4300,
     "CatID" : 6,
     "ManID" : 5
   },
@@ -419,7 +419,7 @@
     "name" : "Schildkröte",
     "pictureLink" : "schildkroete.jpg",
     "beschreibung" : "Schildkröten gehören zu den Reptilien. Man unterscheidet zwischen Land- und Wasserschildkröten, von denen manche im Süßwasser und andere im Salzwasser leben. Eine Schildkröte kann bis zu 100 Jahre alt werden, eine Riesenschildkröte noch älter. Landschildkröten ernähren sich überwiegend von Wiesenkräutern.",
-    "price" : 8709,
+    "price" : 8700,
     "CatID" : 5,
     "ManID" : 5
   },
@@ -427,7 +427,7 @@
     "name" : "Schlange",
     "pictureLink" : "schlange.jpg",
     "beschreibung" : "Schlangen gehören zu den Reptilien. Sie haben eine trockene Haut mit Schuppen. Sie leben an Land wie auch im Wasser und kommen auf der ganzen Erde außer der Arktis und Antarktis oder im hohen Norden vor. Dort, wo es kälter ist, halten sie eine Winterruhe.",
-    "price" : 22209,
+    "price" : 22200,
     "CatID" : 4,
     "ManID" : 1
   },
@@ -435,7 +435,7 @@
     "name" : "Schnecke",
     "pictureLink" : "schnecke.jpg",
     "beschreibung" : "Schnecken sind die einzigen Weichtiere, die nicht nur im Wasser, sondern auch an Land leben. An Land kriechen sie langsam und hinterlassen eine Spur aus Schleim, auf der sie rutschen. Die Landschnecken kann man grob unterteilen in Nacktschnecken und Gehäuseschnecken.",
-    "price" : 99,
+    "price" : 90,
     "CatID" : 5,
     "ManID" : 5
   },
@@ -443,7 +443,7 @@
     "name" : "Schwan",
     "pictureLink" : "schwan.jpg",
     "beschreibung" : "Schwäne sind große Vögel. Sie können gut schwimmen und weit fliegen. Bei den meisten erwachsenen Tieren ist das Gefieder rein weiß. Bei den Jungtieren ist es grau-braun.",
-    "price" : 199399,
+    "price" : 199390,
     "CatID" : 7,
     "ManID" : 4
   },
@@ -451,7 +451,7 @@
     "name" : "Seeigel",
     "pictureLink" : "seeigel.jpg",
     "beschreibung" : "Die Seeigel bilden eine der Klassen, die dem Stamm der Stachelhäuter angehören. Es sind in allen Meeren lebende, wirbellose Tiere. Die Klasse wird in 14 Ordnungen aufgeteilt. Bis heute sind etwa 950 Arten bekannt.",
-    "price" : 999,
+    "price" : 990,
     "CatID" : 8,
     "ManID" : 6
   },
@@ -459,7 +459,7 @@
     "name" : "Seelöwe",
     "pictureLink" : "seeloewe.jpg",
     "beschreibung" : "Seelöwen gehören zur Ordnung der Raubtiere und zur Familie der Ohrenrobben. Man unterscheidet in der Gattung der \"Otariini\" fünf verschiedene Arten. Der Galápagos-Seelöwe, wissenschaftlich Zalophus wollebaeki, lebt zum Beispiel auf und rund um die Galápagos-Inseln im östlichen Pazifik.",
-    "price" : 54367,
+    "price" : 54360,
     "CatID" : 7,
     "ManID" : 6
   },
@@ -467,7 +467,7 @@
     "name" : "Seepferdchen",
     "pictureLink" : "seepferdchen.jpg",
     "beschreibung" : "Ihr Hinterleib sieht aus wie der eines Wurmes. Seepferdchen sind zwar Fische, haben aber keine Flossen zum Schwimmen. Sie bewegen sich durch Bewegungen mit ihrem Schwanz durch das Wasser. Sie halten sich besonders gerne im Seegras auf, denn daran können sie sich mit ihrem Schwanz festhalten.",
-    "price" : 54367,
+    "price" : 54360,
     "CatID" : 8,
     "ManID" : 6
   },
@@ -475,7 +475,7 @@
     "name" : "Seestern",
     "pictureLink" : "seestern.jpg",
     "beschreibung" : "Seesterne sind Tiere, die am Meeresboden leben. Ihren Namen haben sie von der Form: Sie sehen aus wie Sterne mit mindestens fünf Armen. Wenn ein Arm abgebissen wird, wächst er wieder nach. Bei Gefahr können sie einen Arm auch selbst abschnüren.",
-    "price" : 6767,
+    "price" : 6760,
     "CatID" : 8,
     "ManID" : 6
   },
@@ -483,7 +483,7 @@
     "name" : "Skalar",
     "pictureLink" : "skalar.jpg",
     "beschreibung" : "Der Skalar erreicht eine Körperlänge von bis zu 12 cm, selten auch bis 15 cm. Der leicht scheibenartige Körper ist silbrig bis gelblichbraun gefärbt. Die Geschlechter weisen im wesentlichen keinen Dimorphismus auf. Vier dunkle Querbinden ziehen sich über den Körper.",
-    "price" : 869,
+    "price" : 860,
     "CatID" : 8,
     "ManID" : 6
   },
@@ -491,7 +491,7 @@
     "name" : "Skorpion",
     "pictureLink" : "skorpion.jpg",
     "beschreibung" : "Wie die Spinnen, besitzen auch Skorpione acht Beine. Zudem verfügen sie über zwei Fangarme mit Scheren, wie ein Krebs. Zusätzlich haben Skorpione jedoch den langen Schwanz, an dessen Ende der Giftstachel sitzt. Mit den Scheren und dem Giftstachel verteidigen sich die Tiere bei Gefahr oder erlegen ihre Beute.",
-    "price" : 44298,
+    "price" : 44290,
     "CatID" : 4,
     "ManID" : 1
   },
@@ -499,7 +499,7 @@
     "name" : "Sphynx Katze",
     "pictureLink" : "sphynx katze.jpg",
     "beschreibung" : "Die Sphynx Katze ist mittelgroß, muskulös, mit tiefer Brust und relativ weit auseinander stehenden Vorderbeinen. Die Pfoten sind mittelgroß mit stark ausgebildeten Fußballen. Der Schwanz ist lang und spitz zulaufend. Der Kopf ist keilförmig, aber dennoch mit recht ausgeprägtem Kinn und nicht zu spitzer Schnauze.",
-    "price" : 98,
+    "price" : 90,
     "CatID" : 1,
     "ManID" : 2
   },
@@ -523,7 +523,7 @@
     "name" : "Tiger",
     "pictureLink" : "tiger.jpg",
     "beschreibung" : "Der Tiger ist die größte und zugleich schwerste Spezies aus der Familie der Katzen. Von ursprünglich neun bekannten Unterarten, leben mit Bengaltiger, Indochinesischer Tiger, Malaiischer Tiger, Sibirischer Tiger, Südchinesischer Tiger und Sumatratiger nur noch sechs.",
-    "price" : 15050015,
+    "price" : 15050010,
     "CatID" : 1,
     "ManID" : 1
   },
@@ -531,7 +531,7 @@
     "name" : "Veilchenohrkolibri",
     "pictureLink" : "veilchenohrkolibri.jpg",
     "beschreibung" : "Der Veilchenohrkolibri erreicht eine Körperlänge von etwa 13,5 bis 14,0 Zentimeter, eine Flügellänge von etwa 7,6 Zentimeter und eine Schwanzlänge von etwa 5,0 Zentimeter. Das Gewicht des Männchens beträgt etwa 7,7 bis 8,5 Gramm, während das Weibchen etwa 6,7 bis 7,5 Gramm wiegt.",
-    "price" : 1515,
+    "price" : 1510,
     "CatID" : 3,
     "ManID" : 3
   },
@@ -555,7 +555,7 @@
     "name" : "Weißkopfseeadleradler",
     "pictureLink" : "weiskopfadler.jpg",
     "beschreibung" : "Weißkopfseeadler sind nach dem Kalifornischen Kondor die größten Greifvögel Nordamerikas. Ihre Körperlänge beträgt 70–90 cm, die Flügelspannweite 1,80–2,50 m und das Gewicht 2,5–6,3 kg. Proportionen und Gefiederfärbung ähneln sehr dem Seeadler, die Färbung des Weißkopfseeadlers ist jedoch deutlich kontrastreicher.",
-    "price" : 5375,
+    "price" : 5370,
     "CatID" : 3,
     "ManID" : 3
   },
@@ -563,7 +563,7 @@
     "name" : "Zebra",
     "pictureLink" : "zebra.jpg",
     "beschreibung" : "Zebras erreichen eine Kopf-Rumpf-Länge von 210 bis 300 Zentimetern, der Schwanz wird 40 bis 60 Zentimeter lang und die Schulterhöhe beträgt 110 bis 160 Zentimeter. Das Gewicht variiert zwischen 180 und 450 Kilogramm. Das Grevyzebra ist das größte Zebra und die größte wildlebende Pferdeart.",
-    "price" : 635375,
+    "price" : 635370,
     "CatID" : 4,
     "ManID" : 1
   },
@@ -571,7 +571,7 @@
     "name" : "Ziege",
     "pictureLink" : "ziege.jpg",
     "beschreibung" : "Ziegen sind relativ robust gebaute Tiere mit kräftigen Gliedmaßen und breiten, an eine kletternde Fortbewegung angepassten Hufen. Sie erreichen eine Kopf-Rumpf-Länge von 1,0 bis 1,8 Metern, der Schwanz ist 10 bis 20 Zentimeter lang und die Schulterhöhe beträgt 65 bis 105 Zentimeter.",
-    "price" : 34375,
+    "price" : 34370,
     "CatID" : 6,
     "ManID" : 5
   },
@@ -579,7 +579,7 @@
     "name" : "Zwergschnauzer",
     "pictureLink" : "zwergschnauzer.jpg",
     "beschreibung" : "Er ist die verkleinerte Form des Standardschnauzers und steht den größeren Vertretern der Schnauzerfamilie in nichts nach. Zwergschnauzer sind klug, ausdauernd und wachsam. Sie fühlen sich – bei entsprechendem Bewegungsangebot und Familienanschluss – auch in einer kleinen Wohnung wohl.",
-    "price" : 63475,
+    "price" : 63470,
     "CatID" : 2,
     "ManID" : 2
   }

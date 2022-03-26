@@ -2,6 +2,7 @@ let subtotal = document.getElementById("subtotal");
 let discount = document.getElementById("discount");
 let shipping = document.getElementById("shipping");
 let total = document.getElementById("total");
+let paypalContainer = document.getElementById("paypal-button-container");
 
 function getTotal(){
     let response = 0.00;
@@ -42,6 +43,9 @@ function calculateTotal(){
         let shippingVal = getShippingVal(response);
         shipping.textContent = formatter.format(shippingVal/100);
         total.textContent = formatter.format((response/100)+(shippingVal/100)-(getDiscount(response)));
+        if (((response/100)+(shippingVal/100)) > 9999999){
+            paypalContainer.style.display = "none";
+        }
     })();
 
 }

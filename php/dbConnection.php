@@ -272,7 +272,7 @@ class db{
         $exampleOrderCount++;
         echo "<p>Added Order".$exampleOrderCount."</p>";
 
-        for ($exampleOrdersCount = 0; $exampleOrdersCount < 1000; $exampleOrdersCount++){
+        for ($exampleOrdersCount = 0; $exampleOrdersCount < 200; $exampleOrdersCount++){
             $orderID = $this->createOrder(rand(2,8),113000);
             for ($exampleOrdersItemCount = 0; $exampleOrdersItemCount < rand(1,15); $exampleOrdersItemCount++){
                 $this->createItemOrderRefference($orderID,rand(1,count($animalsJSONObj)),rand(1,150));
