@@ -1,6 +1,7 @@
 const pic = document.getElementsByClassName("itemPicture")[0];
 const bigPic = document.getElementsByClassName("bigPicture")[0];
 const qntField = document.getElementById("inputMenge");
+const spinnerContainer = document.getElementsByClassName("shopAddAnim")[0];
 
 pic.addEventListener('click', ()=>{
     bigPic.classList.toggle("disappear")
@@ -11,6 +12,7 @@ bigPic.addEventListener('click', ()=>{
 })
 
 function addToCart(itemID){
+    spinnerContainer.style.display = "unset";
     let qnt = parseInt(qntField.value);
     if (qnt > 999){
         qnt = 999;
@@ -24,4 +26,8 @@ function addToCart(itemID){
         let asyncLib = await import("./asyncExec.js");
         let returnVal = await asyncLib.asyncPostWithParms("../php/addToCart.php","id="+itemID+"&count="+qnt);
     })();
+
+    window.setTimeout(function () {
+        spinnerContainer.style.display = "none";
+    },500);
 }

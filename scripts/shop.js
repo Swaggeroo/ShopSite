@@ -6,6 +6,7 @@ const sortType = document.getElementById("sortType")
 const sortAscDesc = document.getElementById("sortAscDesc")
 const filterBTN = document.getElementById("filterBTN")
 const filterContainer = document.getElementById("sortContainer")
+const spinnerContainer = document.getElementsByClassName("shopAddAnim")[0];
 let el = document.getElementsByClassName('shopContainer')
 
 /* Get the height and width of the element */
@@ -35,21 +36,26 @@ for (let i = 0; i < el.length; i++){
     })
 }
 
+let xVal;
+let yVal;
+let yRotation;
+let xRotation;
+let prop;
+
 /* Define function a */
 function handleMove(e,element) {
-    /* Store relative position to element */
-    const xVal = e.pageX - element.offsetLeft
-    const yVal = e.pageY - element.offsetTop
-
-    /* Calculate rotation multiplikator 20*/
-    const yRotation = 20 * ((xVal - width / 2) / width)
-    const xRotation = -20 * ((yVal - height / 2) / height)
-
-    /* CSS  property*/
-    let prop
     if (window.innerWidth < 800){
         prop = 'perspective(500px) scale(1.1)'
     }else{
+        /* Store relative position to element */
+        xVal = e.pageX - element.offsetLeft
+        yVal = e.pageY - element.offsetTop
+
+        /* Calculate rotation multiplikator 20*/
+        yRotation = 20 * ((xVal - width / 2) / width)
+        xRotation = -20 * ((yVal - height / 2) / height)
+
+        /* CSS  property*/
         prop = 'perspective(500px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)'
     }
     element.style.transform = prop
@@ -86,12 +92,17 @@ filterBTN.addEventListener("click", ()=>{
 
 function addToCart(el){
     const itemID = parseInt(el.value);
+    spinnerContainer.style.display = "unset";
     (async()=>{
         let asyncLib = await import("./asyncExec.js");
         let returnVal = await asyncLib.asyncPostWithParms("../php/addToCart.php","id="+itemID+"&count=1");
     })();
 
     window.dispatchEvent(new CustomEvent('warenkorbUpdated', {detail:{cartChange: 1}}));
+
+    window.setTimeout(function () {
+        spinnerContainer.style.display = "none";
+    },500);
 }
 
 function handleEnterSearch(e){
