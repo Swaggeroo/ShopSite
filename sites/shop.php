@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/shop.css">
     <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/spinnerAnim.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/shop.js" defer></script>
@@ -19,7 +20,7 @@
 <body>
     <?php require_once "../php/htmlMaker.php"; $headerMaker = new htmlMaker(); echo $headerMaker->getHeader("../media/pictures/animals/salamander.jpg","Shop"); ?>
     <?php require "../php/#navBar.php" ?>
-    <div class='shopAddAnim fill'><div id="spinner"></div></div>
+    <div class='spinnerAddAnim fill'><div id="spinner"></div></div>
     <div align="center" class="content">
         <div id="sortContainer" class="hide">
             <p style="margin: 0">Filtern</p>

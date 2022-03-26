@@ -25,13 +25,14 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/info.css">
     <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/spinnerAnim.css">
     <link rel="icon" href="../media/icons/favicon.SVG" sizes="any">
     <script src="../scripts/info.js" defer></script>
 </head>
 <body>
     <?php require_once "../php/htmlMaker.php"; $htmlMaker = new htmlMaker(); echo $htmlMaker->getHeader("../media/pictures/animals/krokodil.jpg",$animal["Title"]); ?>
     <?php require "../php/#navBar.php" ?>
-    <div class='shopAddAnim fill'><div id="spinner"></div></div>
+    <div class='spinnerAddAnim fill'><div id="spinner"></div></div>
     <div style="width: 100%; min-height: 100%; height: auto" class="content">
         <div class="flex-container wrap itemContent">
             <div class="itemPicture">

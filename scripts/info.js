@@ -1,7 +1,7 @@
 const pic = document.getElementsByClassName("itemPicture")[0];
 const bigPic = document.getElementsByClassName("bigPicture")[0];
 const qntField = document.getElementById("inputMenge");
-const spinnerContainer = document.getElementsByClassName("shopAddAnim")[0];
+const spinnerContainer = document.getElementsByClassName("spinnerAddAnim")[0];
 
 pic.addEventListener('click', ()=>{
     bigPic.classList.toggle("disappear")

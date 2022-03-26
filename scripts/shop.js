@@ -6,7 +6,7 @@ const sortType = document.getElementById("sortType")
 const sortAscDesc = document.getElementById("sortAscDesc")
 const filterBTN = document.getElementById("filterBTN")
 const filterContainer = document.getElementById("sortContainer")
-const spinnerContainer = document.getElementsByClassName("shopAddAnim")[0];
+const spinnerContainer = document.getElementsByClassName("spinnerAddAnim")[0];
 let el = document.getElementsByClassName('shopContainer')
 
 /* Get the height and width of the element */
